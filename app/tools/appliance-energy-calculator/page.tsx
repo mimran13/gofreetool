@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { getToolBySlug } from '@/lib/tools';
 import ToolLayout from '@/components/ToolLayout';
-import { calculateApplianceEnergy, formatNumber } from '@/lib/utils';
+import {  formatNumber } from '@/lib/utils';
 import { trackToolCalculate, trackCopyClick } from '@/lib/analytics';
 
 export default function ApplianceEnergyCalculator() {

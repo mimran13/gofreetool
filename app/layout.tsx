@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import Analytics from "@/components/Analytics";
+import { Analytics as VAnalytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Footer />
         <CookieBanner />
         <Analytics />
+        <VAnalytics />
       </body>
     </html>
   );

@@ -1,15 +1,10 @@
 {
-  "name": "gofreetool.com - Day-1 MVP",
-  "description": "Free daily-use tools - EMI Calculator, BMI Calculator, Word Counter",
-  "version": "1.0.0",
+  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "nodeVersion": "20",
   "env": {
-    "NEXT_PUBLIC_SITE_URL": {
-      "description": "Site URL for metadata",
-      "example": "https://gofreetool.com"
-    }
+    "NEXT_PUBLIC_SITE_URL": "https://gofreetool.com"
+    
   }
 }
