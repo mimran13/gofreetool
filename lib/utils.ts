@@ -215,3 +215,161 @@ export function calculateDateDifference(date1: Date, date2: Date): {
   return { days, weeks, months, years };
 }
 
+// ==================== PHASE 3 UTILITIES ====================
+
+// SIMPLE & COMPOUND INTEREST
+export function calculateSimpleInterest(principal: number, annualRate: number, years: number): {
+  interest: number;
+  totalAmount: number;
+} {
+  const interest = (principal * annualRate * years) / 100;
+  const totalAmount = principal + interest;
+  return { interest, totalAmount };
+}
+
+export function calculateCompoundInterest(principal: number, annualRate: number, years: number, compounds: number = 12): {
+  interest: number;
+  totalAmount: number;
+} {
+  const rate = annualRate / 100;
+  const totalAmount = principal * Math.pow(1 + rate / compounds, compounds * years);
+  const interest = totalAmount - principal;
+  return { interest, totalAmount };
+}
+
+// SAVINGS GOAL
+export function calculateMonthlySavings(goal: number, months: number): number {
+  return goal / months;
+}
+
+// BMR CALCULATOR (Harris-Benedict Equation)
+export function calculateBMR(weight: number, height: number, age: number, gender: "male" | "female"): number {
+  if (gender === "male") {
+    return 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age;
+  } else {
+    return 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age;
+  }
+}
+
+// IDEAL WEIGHT (Devine Formula)
+export function calculateIdealWeight(height: number, gender: "male" | "female"): {
+  min: number;
+  max: number;
+} {
+  let idealWeight: number;
+  if (gender === "male") {
+    idealWeight = 50 + (height - 152.4) * 0.75;
+  } else {
+    idealWeight = 45.5 + (height - 152.4) * 0.67;
+  }
+  const min = idealWeight * 0.9;
+  const max = idealWeight * 1.1;
+  return { min, max };
+}
+
+// STEP TO CALORIE CONVERTER
+export function calculateCaloriesFromSteps(steps: number, weight: number): number {
+  // Approximately 0.04 calories per step per kg of body weight
+  return steps * 0.04 * weight;
+}
+
+// TEXT UTILITIES
+export function removeExtraSpaces(text: string): string {
+  return text.replace(/\s+/g, ' ').trim();
+}
+
+export function sortLines(text: string, reverse: boolean = false): string {
+  const lines = text.split('\n');
+  lines.sort((a, b) => {
+    if (reverse) return b.localeCompare(a);
+    return a.localeCompare(b);
+  });
+  return lines.join('\n');
+}
+
+export function removeDuplicateLines(text: string): string {
+  const lines = text.split('\n');
+  return [...new Set(lines)].join('\n');
+}
+
+// DATE UTILITIES (EXTENDED)
+export function getDayOfWeek(date: Date): string {
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return days[date.getDay()];
+}
+
+export function calculateWorkdays(date1: Date, date2: Date): number {
+  let workdays = 0;
+  const current = new Date(date1);
+  
+  while (current <= date2) {
+    const dayOfWeek = current.getDay();
+    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+      workdays++;
+    }
+    current.setDate(current.getDate() + 1);
+  }
+  
+  return workdays;
+}
+
+// HOME CALCULATORS
+export function calculatePaintArea(length: number, width: number, height: number): number {
+  // Wall area = 2 * (length * height + width * height)
+  return 2 * (length * height + width * height);
+}
+
+export function calculatePaintQuantity(area: number, coverage: number = 10): number {
+  // Typical coverage: 1 liter covers 10 square meters
+  return area / coverage;
+}
+
+export function calculateElectricityBill(powerWatts: number, hoursPerDay: number, daysPerMonth: number, ratePerKwh: number): number {
+  const kwhPerDay = (powerWatts * hoursPerDay) / 1000;
+  const kwhPerMonth = kwhPerDay * daysPerMonth;
+  return kwhPerMonth * ratePerKwh;
+}
+
+export function calculateFuelCost(distance: number, mileage: number, fuelPrice: number): number {
+  const litersNeeded = distance / mileage;
+  return litersNeeded * fuelPrice;
+}
+
+// FUN UTILITIES
+export function generateRandomNumber(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function generateRandomPassword(length: number = 12, includeSymbols: boolean = true): string {
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+  const chars = includeSymbols ? letters + symbols : letters;
+
+  let password = '';
+  for (let i = 0; i < length; i++) {
+    password += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return password;
+}
+
+export function calculateLuckyNumber(input: string): number {
+  // Simple numerology: sum of character codes
+  let sum = 0;
+  for (const char of input.toUpperCase()) {
+    const code = char.charCodeAt(0);
+    sum += code;
+  }
+  // Reduce to single digit
+  while (sum > 9) {
+    sum = sum
+      .toString()
+      .split('')
+      .reduce((acc, b) => parseInt(acc.toString()) + parseInt(b), 0);
+  }
+  return sum;
+}
+
+export function generateYesNoAnswer(): string {
+  const answers = ['Yes', 'No', 'Maybe', 'Ask again later', 'Definitely', 'Not likely'];
+  return answers[Math.floor(Math.random() * answers.length)];
+}
