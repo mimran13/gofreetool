@@ -52,14 +52,14 @@ export default function EMICalculator() {
           <form onSubmit={handleCalculate} className="space-y-6">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Loan Amount (₹)
+                Loan Amount ($)
               </label>
               <input
                 type="number"
                 value={principal}
                 onChange={(e) => setPrincipal(e.target.value)}
                 min="0"
-                step="10000"
+                step="1000"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-lg"
                 placeholder="Enter loan amount"
               />
@@ -149,7 +149,7 @@ export default function EMICalculator() {
                   Monthly EMI
                 </p>
                 <p className="text-4xl font-bold text-teal-600">
-                  ₹ {formatNumber(result.monthlyEMI, 0)}
+                  $ {formatNumber(result.monthlyEMI, 2)}
                 </p>
               </div>
 
@@ -159,7 +159,7 @@ export default function EMICalculator() {
                     Total Interest
                   </p>
                   <p className="text-2xl font-bold text-orange-600">
-                    ₹ {formatNumber(result.totalInterest, 0)}
+                    $ {formatNumber(result.totalInterest, 2)}
                   </p>
                 </div>
 
@@ -168,7 +168,7 @@ export default function EMICalculator() {
                     Total Payable
                   </p>
                   <p className="text-2xl font-bold text-gray-900">
-                    ₹ {formatNumber(result.totalPayable, 0)}
+                    $ {formatNumber(result.totalPayable, 2)}
                   </p>
                 </div>
               </div>
