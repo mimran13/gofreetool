@@ -18,12 +18,12 @@ export default function ToolLayout({
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-50">
-      {/* AdSense Top Banner Placeholder */}
-      <div className="bg-white border-b border-gray-200">
+      {/* AdSense Top Banner Placeholder - HIDDEN TEMPORARILY */}
+      {/* <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500 text-sm">
           [AdSense - Top Banner 728x90]
         </div>
-      </div>
+      </div> */}
 
       {/* Breadcrumb */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
@@ -141,18 +141,18 @@ export default function ToolLayout({
           </div>
         )}
 
-        {/* AdSense Inline Placeholder */}
-        <div className="mt-16 bg-white border-2 border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-500">
+        {/* AdSense Inline Placeholder - HIDDEN TEMPORARILY */}
+        {/* <div className="mt-16 bg-white border-2 border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-500">
           [AdSense - Inline Rectangle 300x250]
-        </div>
+        </div> */}
       </main>
 
-      {/* AdSense Footer Banner Placeholder */}
-      <div className="bg-white border-t border-gray-200 mt-12">
+      {/* AdSense Footer Banner Placeholder - HIDDEN TEMPORARILY */}
+      {/* <div className="bg-white border-t border-gray-200 mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500 text-sm">
           [AdSense - Footer Banner 728x90]
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
