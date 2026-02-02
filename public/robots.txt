@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gofreetool.com/sitemap.xml
+
+# Disallow: /admin
+# Disallow: /private
+
+# Crawl-delay: 1

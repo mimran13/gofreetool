@@ -1,0 +1,28 @@
+{
+  "name": "gofreetool",
+  "displayName": "gofreetool.com - Free Online Tools",
+  "description": "A collection of free, privacy-first tools for everyday use. EMI Calculator, BMI Calculator, Word Counter, and more.",
+  "repository": "https://github.com/yourusername/gofreetool",
+  "keywords": [
+    "tools",
+    "calculators",
+    "free",
+    "no-signup",
+    "privacy",
+    "emi-calculator",
+    "bmi-calculator",
+    "word-counter",
+    "utilities"
+  ],
+  "features": [
+    "✅ Static Site Generation (SSG)",
+    "✅ Privacy-First (client-side only)",
+    "✅ Mobile Responsive",
+    "✅ SEO Optimized",
+    "✅ GDPR Compliant",
+    "✅ No User Accounts",
+    "✅ No Tracking"
+  ],
+  "demo": "https://gofreetool.com",
+  "license": "MIT"
+}
