@@ -1,68 +1,46 @@
 import { MetadataRoute } from "next";
+import { categories, tools } from "@/lib/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://gofreetool.com";
+  const currentDate = new Date();
 
-  return [
+  // Homepage - highest priority
+  const homepage: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/category/calculators`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/category/health`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/category/writing`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/tools/emi-calculator`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/tools/bmi-calculator`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/tools/word-counter`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/cookie-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
+      lastModified: currentDate,
+      changeFrequency: "daily",
+      priority: 1.0,
     },
   ];
+
+  // Category pages - high priority (0.9)
+  const categoryPages: MetadataRoute.Sitemap = categories.map((category) => ({
+    url: `${baseUrl}/category/${category.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
+
+  // Tool pages - good priority (0.8)
+  const toolPages: MetadataRoute.Sitemap = tools.map((tool) => ({
+    url: `${baseUrl}/tools/${tool.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  // About page - lower priority
+  const otherPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/about`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+  ];
+
+  // Combine all pages (excluding privacy, terms, cookies)
+  return [...homepage, ...categoryPages, ...toolPages, ...otherPages];
 }

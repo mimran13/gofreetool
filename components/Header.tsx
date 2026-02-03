@@ -338,9 +338,10 @@ function CategoriesMegaMenu() {
             <Link
               href="/#categories"
               onClick={() => setIsOpen(false)}
+              title="Browse all free online tools by category"
               className="flex items-center justify-center gap-2 text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium"
             >
-              View all {tools.length} tools
+              Browse all {tools.length} free tools
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

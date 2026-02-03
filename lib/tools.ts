@@ -862,6 +862,7 @@ export interface CategorySEO {
   description: string;
   keywords: string[];
   intro: string;
+  seoContent: string;
 }
 
 export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
@@ -880,6 +881,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Powerful calculators for everyday financial and math needs. Calculate EMI payments, compound interest, percentages, and more. All tools run directly in your browser — no signup, no data collection, completely free.",
+    seoContent:
+      "Whether you're planning a major purchase, managing your monthly budget, or simply need to split a bill with friends, our free online calculators make financial math effortless. These browser-based tools handle everything from loan EMI calculations to compound interest projections, helping you make informed financial decisions without the complexity of spreadsheets or expensive software. Each calculator is designed with simplicity in mind — enter your numbers, get instant results, and understand exactly what you're working with. Unlike many online calculators that require registration or bombard you with ads, our tools are completely free and work entirely in your browser. Your financial data never leaves your device, ensuring complete privacy. From students learning percentages to homeowners calculating mortgage payments, these calculators serve anyone who needs quick, accurate math on the go.",
   },
   health: {
     title: "Free Health & Fitness Tools Online",
@@ -895,6 +898,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Track your health and fitness goals with easy-to-use calculators. Calculate BMI, daily water intake, calories burned, and more. All calculations happen in your browser — your health data stays private.",
+    seoContent:
+      "Taking control of your health starts with understanding your body's basic metrics. Our free online health calculators provide instant insights into key measurements like Body Mass Index, Basal Metabolic Rate, and ideal weight ranges — all without requiring an account or sharing personal information with third parties. These browser-based tools are perfect for anyone beginning a fitness journey, tracking progress toward weight goals, or simply curious about health benchmarks. Calculate how much water you should drink daily based on your activity level, estimate calories burned during walks, or find your target heart rate zone for effective workouts. Each tool uses established formulas trusted by health professionals worldwide. While these calculators offer valuable guidance, they're designed to complement — not replace — professional medical advice. Use them as a starting point for conversations with your healthcare provider about your personal health goals.",
   },
   writing: {
     title: "Free Writing & Text Tools Online",
@@ -910,6 +915,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Essential tools for writers, bloggers, and content creators. Count words and characters, convert text case, remove duplicate lines, and format text. Free, fast, and works offline.",
+    seoContent:
+      "Every writer, blogger, student, and content creator needs reliable text tools at their fingertips. Our free online writing utilities handle the tedious formatting tasks that slow down your creative process — counting words for essay requirements, converting text between cases, removing duplicate content, and cleaning up messy formatting. These browser-based tools work instantly without installation or signup, making them perfect for quick edits on any device. Whether you're crafting a tweet within character limits, preparing a blog post with specific word counts, or reformatting copied text for a professional document, these tools save valuable time. The word counter shows real-time statistics as you type, while the case converter handles everything from UPPERCASE to Title Case with a single click. All processing happens locally in your browser, so your writing never touches external servers — ideal for sensitive documents or unpublished work you want to keep private.",
   },
   "date-time": {
     title: "Free Date & Time Tools Online",
@@ -925,6 +932,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Calculate dates, ages, and time differences instantly. Find days between dates, calculate workdays, or discover what day of the week any date falls on. Accurate and free.",
+    seoContent:
+      "Time-based calculations come up more often than you might expect — from figuring out exactly how old you are in days to counting business days until a project deadline. Our free online date and time tools handle these calculations instantly, eliminating the mental math and calendar counting that leads to errors. These browser-based calculators are invaluable for project managers tracking timelines, HR professionals calculating employment durations, parents planning milestone celebrations, or anyone curious about the exact time between two dates. Find out what day of the week you were born, calculate working days excluding weekends and holidays, or determine the precise age difference between family members. Each tool provides comprehensive results — not just days, but weeks, months, and years broken down clearly. No signup required, no apps to install, and all calculations happen right in your browser for instant, accurate results.",
   },
   home: {
     title: "Free Home & Daily Life Tools Online",
@@ -940,6 +949,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Practical tools for everyday household planning. Calculate electricity bills, estimate paint for your walls, track fuel costs, and split rent fairly. Save time and money with these free tools.",
+    seoContent:
+      "Managing a household involves countless small calculations that add up to significant savings when done right. Our free online home tools help you estimate costs before committing to purchases, plan DIY projects accurately, and understand where your money goes each month. Calculate exactly how much paint you need for a room renovation, estimate your electricity bill based on appliance usage, or figure out the true cost of your daily commute. These browser-based calculators turn complex estimates into simple inputs — enter your room dimensions, appliance wattages, or travel distances and get accurate results instantly. Perfect for homeowners planning renovations, renters splitting utility costs fairly, or anyone trying to budget household expenses more effectively. No registration required, no apps to download. Just practical tools that work on any device, helping you make smarter decisions about the everyday costs of running a home.",
   },
   fun: {
     title: "Free Fun & Random Generator Tools Online",
@@ -955,6 +966,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Make decisions fun with random generators and spinners. Generate random numbers, spin a decision wheel, pick lucky numbers, or let fate decide with yes/no spinners. Completely random and unbiased.",
+    seoContent:
+      "Sometimes the best decision is leaving it to chance. Our free online random generators and decision-making tools add an element of fun to everyday choices while ensuring truly unbiased results. Whether you're picking a restaurant for dinner, choosing who goes first in a game, generating lottery numbers, or settling a friendly debate, these browser-based tools deliver genuinely random outcomes using cryptographic randomization — not predictable patterns. The decision wheel lets you customize options and spin for a winner, while the yes/no spinner settles binary questions instantly. Random number generators support custom ranges for any use case, from classroom activities to raffle drawings. These tools work entirely in your browser with no signup required, making them perfect for classrooms, parties, team meetings, or personal use. Fair, fun, and completely free — let randomness decide when you can't.",
   },
   developer: {
     title: "Free Developer Tools Online",
@@ -970,6 +983,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Essential tools for developers and programmers. Format JSON, generate UUIDs, create hashes, and more. All processing happens client-side — your code never leaves your browser.",
+    seoContent:
+      "Every developer needs a reliable toolkit for common tasks that don't warrant firing up a full IDE. Our free online developer tools handle everyday programming utilities — formatting messy JSON responses, generating secure UUIDs for database records, creating cryptographic hashes for verification, and more. These browser-based tools process everything client-side using JavaScript, meaning your code, API responses, and sensitive data never leave your machine. This makes them safe for working with production data, proprietary code, or any information you'd rather not paste into a random website. Format and validate JSON with syntax highlighting, generate UUID v4 identifiers using cryptographic randomness, or create MD5, SHA-1, and SHA-256 hashes instantly. No accounts, no installation, no tracking. Bookmark these tools and access them from any browser when you need quick utilities without the overhead of heavier solutions.",
   },
   "security-encoding": {
     title: "Free Security & Encoding Tools Online",
@@ -985,6 +1000,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Encode, decode, and secure your data with privacy-focused tools. Convert Base64, encode URLs, and generate strong passwords. Everything runs locally — your sensitive data never touches our servers.",
+    seoContent:
+      "Working with encoded data and secure credentials requires tools you can trust. Our free online security and encoding utilities handle Base64 conversion, URL encoding, and password generation entirely in your browser — your sensitive data never transmits to any server. This client-side approach is essential when working with authentication tokens, encoded API payloads, or generating passwords for important accounts. Encode text and files to Base64 for embedding in JSON or HTML, decode Base64 strings to inspect their contents, or properly encode URLs with special characters for safe transmission. The password generator creates cryptographically secure passwords using your browser's random number generator, with customizable length and character options. These tools are perfect for developers debugging encoded data, security professionals testing systems, or anyone who needs strong passwords without trusting third-party generators. Completely free, private by design, and available whenever you need them.",
   },
   "data-conversion": {
     title: "Free Data Conversion Tools Online",
@@ -1000,6 +1017,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Convert data between popular formats effortlessly. Transform CSV to JSON, parse structured data, and export in the format you need. Fast, accurate, and completely private.",
+    seoContent:
+      "Moving data between systems often means converting between formats — and doing it manually is tedious and error-prone. Our free online data conversion tools transform CSV to JSON, JSON to CSV, and other common formats instantly in your browser. Perfect for developers integrating APIs, analysts preparing datasets, or anyone who needs to reformat data without complex software. These browser-based converters handle the parsing automatically, respecting headers, handling special characters, and producing clean output ready for your next system. Unlike server-based converters that upload your files, everything processes locally in your browser. This means you can safely convert sensitive business data, customer information, or proprietary datasets without privacy concerns. Simply paste your data or upload a file, select your output format, and download the converted result. No signup required, no file size restrictions for reasonable datasets, and instant results every time.",
   },
   design: {
     title: "Free Design & Visual Tools Online",
@@ -1015,6 +1034,8 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     ],
     intro:
       "Essential visual tools for designers and developers. Pick colors, convert between formats, and get the exact color codes you need for your projects. All tools run in your browser — fast, free, and private.",
+    seoContent:
+      "Design work requires precise tools for color selection, format conversion, and accessibility testing. Our free online design utilities give you professional-grade capabilities without expensive software subscriptions or complex installations. Pick colors with precision using our color picker that displays HEX, RGB, and HSL values simultaneously. Convert between color formats instantly, create beautiful CSS gradients visually, and test color combinations for WCAG accessibility compliance. For image work, resize photos to exact dimensions or convert between PNG, JPG, and WebP formats — all processing happens locally in your browser, so your images stay private. These browser-based tools are essential for web developers styling interfaces, graphic designers matching brand colors, content creators preparing images for different platforms, or anyone who needs quick visual utilities. No accounts to create, no software to install, and no files uploaded to external servers. Professional design tools, completely free and ready when you need them.",
   },
 };
 

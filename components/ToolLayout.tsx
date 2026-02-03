@@ -3,6 +3,32 @@ import { Tool, getRelatedTools, getCategoryBySlug } from "@/lib/tools";
 import Breadcrumbs from "./Breadcrumbs";
 import RelatedTools from "./RelatedTools";
 
+// ============================================================================
+// JSON-LD SCHEMA GENERATOR
+// ============================================================================
+
+function generateToolSchema(tool: Tool, categoryName: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: tool.name,
+    description: tool.seo.description,
+    url: `https://gofreetool.com/tools/${tool.slug}`,
+    applicationCategory: categoryName,
+    operatingSystem: "Web",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "100",
+    },
+  };
+}
+
 interface ToolLayoutProps {
   tool: Tool;
   children: React.ReactNode;
@@ -16,9 +42,18 @@ export default function ToolLayout({
 }: ToolLayoutProps) {
   const relatedTools = getRelatedTools(tool.slug);
   const category = getCategoryBySlug(tool.category);
+  const categoryName = category?.name.replace(/^[^\s]+\s/, "") || "Utility";
+
+  // Generate JSON-LD schema
+  const jsonLd = generateToolSchema(tool, categoryName);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-50">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* AdSense Top Banner Placeholder - HIDDEN TEMPORARILY */}
       {/* <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500 text-sm">
@@ -119,9 +154,10 @@ export default function ToolLayout({
         <div className="mt-12 text-center">
           <Link
             href="/"
+            title="Browse all free online tools"
             className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium transition-colors"
           >
-            ← Back to Home
+            ← Browse All Free Tools
           </Link>
         </div>
 

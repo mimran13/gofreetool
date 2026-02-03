@@ -245,6 +245,22 @@ function AllToolsSection({ tools, categoryName }: { tools: Tool[]; categoryName:
   );
 }
 
+function SEOContentSection({ content, categoryName }: { content: string; categoryName: string }) {
+  return (
+    <section className="mb-16" aria-labelledby="about-section-heading">
+      <h2
+        id="about-section-heading"
+        className="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+      >
+        About Our Free {categoryName} Tools
+      </h2>
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{content}</p>
+      </div>
+    </section>
+  );
+}
+
 function RelatedCategoriesSection({ relatedCategories }: { relatedCategories: Category[] }) {
   if (relatedCategories.length === 0) return null;
 
@@ -286,12 +302,13 @@ function BackToHome() {
     <div className="text-center pt-8 border-t border-gray-200 dark:border-gray-700">
       <Link
         href="/"
+        title="Browse all free online tools - no signup required"
         className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium transition-colors"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        Browse All Tools
+        Browse All Free Online Tools
       </Link>
     </div>
   );
@@ -353,6 +370,9 @@ export default async function CategoryPage({ params }: Props) {
 
         {/* All Tools Grid */}
         <AllToolsSection tools={tools} categoryName={categoryName} />
+
+        {/* SEO Content Section */}
+        <SEOContentSection content={seoConfig.seoContent} categoryName={categoryName} />
 
         {/* Related Categories (Internal Linking) */}
         <RelatedCategoriesSection relatedCategories={relatedCategories} />

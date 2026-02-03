@@ -22,10 +22,11 @@ export default function RelatedTools({ tools }: RelatedToolsProps) {
           <Link
             key={tool.slug}
             href={`/tools/${tool.slug}`}
+            title={`Try our free ${tool.name} - ${tool.shortDescription}`}
             className="group block bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md hover:border-teal-300 transition-all"
           >
             <div className="flex items-start gap-3">
-              <span className="text-2xl">{tool.icon}</span>
+              <span className="text-2xl" aria-hidden="true">{tool.icon}</span>
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">
                   {tool.name}

@@ -11,12 +11,19 @@ interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ category, tool }: BreadcrumbsProps) {
+  // Remove emoji prefix from category name for cleaner display
+  const categoryName = category.name.replace(/^[^\s]+\s/, "");
+
   return (
     <nav aria-label="Breadcrumb" className="text-sm text-gray-600">
       <ol className="flex items-center gap-2">
         <li>
-          <Link href="/" className="hover:text-teal-600 transition-colors">
-            Home
+          <Link
+            href="/"
+            className="hover:text-teal-600 transition-colors"
+            title="Browse all free online tools"
+          >
+            Free Online Tools
           </Link>
         </li>
         <li className="text-gray-400" aria-hidden="true">/</li>
@@ -24,8 +31,9 @@ export default function Breadcrumbs({ category, tool }: BreadcrumbsProps) {
           <Link
             href={`/category/${category.slug}`}
             className="hover:text-teal-600 transition-colors"
+            title={`Free ${categoryName} tools online`}
           >
-            {category.name}
+            {categoryName}
           </Link>
         </li>
         <li className="text-gray-400" aria-hidden="true">/</li>

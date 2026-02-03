@@ -263,9 +263,10 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#categories"
+                  title="Browse free online tools by category"
                   className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 font-semibold rounded-lg transition-colors"
                 >
-                  Browse Categories
+                  Browse Tool Categories
                 </Link>
               </div>
             </div>
@@ -313,7 +314,7 @@ export default function Home() {
                 href="#categories"
                 className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium"
               >
-                View all {tools.length} tools by category →
+                Browse all {tools.length} free tools by category →
               </Link>
             </div>
           </div>
