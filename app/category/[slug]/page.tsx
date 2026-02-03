@@ -1,11 +1,19 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import {
+  categories,
   getCategoryBySlug,
   getToolsByCategory,
+  getCategorySEO,
+  getPopularToolsForCategory,
+  getRelatedCategories,
+  Tool,
+  Category,
 } from "@/lib/tools";
-import { generateMetadata as generateMeta } from "@/lib/seo";
-import ToolCard from "@/components/ToolCard";
-import Link from "next/link";
+
+// ============================================================================
+// TYPES
+// ============================================================================
 
 interface Props {
   params: Promise<{
@@ -13,53 +21,312 @@ interface Props {
   }>;
 }
 
+// ============================================================================
+// SEO METADATA
+// ============================================================================
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
+  const seoConfig = getCategorySEO(slug);
 
-  if (!category) {
+  if (!category || !seoConfig) {
     return {
-      title: "Category Not Found",
+      title: "Category Not Found | GoFreeTool",
       description: "The category you're looking for doesn't exist.",
     };
   }
 
-  return generateMeta(
-    `${category.name} Tools - Free Online Tools`,
-    `Explore our collection of ${category.name.toLowerCase()}. Free tools for everyday use.`,
-    [category.name.toLowerCase(), "tools", "calculator"],
-    `/category/${slug}`
+  const categoryName = category.name.replace(/^[^\s]+\s/, ""); // Remove emoji
+  const title = `Free ${categoryName} Tools Online | GoFreeTool`;
+  const url = `https://gofreetool.com/category/${slug}`;
+
+  return {
+    title,
+    description: seoConfig.description,
+    keywords: [...seoConfig.keywords, "free tools", "no signup", "online tools", "browser-based"],
+    openGraph: {
+      title,
+      description: seoConfig.description,
+      url,
+      type: "website",
+      siteName: "GoFreeTool",
+      images: [
+        {
+          url: "https://gofreetool.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${categoryName} Tools - GoFreeTool`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: seoConfig.description,
+      images: ["https://gofreetool.com/og-image.png"],
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
+
+// ============================================================================
+// STATIC GENERATION
+// ============================================================================
+
+export async function generateStaticParams() {
+  return categories.map((cat) => ({
+    slug: cat.slug,
+  }));
+}
+
+// ============================================================================
+// COMPONENTS
+// ============================================================================
+
+function Breadcrumb({ category }: { category: Category }) {
+  const categoryName = category.name.replace(/^[^\s]+\s/, "");
+  return (
+    <nav aria-label="Breadcrumb" className="mb-8">
+      <ol className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+        <li>
+          <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            Home
+          </Link>
+        </li>
+        <li aria-hidden="true">/</li>
+        <li>
+          <Link href="/#categories" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            Categories
+          </Link>
+        </li>
+        <li aria-hidden="true">/</li>
+        <li className="text-gray-900 dark:text-white font-medium" aria-current="page">
+          {categoryName}
+        </li>
+      </ol>
+    </nav>
   );
 }
 
-export async function generateStaticParams() {
-  return [
-    { slug: "calculators" },
-    { slug: "health" },
-    { slug: "writing" },
-  ];
+function IntroSection({ category, intro, toolCount }: { category: Category; intro: string; toolCount: number }) {
+  const categoryName = category.name.replace(/^[^\s]+\s/, "");
+  return (
+    <header className="mb-12">
+      <div className="flex items-center gap-4 mb-4">
+        <span className="text-5xl" role="img" aria-hidden="true">
+          {category.icon}
+        </span>
+        <div>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+            Free {categoryName} Tools Online
+          </h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">
+            {toolCount} free tool{toolCount !== 1 ? "s" : ""} available
+          </p>
+        </div>
+      </div>
+      <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+        {intro}
+      </p>
+      {/* Trust indicators */}
+      <div className="flex flex-wrap gap-4 mt-6">
+        <span className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
+          <svg className="w-4 h-4 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          100% Free
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
+          <svg className="w-4 h-4 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          No Signup Required
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
+          <svg className="w-4 h-4 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          Browser-Based
+        </span>
+      </div>
+    </header>
+  );
 }
+
+function ToolCard({ tool }: { tool: Tool }) {
+  const category = getCategoryBySlug(tool.category);
+  const categoryName = category?.name.replace(/^[^\s]+\s/, "") || tool.category;
+
+  return (
+    <Link href={`/tools/${tool.slug}`} className="group">
+      <article className="h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-600 transition-all">
+        <div className="flex items-start gap-4">
+          <span className="text-4xl group-hover:scale-110 transition-transform" role="img" aria-hidden="true">
+            {tool.icon}
+          </span>
+          <div className="flex-1 min-w-0">
+            <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+              {tool.name}
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+              {tool.shortDescription}
+            </p>
+            <span className="inline-block mt-3 text-xs font-medium px-2.5 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 rounded-full">
+              {categoryName}
+            </span>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
+function PopularToolsSection({ tools }: { tools: Tool[] }) {
+  if (tools.length === 0) return null;
+
+  return (
+    <section className="mb-16" aria-labelledby="popular-tools-heading">
+      <div className="flex items-center gap-2 mb-6">
+        <span className="text-2xl" role="img" aria-hidden="true">
+          🔥
+        </span>
+        <h2 id="popular-tools-heading" className="text-2xl font-bold text-gray-900 dark:text-white">
+          Most Popular
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {tools.slice(0, 4).map((tool) => (
+          <Link
+            key={tool.slug}
+            href={`/tools/${tool.slug}`}
+            className="group flex items-center gap-3 p-4 bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 border border-teal-200 dark:border-teal-800 rounded-xl hover:shadow-md transition-all"
+          >
+            <span className="text-3xl group-hover:scale-110 transition-transform" role="img" aria-hidden="true">
+              {tool.icon}
+            </span>
+            <div className="min-w-0">
+              <p className="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors truncate">
+                {tool.name}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                {tool.shortDescription}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AllToolsSection({ tools, categoryName }: { tools: Tool[]; categoryName: string }) {
+  return (
+    <section className="mb-16" aria-labelledby="all-tools-heading">
+      <h2 id="all-tools-heading" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        All {categoryName} Tools
+      </h2>
+      {tools.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {tools.map((tool) => (
+            <ToolCard key={tool.slug} tool={tool} />
+          ))}
+        </div>
+      ) : (
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-12 text-center">
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            No tools in this category yet. Check back soon!
+          </p>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function RelatedCategoriesSection({ relatedCategories }: { relatedCategories: Category[] }) {
+  if (relatedCategories.length === 0) return null;
+
+  return (
+    <section className="mb-12" aria-labelledby="related-categories-heading">
+      <h2 id="related-categories-heading" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        Related Categories
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {relatedCategories.map((cat) => {
+          const catName = cat.name.replace(/^[^\s]+\s/, "");
+          return (
+            <Link
+              key={cat.slug}
+              href={`/category/${cat.slug}`}
+              className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-md hover:border-teal-300 dark:hover:border-teal-600 transition-all"
+            >
+              <span className="text-3xl group-hover:scale-110 transition-transform" role="img" aria-hidden="true">
+                {cat.icon}
+              </span>
+              <div className="min-w-0">
+                <p className="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  {catName}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 truncate">
+                  {cat.description}
+                </p>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function BackToHome() {
+  return (
+    <div className="text-center pt-8 border-t border-gray-200 dark:border-gray-700">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium transition-colors"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Browse All Tools
+      </Link>
+    </div>
+  );
+}
+
+// ============================================================================
+// PAGE COMPONENT
+// ============================================================================
 
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
+  const seoConfig = getCategorySEO(slug);
 
-  if (!category) {
+  // 404 state
+  if (!category || !seoConfig) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-6xl mb-4 block">404</span>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Category Not Found
             </h1>
-            <p className="text-gray-600 mb-6">
-              The category you're looking for doesn't exist.
+            <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
+              The category you&apos;re looking for doesn&apos;t exist or may have been moved.
             </p>
             <Link
               href="/"
-              className="inline-block text-teal-600 hover:text-teal-700 font-medium"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors"
             >
-              ← Back to Home
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Home
             </Link>
           </div>
         </main>
@@ -68,54 +335,30 @@ export default async function CategoryPage({ params }: Props) {
   }
 
   const tools = getToolsByCategory(slug);
+  const popularTools = getPopularToolsForCategory(slug);
+  const relatedCategories = getRelatedCategories(slug);
+  const categoryName = category.name.replace(/^[^\s]+\s/, "");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-600 mb-8">
-          <Link href="/" className="hover:text-teal-600">
-            Home
-          </Link>
-          <span>/</span>
-          <span>{category.name}</span>
-        </div>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb category={category} />
 
-        {/* Header */}
-        <div className="mb-12">
-          <div className="text-5xl mb-4">{category.icon}</div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            {category.name}
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl">
-            {category.description}
-          </p>
-        </div>
+        {/* Intro Section with H1 */}
+        <IntroSection category={category} intro={seoConfig.intro} toolCount={tools.length} />
 
-        {/* Tools Grid */}
-        {tools.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {tools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-        ) : (
-          <div className="bg-white border border-gray-200 rounded-lg p-12 text-center mb-12">
-            <p className="text-gray-600 text-lg">
-              No tools in this category yet. Check back soon!
-            </p>
-          </div>
-        )}
+        {/* Popular Tools (Featured) */}
+        <PopularToolsSection tools={popularTools} />
 
-        {/* Back button */}
-        <div className="text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium"
-          >
-            ← Back to Home
-          </Link>
-        </div>
+        {/* All Tools Grid */}
+        <AllToolsSection tools={tools} categoryName={categoryName} />
+
+        {/* Related Categories (Internal Linking) */}
+        <RelatedCategoriesSection relatedCategories={relatedCategories} />
+
+        {/* Back to Home */}
+        <BackToHome />
       </main>
     </div>
   );

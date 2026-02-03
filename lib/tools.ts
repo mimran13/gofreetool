@@ -748,3 +748,207 @@ export function getRelatedTools(toolSlug: string): Tool[] {
     .map((slug) => getToolBySlug(slug))
     .filter((t): t is Tool => t !== undefined);
 }
+
+// ============================================================================
+// CATEGORY SEO CONFIGURATION
+// ============================================================================
+
+export interface CategorySEO {
+  title: string;
+  description: string;
+  keywords: string[];
+  intro: string;
+}
+
+export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
+  calculators: {
+    title: "Free Calculator Tools Online",
+    description:
+      "Free online calculators for EMI, loans, percentages, tips, and more. Fast, accurate, and easy to use. No signup required. Works in your browser.",
+    keywords: [
+      "free calculator",
+      "online calculator",
+      "EMI calculator",
+      "loan calculator",
+      "percentage calculator",
+      "tip calculator",
+      "financial calculator",
+    ],
+    intro:
+      "Powerful calculators for everyday financial and math needs. Calculate EMI payments, compound interest, percentages, and more. All tools run directly in your browser — no signup, no data collection, completely free.",
+  },
+  health: {
+    title: "Free Health & Fitness Tools Online",
+    description:
+      "Free health calculators for BMI, BMR, calorie tracking, and ideal weight. Get instant health insights. No signup required. Privacy-first.",
+    keywords: [
+      "BMI calculator",
+      "health calculator",
+      "BMR calculator",
+      "calorie calculator",
+      "fitness tools",
+      "ideal weight calculator",
+    ],
+    intro:
+      "Track your health and fitness goals with easy-to-use calculators. Calculate BMI, daily water intake, calories burned, and more. All calculations happen in your browser — your health data stays private.",
+  },
+  writing: {
+    title: "Free Writing & Text Tools Online",
+    description:
+      "Free text tools for word counting, case conversion, and text formatting. Perfect for writers and content creators. No signup required.",
+    keywords: [
+      "word counter",
+      "character counter",
+      "text converter",
+      "case converter",
+      "writing tools",
+      "text formatter",
+    ],
+    intro:
+      "Essential tools for writers, bloggers, and content creators. Count words and characters, convert text case, remove duplicate lines, and format text. Free, fast, and works offline.",
+  },
+  "date-time": {
+    title: "Free Date & Time Tools Online",
+    description:
+      "Free date calculators for age, date differences, and day of week. Calculate time between dates instantly. No signup required.",
+    keywords: [
+      "date calculator",
+      "age calculator",
+      "date difference",
+      "day of week finder",
+      "workdays calculator",
+      "time calculator",
+    ],
+    intro:
+      "Calculate dates, ages, and time differences instantly. Find days between dates, calculate workdays, or discover what day of the week any date falls on. Accurate and free.",
+  },
+  home: {
+    title: "Free Home & Daily Life Tools Online",
+    description:
+      "Free calculators for home projects, electricity bills, fuel costs, and daily expenses. Plan your budget and projects. No signup required.",
+    keywords: [
+      "electricity calculator",
+      "fuel cost calculator",
+      "paint calculator",
+      "home tools",
+      "utility calculator",
+      "budget calculator",
+    ],
+    intro:
+      "Practical tools for everyday household planning. Calculate electricity bills, estimate paint for your walls, track fuel costs, and split rent fairly. Save time and money with these free tools.",
+  },
+  fun: {
+    title: "Free Fun & Random Generator Tools Online",
+    description:
+      "Free random generators and decision-making tools. Generate random numbers, spin decision wheels, and make choices fun. No signup required.",
+    keywords: [
+      "random generator",
+      "decision wheel",
+      "random number",
+      "lucky number",
+      "yes no spinner",
+      "random password",
+    ],
+    intro:
+      "Make decisions fun with random generators and spinners. Generate random numbers, spin a decision wheel, pick lucky numbers, or let fate decide with yes/no spinners. Completely random and unbiased.",
+  },
+  developer: {
+    title: "Free Developer Tools Online",
+    description:
+      "Free developer tools for JSON formatting, UUID generation, and hash creation. Essential utilities for programmers. No signup required.",
+    keywords: [
+      "JSON formatter",
+      "UUID generator",
+      "hash generator",
+      "developer tools",
+      "code formatter",
+      "programming tools",
+    ],
+    intro:
+      "Essential tools for developers and programmers. Format JSON, generate UUIDs, create hashes, and more. All processing happens client-side — your code never leaves your browser.",
+  },
+  "security-encoding": {
+    title: "Free Security & Encoding Tools Online",
+    description:
+      "Free encoding tools for Base64, URL encoding, and password generation. Secure your data with browser-based tools. No signup required.",
+    keywords: [
+      "Base64 encoder",
+      "URL encoder",
+      "password generator",
+      "encoding tools",
+      "security tools",
+      "encryption tools",
+    ],
+    intro:
+      "Encode, decode, and secure your data with privacy-focused tools. Convert Base64, encode URLs, and generate strong passwords. Everything runs locally — your sensitive data never touches our servers.",
+  },
+  "data-conversion": {
+    title: "Free Data Conversion Tools Online",
+    description:
+      "Free data converters for CSV, JSON, and other formats. Convert data formats instantly in your browser. No signup required.",
+    keywords: [
+      "CSV to JSON",
+      "JSON to CSV",
+      "data converter",
+      "format converter",
+      "file converter",
+      "data transformation",
+    ],
+    intro:
+      "Convert data between popular formats effortlessly. Transform CSV to JSON, parse structured data, and export in the format you need. Fast, accurate, and completely private.",
+  },
+};
+
+// ============================================================================
+// POPULAR TOOLS BY CATEGORY (Curated)
+// ============================================================================
+
+export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
+  calculators: ["emi-calculator", "percentage-calculator", "discount-calculator", "tip-calculator"],
+  health: ["bmi-calculator", "bmr-calculator", "water-intake-calculator", "ideal-weight-calculator"],
+  writing: ["word-counter", "text-case-converter", "remove-extra-spaces", "duplicate-line-remover"],
+  "date-time": ["age-calculator", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
+  home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
+  fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator"],
+  developer: ["json-formatter-viewer", "uuid-generator", "hash-generator"],
+  "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator"],
+  "data-conversion": ["csv-json-converter"],
+};
+
+// ============================================================================
+// RELATED CATEGORIES (for internal linking)
+// ============================================================================
+
+export const RELATED_CATEGORIES: Record<string, string[]> = {
+  calculators: ["health", "home", "date-time"],
+  health: ["calculators", "home", "fun"],
+  writing: ["developer", "data-conversion", "fun"],
+  "date-time": ["calculators", "home", "writing"],
+  home: ["calculators", "date-time", "health"],
+  fun: ["writing", "security-encoding", "developer"],
+  developer: ["security-encoding", "data-conversion", "writing"],
+  "security-encoding": ["developer", "data-conversion", "fun"],
+  "data-conversion": ["developer", "security-encoding", "writing"],
+};
+
+// ============================================================================
+// CATEGORY HELPER FUNCTIONS
+// ============================================================================
+
+export function getCategorySEO(slug: string): CategorySEO | undefined {
+  return CATEGORY_SEO_CONFIG[slug];
+}
+
+export function getPopularToolsForCategory(categorySlug: string): Tool[] {
+  const slugs = POPULAR_TOOLS_BY_CATEGORY[categorySlug] || [];
+  return slugs
+    .map((slug) => getToolBySlug(slug))
+    .filter((t): t is Tool => t !== undefined);
+}
+
+export function getRelatedCategories(categorySlug: string): Category[] {
+  const slugs = RELATED_CATEGORIES[categorySlug] || [];
+  return slugs
+    .map((slug) => getCategoryBySlug(slug))
+    .filter((c): c is Category => c !== undefined);
+}

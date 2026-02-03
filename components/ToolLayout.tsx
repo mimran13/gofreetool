@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Tool, getRelatedTools, getCategoryBySlug } from "@/lib/tools";
-import ToolCard from "./ToolCard";
+import Breadcrumbs from "./Breadcrumbs";
+import RelatedTools from "./RelatedTools";
 
 interface ToolLayoutProps {
   tool: Tool;
@@ -27,17 +28,12 @@ export default function ToolLayout({
 
       {/* Breadcrumb */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-gray-600">
-          <Link href="/" className="hover:text-teal-600 transition-colors">
-            Home
-          </Link>
-          <span className="text-gray-400">/</span>
-          <Link href={`/category/${tool.category}`} className="hover:text-teal-600 transition-colors">
-            {category?.name}
-          </Link>
-          <span className="text-gray-400">/</span>
-          <span className="text-gray-900 font-medium">{tool.name}</span>
-        </nav>
+        {category && (
+          <Breadcrumbs
+            category={{ name: category.name, slug: category.slug }}
+            tool={{ name: tool.name }}
+          />
+        )}
       </div>
 
       {/* Main Content */}
@@ -130,16 +126,7 @@ export default function ToolLayout({
         </div>
 
         {/* Related Tools Section */}
-        {relatedTools.length > 0 && (
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Tools</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {relatedTools.map((relatedTool) => (
-                <ToolCard key={relatedTool.id} tool={relatedTool} />
-              ))}
-            </div>
-          </div>
-        )}
+        <RelatedTools tools={relatedTools} />
 
         {/* AdSense Inline Placeholder - HIDDEN TEMPORARILY */}
         {/* <div className="mt-16 bg-white border-2 border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-500">
