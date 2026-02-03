@@ -66,6 +66,12 @@ export const categories: Category[] = [
     icon: "🎲",
     description: "Random generators and fun decision-making tools",
   },
+  {
+    slug: "developer",
+    name: "💻 Developer Tools",
+    icon: "🛠️",
+    description: "Essential tools for developers: formatters, validators, converters, and more",
+  },
 ];
 
 export const tools: Tool[] = [
@@ -586,6 +592,24 @@ export const tools: Tool[] = [
       keywords: ["decision wheel", "choice picker", "random selector"],
     },
     relatedTools: ["yes-no-spinner"],
+  },
+
+  // ==================== DEVELOPER TOOLS (1) ====================
+  {
+    id: "json-formatter-viewer",
+    slug: "json-formatter-viewer",
+    name: "JSON Formatter & Viewer",
+    category: "developer",
+    featured: true,
+    description: "Format, validate, and view JSON data with syntax highlighting. Pretty-print minified JSON, expand/collapse nested objects, and catch errors instantly. All processing happens in your browser for complete privacy.",
+    shortDescription: "Format and validate JSON instantly",
+    icon: "{ }",
+    seo: {
+      title: "JSON Formatter & Viewer - Free Online JSON Pretty Print Tool",
+      description: "Free online JSON formatter and viewer. Validate, pretty-print, and explore JSON data with syntax highlighting. 100% client-side, no data sent to servers.",
+      keywords: ["JSON formatter", "JSON viewer", "JSON validator", "pretty print JSON", "JSON beautifier", "format JSON online", "JSON parser"],
+    },
+    relatedTools: [],
   },
 ];
 

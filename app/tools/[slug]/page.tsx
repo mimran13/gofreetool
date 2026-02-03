@@ -40,6 +40,8 @@ import RandomPasswordGenerator from "../random-password-generator/page";
 import LuckyNumberGenerator from "../lucky-number-generator/page";
 import YesNoSpinner from "../yes-no-spinner/page";
 import DecisionWheel from "../decision-wheel/page";
+// Developer Tools
+import JsonFormatterViewer from "../json-formatter-viewer/page";
 
 interface Props {
   params: Promise<{
@@ -108,6 +110,8 @@ export async function generateStaticParams() {
     { slug: "lucky-number-generator" },
     { slug: "yes-no-spinner" },
     { slug: "decision-wheel" },
+    // Developer Tools
+    { slug: "json-formatter-viewer" },
   ];
 }
 
@@ -188,6 +192,9 @@ export default async function ToolPage({ params }: Props) {
       return <YesNoSpinner />;
     case "decision-wheel":
       return <DecisionWheel />;
+    // Developer Tools
+    case "json-formatter-viewer":
+      return <JsonFormatterViewer />;
     default:
       return <div className="p-8 text-center">Tool not found</div>;
   }
