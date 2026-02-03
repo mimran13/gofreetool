@@ -72,6 +72,12 @@ export const categories: Category[] = [
     icon: "🛠️",
     description: "Essential tools for developers: formatters, validators, converters, and more",
   },
+  {
+    slug: "security-encoding",
+    name: "🔐 Security & Encoding",
+    icon: "🔒",
+    description: "Encoding, decoding, and security tools for safe data handling",
+  },
 ];
 
 export const tools: Tool[] = [
@@ -641,7 +647,57 @@ export const tools: Tool[] = [
       description: "Free online hash generator. Create MD5, SHA-1, and SHA-256 hashes instantly. Verify file integrity and generate checksums. 100% client-side, no data sent to servers.",
       keywords: ["hash generator", "MD5 hash", "SHA-1 hash", "SHA-256 hash", "checksum generator", "online hash tool", "text to hash"],
     },
-    relatedTools: ["uuid-generator", "json-formatter-viewer"],
+    relatedTools: ["uuid-generator", "json-formatter-viewer", "base64-encoder-decoder"],
+  },
+
+  // ==================== SECURITY & ENCODING TOOLS (2) ====================
+  {
+    id: "base64-encoder-decoder",
+    slug: "base64-encoder-decoder",
+    name: "Base64 Encoder / Decoder",
+    category: "security-encoding",
+    featured: true,
+    description: "Encode text or files to Base64 and decode Base64 strings back to original content. Supports Unicode text and file uploads. All processing happens in your browser for complete privacy and security.",
+    shortDescription: "Encode and decode Base64 strings",
+    icon: "🔄",
+    seo: {
+      title: "Base64 Encoder Decoder - Free Online Base64 Tool",
+      description: "Free online Base64 encoder and decoder. Convert text and files to Base64 and decode Base64 strings. Supports Unicode. 100% client-side, no data sent to servers.",
+      keywords: ["Base64 encoder", "Base64 decoder", "Base64 converter", "encode Base64", "decode Base64", "Base64 online tool", "file to Base64"],
+    },
+    relatedTools: ["hash-generator", "url-encoder-decoder"],
+  },
+  {
+    id: "url-encoder-decoder",
+    slug: "url-encoder-decoder",
+    name: "URL Encoder / Decoder",
+    category: "security-encoding",
+    featured: true,
+    description: "Encode and decode URL strings instantly. Convert special characters to percent-encoded format for safe URL transmission. Parse and view query parameters in a readable table format.",
+    shortDescription: "Encode and decode URL strings",
+    icon: "🔗",
+    seo: {
+      title: "URL Encoder Decoder - Free Online URL Encoding Tool",
+      description: "Free online URL encoder and decoder. Convert special characters to percent-encoded format. Parse query parameters. 100% client-side, no data sent to servers.",
+      keywords: ["URL encoder", "URL decoder", "percent encoding", "encode URL", "decode URL", "URL parser", "query string decoder"],
+    },
+    relatedTools: ["base64-encoder-decoder", "json-formatter-viewer"],
+  },
+  {
+    id: "password-generator",
+    slug: "password-generator",
+    name: "Password Generator",
+    category: "security-encoding",
+    featured: true,
+    description: "Generate cryptographically secure passwords with customizable length and character options. Choose from uppercase, lowercase, numbers, and symbols. Real-time strength indicator helps you create strong passwords.",
+    shortDescription: "Generate secure passwords instantly",
+    icon: "🔐",
+    seo: {
+      title: "Password Generator - Free Secure Password Generator Tool",
+      description: "Free online password generator. Create strong, secure passwords with customizable options. Uses cryptographic randomness. 100% client-side, no passwords stored or transmitted.",
+      keywords: ["password generator", "secure password", "random password", "strong password generator", "password creator", "safe password generator"],
+    },
+    relatedTools: ["hash-generator", "uuid-generator", "base64-encoder-decoder"],
   },
 ];
 

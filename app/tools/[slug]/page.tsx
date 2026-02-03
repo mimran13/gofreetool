@@ -44,6 +44,10 @@ import DecisionWheel from "../decision-wheel/page";
 import JsonFormatterViewer from "../json-formatter-viewer/page";
 import UUIDGenerator from "../uuid-generator/page";
 import HashGenerator from "../hash-generator/page";
+// Security & Encoding Tools
+import Base64EncoderDecoder from "../base64-encoder-decoder/page";
+import URLEncoderDecoder from "../url-encoder-decoder/page";
+import PasswordGenerator from "../password-generator/page";
 
 interface Props {
   params: Promise<{
@@ -116,6 +120,10 @@ export async function generateStaticParams() {
     { slug: "json-formatter-viewer" },
     { slug: "uuid-generator" },
     { slug: "hash-generator" },
+    // Security & Encoding Tools
+    { slug: "base64-encoder-decoder" },
+    { slug: "url-encoder-decoder" },
+    { slug: "password-generator" },
   ];
 }
 
@@ -203,6 +211,13 @@ export default async function ToolPage({ params }: Props) {
       return <UUIDGenerator />;
     case "hash-generator":
       return <HashGenerator />;
+    // Security & Encoding Tools
+    case "base64-encoder-decoder":
+      return <Base64EncoderDecoder />;
+    case "url-encoder-decoder":
+      return <URLEncoderDecoder />;
+    case "password-generator":
+      return <PasswordGenerator />;
     default:
       return <div className="p-8 text-center">Tool not found</div>;
   }
