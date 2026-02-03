@@ -594,7 +594,7 @@ export const tools: Tool[] = [
     relatedTools: ["yes-no-spinner"],
   },
 
-  // ==================== DEVELOPER TOOLS (2) ====================
+  // ==================== DEVELOPER TOOLS (3) ====================
   {
     id: "json-formatter-viewer",
     slug: "json-formatter-viewer",
@@ -609,7 +609,7 @@ export const tools: Tool[] = [
       description: "Free online JSON formatter and viewer. Validate, pretty-print, and explore JSON data with syntax highlighting. 100% client-side, no data sent to servers.",
       keywords: ["JSON formatter", "JSON viewer", "JSON validator", "pretty print JSON", "JSON beautifier", "format JSON online", "JSON parser"],
     },
-    relatedTools: ["uuid-generator"],
+    relatedTools: ["uuid-generator", "hash-generator"],
   },
   {
     id: "uuid-generator",
@@ -625,7 +625,23 @@ export const tools: Tool[] = [
       description: "Free online UUID v4 generator. Create cryptographically secure unique identifiers instantly. Generate single or bulk UUIDs. 100% client-side, no data sent to servers.",
       keywords: ["UUID generator", "UUID v4", "GUID generator", "unique identifier", "random UUID", "bulk UUID generator", "online UUID tool"],
     },
-    relatedTools: ["json-formatter-viewer"],
+    relatedTools: ["json-formatter-viewer", "hash-generator"],
+  },
+  {
+    id: "hash-generator",
+    slug: "hash-generator",
+    name: "Hash Generator",
+    category: "developer",
+    featured: true,
+    description: "Generate MD5, SHA-1, and SHA-256 hashes from any text instantly. Perfect for verifying file integrity, creating checksums, and password hashing workflows. All hashing happens in your browser for complete privacy.",
+    shortDescription: "Generate MD5, SHA-1, SHA-256 hashes",
+    icon: "#️⃣",
+    seo: {
+      title: "Hash Generator - Free Online MD5, SHA-1, SHA-256 Hash Tool",
+      description: "Free online hash generator. Create MD5, SHA-1, and SHA-256 hashes instantly. Verify file integrity and generate checksums. 100% client-side, no data sent to servers.",
+      keywords: ["hash generator", "MD5 hash", "SHA-1 hash", "SHA-256 hash", "checksum generator", "online hash tool", "text to hash"],
+    },
+    relatedTools: ["uuid-generator", "json-formatter-viewer"],
   },
 ];
 

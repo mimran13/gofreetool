@@ -43,6 +43,7 @@ import DecisionWheel from "../decision-wheel/page";
 // Developer Tools
 import JsonFormatterViewer from "../json-formatter-viewer/page";
 import UUIDGenerator from "../uuid-generator/page";
+import HashGenerator from "../hash-generator/page";
 
 interface Props {
   params: Promise<{
@@ -114,6 +115,7 @@ export async function generateStaticParams() {
     // Developer Tools
     { slug: "json-formatter-viewer" },
     { slug: "uuid-generator" },
+    { slug: "hash-generator" },
   ];
 }
 
@@ -199,6 +201,8 @@ export default async function ToolPage({ params }: Props) {
       return <JsonFormatterViewer />;
     case "uuid-generator":
       return <UUIDGenerator />;
+    case "hash-generator":
+      return <HashGenerator />;
     default:
       return <div className="p-8 text-center">Tool not found</div>;
   }
