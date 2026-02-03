@@ -84,6 +84,12 @@ export const categories: Category[] = [
     icon: "📊",
     description: "Convert data between formats: CSV, JSON, XML, and more",
   },
+  {
+    slug: "design",
+    name: "🎨 Design & Visual",
+    icon: "🖼️",
+    description: "Color pickers, image tools, and visual design utilities",
+  },
 ];
 
 export const tools: Tool[] = [
@@ -723,6 +729,88 @@ export const tools: Tool[] = [
     },
     relatedTools: ["json-formatter-viewer", "base64-encoder-decoder"],
   },
+
+  // ==================== DESIGN & VISUAL TOOLS (5) ====================
+  {
+    id: "color-picker",
+    slug: "color-picker",
+    name: "Color Picker",
+    category: "design",
+    featured: true,
+    description: "Pick any color and instantly convert between HEX, RGB, and HSL formats. Use the native color picker or enter values directly. Copy color codes with one click for use in CSS, design tools, or code.",
+    shortDescription: "Pick and convert colors instantly",
+    icon: "🎨",
+    seo: {
+      title: "Color Picker - Free Online HEX, RGB, HSL Color Converter",
+      description: "Free online color picker tool. Convert colors between HEX, RGB, and HSL formats instantly. Copy color codes for CSS and design. 100% client-side, no data sent to servers.",
+      keywords: ["color picker", "hex to rgb", "rgb to hsl", "color converter", "css colors", "color code generator", "hex color picker"],
+    },
+    relatedTools: ["gradient-generator", "image-resizer"],
+  },
+  {
+    id: "gradient-generator",
+    slug: "gradient-generator",
+    name: "CSS Gradient Generator",
+    category: "design",
+    featured: true,
+    description: "Create beautiful CSS gradients visually. Pick two colors, adjust the angle, and copy the generated linear-gradient CSS code instantly. Includes preset gradients and real-time preview.",
+    shortDescription: "Create CSS gradients visually",
+    icon: "🌈",
+    seo: {
+      title: "CSS Gradient Generator - Free Online Linear Gradient Maker",
+      description: "Free online CSS gradient generator. Create beautiful linear gradients with custom colors and angles. Copy CSS code instantly. 100% client-side, no data sent to servers.",
+      keywords: ["css gradient generator", "linear gradient", "gradient maker", "css background gradient", "gradient css", "color gradient tool"],
+    },
+    relatedTools: ["color-picker", "image-resizer"],
+  },
+  {
+    id: "image-resizer",
+    slug: "image-resizer",
+    name: "Image Resizer",
+    category: "design",
+    featured: true,
+    description: "Resize images instantly in your browser. Upload any image, set custom dimensions or use presets, maintain aspect ratio, and download the resized version. All processing happens locally — your images never leave your device.",
+    shortDescription: "Resize images in your browser",
+    icon: "📐",
+    seo: {
+      title: "Image Resizer - Free Online Image Resize Tool",
+      description: "Free online image resizer. Resize images to any dimension instantly. Maintain aspect ratio, use presets for social media. 100% client-side, no uploads to servers.",
+      keywords: ["image resizer", "resize image online", "image resize tool", "photo resizer", "resize picture", "image dimensions", "scale image"],
+    },
+    relatedTools: ["color-picker", "hex-rgb-converter"],
+  },
+  {
+    id: "hex-rgb-converter",
+    slug: "hex-rgb-converter",
+    name: "HEX ↔ RGB Converter",
+    category: "design",
+    featured: true,
+    description: "Convert colors between HEX and RGB formats instantly. Enter a HEX code or RGB values and see the conversion in real-time. Validates inputs and provides copy buttons for both formats.",
+    shortDescription: "Convert HEX and RGB colors",
+    icon: "🔄",
+    seo: {
+      title: "HEX to RGB Converter - Free Online Color Converter",
+      description: "Free online HEX to RGB converter. Convert colors between HEX and RGB formats instantly. Live conversion with validation. 100% client-side, no data sent to servers.",
+      keywords: ["hex to rgb", "rgb to hex", "color converter", "hex rgb converter", "color code converter", "css color converter"],
+    },
+    relatedTools: ["color-picker", "contrast-checker"],
+  },
+  {
+    id: "contrast-checker",
+    slug: "contrast-checker",
+    name: "Color Contrast Checker",
+    category: "design",
+    featured: true,
+    description: "Check the contrast ratio between text and background colors to ensure WCAG accessibility compliance. Shows pass/fail results for AA and AAA levels for both normal and large text.",
+    shortDescription: "Check WCAG color contrast",
+    icon: "♿",
+    seo: {
+      title: "Color Contrast Checker - Free WCAG Accessibility Tool",
+      description: "Free online color contrast checker. Test text and background colors for WCAG AA and AAA compliance. Live preview with pass/fail indicators. 100% client-side.",
+      keywords: ["contrast checker", "wcag contrast", "color accessibility", "contrast ratio", "wcag aa", "wcag aaa", "accessibility checker"],
+    },
+    relatedTools: ["color-picker", "hex-rgb-converter"],
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
@@ -897,6 +985,21 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     intro:
       "Convert data between popular formats effortlessly. Transform CSV to JSON, parse structured data, and export in the format you need. Fast, accurate, and completely private.",
   },
+  design: {
+    title: "Free Design & Visual Tools Online",
+    description:
+      "Free design tools for color picking, image editing, and visual utilities. Perfect for designers and developers. No signup required.",
+    keywords: [
+      "color picker",
+      "hex to rgb",
+      "color converter",
+      "design tools",
+      "css colors",
+      "visual tools",
+    ],
+    intro:
+      "Essential visual tools for designers and developers. Pick colors, convert between formats, and get the exact color codes you need for your projects. All tools run in your browser — fast, free, and private.",
+  },
 };
 
 // ============================================================================
@@ -913,6 +1016,7 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   developer: ["json-formatter-viewer", "uuid-generator", "hash-generator"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator"],
   "data-conversion": ["csv-json-converter"],
+  design: ["color-picker", "contrast-checker", "gradient-generator", "image-resizer"],
 };
 
 // ============================================================================
@@ -926,9 +1030,10 @@ export const RELATED_CATEGORIES: Record<string, string[]> = {
   "date-time": ["calculators", "home", "writing"],
   home: ["calculators", "date-time", "health"],
   fun: ["writing", "security-encoding", "developer"],
-  developer: ["security-encoding", "data-conversion", "writing"],
+  developer: ["security-encoding", "data-conversion", "design"],
   "security-encoding": ["developer", "data-conversion", "fun"],
   "data-conversion": ["developer", "security-encoding", "writing"],
+  design: ["developer", "writing", "data-conversion"],
 };
 
 // ============================================================================

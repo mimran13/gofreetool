@@ -189,8 +189,8 @@ function SearchModal({
 
 // Organize categories into two columns for mega menu
 const MEGA_MENU_COLUMNS = {
-  left: ["calculators", "developer", "security-encoding", "data-conversion", "date-time"],
-  right: ["health", "home", "writing", "fun"],
+  left: ["calculators", "developer", "design", "security-encoding", "data-conversion"],
+  right: ["health", "home", "writing", "date-time", "fun"],
 };
 
 function CategoriesMegaMenu() {
