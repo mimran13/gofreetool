@@ -78,6 +78,12 @@ export const categories: Category[] = [
     icon: "🔒",
     description: "Encoding, decoding, and security tools for safe data handling",
   },
+  {
+    slug: "data-conversion",
+    name: "🔄 Data Conversion",
+    icon: "📊",
+    description: "Convert data between formats: CSV, JSON, XML, and more",
+  },
 ];
 
 export const tools: Tool[] = [
@@ -698,6 +704,24 @@ export const tools: Tool[] = [
       keywords: ["password generator", "secure password", "random password", "strong password generator", "password creator", "safe password generator"],
     },
     relatedTools: ["hash-generator", "uuid-generator", "base64-encoder-decoder"],
+  },
+
+  // ==================== DATA CONVERSION TOOLS (1) ====================
+  {
+    id: "csv-json-converter",
+    slug: "csv-json-converter",
+    name: "CSV to JSON Converter",
+    category: "data-conversion",
+    featured: true,
+    description: "Convert CSV data to JSON and JSON to CSV instantly. Supports custom delimiters, headers, and RFC 4180 compliant parsing. All processing happens in your browser for complete privacy.",
+    shortDescription: "Convert between CSV and JSON formats",
+    icon: "📄",
+    seo: {
+      title: "CSV to JSON Converter - Free Online CSV JSON Tool",
+      description: "Free online CSV to JSON converter. Convert CSV to JSON and JSON to CSV instantly. Supports custom delimiters and headers. 100% client-side, no data sent to servers.",
+      keywords: ["CSV to JSON", "JSON to CSV", "CSV converter", "JSON converter", "data converter", "CSV parser", "JSON parser"],
+    },
+    relatedTools: ["json-formatter-viewer", "base64-encoder-decoder"],
   },
 ];
 

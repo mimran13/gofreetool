@@ -48,6 +48,8 @@ import HashGenerator from "../hash-generator/page";
 import Base64EncoderDecoder from "../base64-encoder-decoder/page";
 import URLEncoderDecoder from "../url-encoder-decoder/page";
 import PasswordGenerator from "../password-generator/page";
+// Data Conversion Tools
+import CSVJSONConverter from "../csv-json-converter/page";
 
 interface Props {
   params: Promise<{
@@ -124,6 +126,8 @@ export async function generateStaticParams() {
     { slug: "base64-encoder-decoder" },
     { slug: "url-encoder-decoder" },
     { slug: "password-generator" },
+    // Data Conversion Tools
+    { slug: "csv-json-converter" },
   ];
 }
 
@@ -218,6 +222,9 @@ export default async function ToolPage({ params }: Props) {
       return <URLEncoderDecoder />;
     case "password-generator":
       return <PasswordGenerator />;
+    // Data Conversion Tools
+    case "csv-json-converter":
+      return <CSVJSONConverter />;
     default:
       return <div className="p-8 text-center">Tool not found</div>;
   }
