@@ -594,7 +594,7 @@ export const tools: Tool[] = [
     relatedTools: ["yes-no-spinner"],
   },
 
-  // ==================== DEVELOPER TOOLS (1) ====================
+  // ==================== DEVELOPER TOOLS (2) ====================
   {
     id: "json-formatter-viewer",
     slug: "json-formatter-viewer",
@@ -609,7 +609,23 @@ export const tools: Tool[] = [
       description: "Free online JSON formatter and viewer. Validate, pretty-print, and explore JSON data with syntax highlighting. 100% client-side, no data sent to servers.",
       keywords: ["JSON formatter", "JSON viewer", "JSON validator", "pretty print JSON", "JSON beautifier", "format JSON online", "JSON parser"],
     },
-    relatedTools: [],
+    relatedTools: ["uuid-generator"],
+  },
+  {
+    id: "uuid-generator",
+    slug: "uuid-generator",
+    name: "UUID Generator",
+    category: "developer",
+    featured: true,
+    description: "Generate cryptographically secure UUID v4 identifiers instantly. Create single or bulk UUIDs (up to 50 at once) for databases, APIs, and applications. All generation happens in your browser using secure random values.",
+    shortDescription: "Generate secure UUID v4 identifiers",
+    icon: "🔑",
+    seo: {
+      title: "UUID Generator - Free Online UUID v4 Generator Tool",
+      description: "Free online UUID v4 generator. Create cryptographically secure unique identifiers instantly. Generate single or bulk UUIDs. 100% client-side, no data sent to servers.",
+      keywords: ["UUID generator", "UUID v4", "GUID generator", "unique identifier", "random UUID", "bulk UUID generator", "online UUID tool"],
+    },
+    relatedTools: ["json-formatter-viewer"],
   },
 ];
 

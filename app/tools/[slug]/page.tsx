@@ -42,6 +42,7 @@ import YesNoSpinner from "../yes-no-spinner/page";
 import DecisionWheel from "../decision-wheel/page";
 // Developer Tools
 import JsonFormatterViewer from "../json-formatter-viewer/page";
+import UUIDGenerator from "../uuid-generator/page";
 
 interface Props {
   params: Promise<{
@@ -112,6 +113,7 @@ export async function generateStaticParams() {
     { slug: "decision-wheel" },
     // Developer Tools
     { slug: "json-formatter-viewer" },
+    { slug: "uuid-generator" },
   ];
 }
 
@@ -195,6 +197,8 @@ export default async function ToolPage({ params }: Props) {
     // Developer Tools
     case "json-formatter-viewer":
       return <JsonFormatterViewer />;
+    case "uuid-generator":
+      return <UUIDGenerator />;
     default:
       return <div className="p-8 text-center">Tool not found</div>;
   }
