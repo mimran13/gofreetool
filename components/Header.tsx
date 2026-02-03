@@ -126,7 +126,7 @@ function SearchModal({
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search tools..."
+              placeholder="Search tools… (JSON, Password, EMI)"
               className="flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none"
               aria-label="Search tools"
             />
@@ -184,12 +184,42 @@ function SearchModal({
 }
 
 // ============================================================================
-// CATEGORIES DROPDOWN
+// CATEGORIES MEGA DROPDOWN
 // ============================================================================
 
-function CategoriesDropdown() {
+// Organize categories into two columns for mega menu
+const MEGA_MENU_COLUMNS = {
+  left: ["calculators", "developer", "security-encoding", "data-conversion", "date-time"],
+  right: ["health", "home", "writing", "fun"],
+};
+
+function CategoriesMegaMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Get categories for each column
+  const leftCategories = MEGA_MENU_COLUMNS.left
+    .map((slug) => categories.find((c) => c.slug === slug))
+    .filter(Boolean) as typeof categories;
+  const rightCategories = MEGA_MENU_COLUMNS.right
+    .map((slug) => categories.find((c) => c.slug === slug))
+    .filter(Boolean) as typeof categories;
+
+  // Handle mouse enter with slight delay for better UX
+  const handleMouseEnter = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsOpen(true);
+  }, []);
+
+  // Handle mouse leave with delay to prevent accidental close
+  const handleMouseLeave = useCallback(() => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150);
+  }, []);
 
   // Close on click outside
   useEffect(() => {
@@ -202,17 +232,46 @@ function CategoriesDropdown() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div
+      className="relative"
+      ref={dropdownRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium"
+        className="flex items-center gap-2 text-gray-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-semibold text-base"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
+        {/* Grid icon */}
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+          />
+        </svg>
         Categories
         <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -221,27 +280,72 @@ function CategoriesDropdown() {
         </svg>
       </button>
 
-      {/* Dropdown menu */}
+      {/* Mega dropdown menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-72 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50">
-          {categories.map((category) => (
+        <div className="absolute top-full left-0 mt-2 w-[480px] bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 z-50">
+          <div className="grid grid-cols-2 gap-4">
+            {/* Left column */}
+            <div className="space-y-1">
+              {leftCategories.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/category/${category.slug}`}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group"
+                >
+                  <span className="text-xl group-hover:scale-110 transition-transform">
+                    {category.icon}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-medium text-gray-900 dark:text-white text-sm group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                      {category.name.replace(/^[^\s]+\s/, "")}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                      {category.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Right column */}
+            <div className="space-y-1">
+              {rightCategories.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/category/${category.slug}`}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group"
+                >
+                  <span className="text-xl group-hover:scale-110 transition-transform">
+                    {category.icon}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-medium text-gray-900 dark:text-white text-sm group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                      {category.name.replace(/^[^\s]+\s/, "")}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                      {category.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Footer link */}
+          <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700">
             <Link
-              key={category.slug}
-              href={`/category/${category.slug}`}
+              href="/#categories"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="flex items-center justify-center gap-2 text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium"
             >
-              <span className="text-xl">{category.icon}</span>
-              <div>
-                <p className="font-medium text-gray-900 dark:text-white text-sm">
-                  {category.name.replace(/^[^\s]+\s/, "")}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {category.description}
-                </p>
-              </div>
+              View all {tools.length} tools
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
-          ))}
+          </div>
         </div>
       )}
     </div>
@@ -259,6 +363,8 @@ function MobileMenu({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const [expandedSection, setExpandedSection] = useState<string | null>("categories");
+
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -296,43 +402,74 @@ function MobileMenu({
 
         {/* Navigation */}
         <nav className="p-4 overflow-y-auto max-h-[calc(100vh-80px)]">
-          {/* Main links */}
-          <div className="space-y-1 mb-6">
-            <Link
-              href="/"
-              onClick={onClose}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 font-medium"
+          {/* Home link */}
+          <Link
+            href="/"
+            onClick={onClose}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 font-medium mb-4"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </Link>
+
+          {/* Categories Accordion */}
+          <div className="mb-4">
+            <button
+              onClick={() => setExpandedSection(expandedSection === "categories" ? null : "categories")}
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 font-semibold"
             >
-              <span>Home</span>
-            </Link>
-            <Link
-              href="/about"
-              onClick={onClose}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-            >
-              <span>About</span>
-            </Link>
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                  />
+                </svg>
+                Categories
+              </div>
+              <svg
+                className={`w-5 h-5 transition-transform duration-200 ${expandedSection === "categories" ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Categories list (accordion content) */}
+            {expandedSection === "categories" && (
+              <div className="mt-2 ml-2 space-y-1 border-l-2 border-gray-100 dark:border-gray-700 pl-4">
+                {categories.map((category) => (
+                  <Link
+                    key={category.slug}
+                    href={`/category/${category.slug}`}
+                    onClick={onClose}
+                    className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  >
+                    <span className="text-lg">{category.icon}</span>
+                    <span className="text-sm">{category.name.replace(/^[^\s]+\s/, "")}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Categories */}
-          <div>
-            <p className="px-3 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
-              Categories
-            </p>
-            <div className="space-y-1">
-              {categories.map((category) => (
-                <Link
-                  key={category.slug}
-                  href={`/category/${category.slug}`}
-                  onClick={onClose}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                >
-                  <span className="text-lg">{category.icon}</span>
-                  <span>{category.name.replace(/^[^\s]+\s/, "")}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
+          {/* Divider */}
+          <div className="border-t border-gray-100 dark:border-gray-700 my-4" />
+
+          {/* Secondary links */}
+          <Link
+            href="/about"
+            onClick={onClose}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm"
+          >
+            About
+          </Link>
         </nav>
       </div>
     </div>
@@ -346,11 +483,18 @@ function MobileMenu({
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Keyboard shortcut for search (Cmd/Ctrl + K)
+  // Keyboard shortcut for search (Cmd/Ctrl + K or /)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Cmd/Ctrl + K
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+      // Forward slash (when not in input)
+      if (e.key === "/" && !["INPUT", "TEXTAREA"].includes((e.target as HTMLElement).tagName)) {
         e.preventDefault();
         setSearchOpen(true);
       }
@@ -359,37 +503,65 @@ export default function Header() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Scroll detection for sticky header styling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+      <header
+        className={`sticky top-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b transition-all duration-200 ${
+          isScrolled
+            ? "border-gray-200 dark:border-gray-800 shadow-sm py-0"
+            : "border-transparent py-0"
+        }`}
+      >
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div
+            className={`flex items-center justify-between transition-all duration-200 ${
+              isScrolled ? "h-14" : "h-16"
+            }`}
+          >
             {/* Logo */}
             <Link href="/" className="flex items-center gap-1.5 flex-shrink-0">
-              <span className="text-xl sm:text-2xl font-bold text-teal-600">gofreetool</span>
+              <span
+                className={`font-bold text-teal-600 transition-all duration-200 ${
+                  isScrolled ? "text-xl" : "text-xl sm:text-2xl"
+                }`}
+              >
+                gofreetool
+              </span>
               <span className="text-xs text-gray-400 hidden sm:inline">.com</span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
-              <CategoriesDropdown />
+              {/* Categories - Primary Navigation */}
+              <CategoriesMegaMenu />
+
+              {/* About - De-emphasized */}
               <Link
                 href="/about"
-                className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium"
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-sm"
               >
                 About
               </Link>
             </div>
 
             {/* Right section */}
-            <div className="flex items-center gap-2">
-              {/* Search button */}
+            <div className="flex items-center gap-3">
+              {/* Search button - More prominent */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center gap-2 px-3 py-1.5 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors w-48 lg:w-64"
                 aria-label="Search tools"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -397,9 +569,11 @@ export default function Header() {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-                <span className="hidden sm:inline text-sm">Search</span>
-                <kbd className="hidden lg:inline-block px-1.5 py-0.5 text-xs text-gray-400 bg-white dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600">
-                  /K
+                <span className="text-sm text-gray-400 truncate flex-1 text-left">
+                  Search tools…
+                </span>
+                <kbd className="hidden lg:inline-flex items-center gap-1 px-1.5 py-0.5 text-xs text-gray-400 bg-white dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600">
+                  <span className="text-[10px]">⌘</span>K
                 </kbd>
               </button>
 
