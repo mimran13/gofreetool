@@ -730,7 +730,7 @@ export const tools: Tool[] = [
     relatedTools: ["json-formatter-viewer", "base64-encoder-decoder"],
   },
 
-  // ==================== DESIGN & VISUAL TOOLS (5) ====================
+  // ==================== DESIGN & VISUAL TOOLS (6) ====================
   {
     id: "color-picker",
     slug: "color-picker",
@@ -777,7 +777,7 @@ export const tools: Tool[] = [
       description: "Free online image resizer. Resize images to any dimension instantly. Maintain aspect ratio, use presets for social media. 100% client-side, no uploads to servers.",
       keywords: ["image resizer", "resize image online", "image resize tool", "photo resizer", "resize picture", "image dimensions", "scale image"],
     },
-    relatedTools: ["color-picker", "hex-rgb-converter"],
+    relatedTools: ["image-format-converter", "color-picker"],
   },
   {
     id: "hex-rgb-converter",
@@ -810,6 +810,22 @@ export const tools: Tool[] = [
       keywords: ["contrast checker", "wcag contrast", "color accessibility", "contrast ratio", "wcag aa", "wcag aaa", "accessibility checker"],
     },
     relatedTools: ["color-picker", "hex-rgb-converter"],
+  },
+  {
+    id: "image-format-converter",
+    slug: "image-format-converter",
+    name: "Image Format Converter",
+    category: "design",
+    featured: true,
+    description: "Convert images between PNG, JPG, and WebP formats instantly in your browser. Adjust quality settings for optimal file size. All processing happens locally — your images never leave your device.",
+    shortDescription: "Convert PNG, JPG, WebP images",
+    icon: "🔄",
+    seo: {
+      title: "Image Format Converter - Free PNG JPG WebP Converter",
+      description: "Free online image format converter. Convert between PNG, JPG, and WebP formats instantly. Adjust quality, compare file sizes. 100% client-side, no uploads.",
+      keywords: ["image converter", "png to jpg", "jpg to png", "webp converter", "image format converter", "convert image online"],
+    },
+    relatedTools: ["image-resizer", "color-picker"],
   },
 ];
 
@@ -1016,7 +1032,7 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   developer: ["json-formatter-viewer", "uuid-generator", "hash-generator"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator"],
   "data-conversion": ["csv-json-converter"],
-  design: ["color-picker", "contrast-checker", "gradient-generator", "image-resizer"],
+  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter"],
 };
 
 // ============================================================================
