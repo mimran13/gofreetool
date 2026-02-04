@@ -372,7 +372,7 @@ Alice Brown,alice@example.com,29,Chicago`);
         </div>
 
         {/* Options */}
-        <div className="flex flex-wrap gap-4 mb-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+        <div className="flex flex-wrap gap-4 mb-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
           {/* Delimiter selector */}
           <div className="flex items-center gap-2">
             <label
@@ -385,7 +385,7 @@ Alice Brown,alice@example.com,29,Chicago`);
               id="delimiter"
               value={delimiter}
               onChange={(e) => setDelimiter(e.target.value as Delimiter)}
-              className="px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-teal-500"
+              className="px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:ring-2 focus:ring-teal-500"
             >
               {DELIMITER_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -418,10 +418,10 @@ Alice Brown,alice@example.com,29,Chicago`);
         </div>
 
         {/* Input/Output Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Input Section */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between mb-3">
               <label
                 htmlFor="converter-input"
                 className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
@@ -442,20 +442,38 @@ Alice Brown,alice@example.com,29,Chicago`);
                   ? 'Paste your CSV data here...\nname,email,age\nJohn,john@example.com,28'
                   : 'Paste your JSON array here...\n[{"name": "John", "email": "john@example.com"}]'
               }
-              className="w-full h-64 px-4 py-3 font-mono text-sm border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
+              className="w-full h-[65vh] px-5 py-4 font-mono text-sm leading-relaxed border-2 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 resize-none transition-colors"
               spellCheck={false}
             />
+
+            {/* Action buttons */}
+            <div className="flex gap-3 mt-3">
+              <button
+                onClick={handleClear}
+                disabled={!input}
+                className="flex-1 px-4 py-2.5 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 dark:text-gray-200 font-medium rounded-lg transition-colors"
+              >
+                Clear
+              </button>
+              <button
+                onClick={handleCopy}
+                disabled={!conversionResult.success}
+                className="flex-1 px-4 py-2.5 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
+              >
+                {copySuccess ? 'Copied!' : 'Copy Output'}
+              </button>
+            </div>
           </div>
 
           {/* Output Section */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between mb-3">
               <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
                 {mode === 'csv-to-json' ? 'JSON Output' : 'CSV Output'}
               </label>
               {conversionResult.rowCount !== undefined && (
-                <span className="text-xs text-gray-500 dark:text-gray-400">
-                  {conversionResult.rowCount} rows
+                <span className="text-xs text-teal-600 dark:text-teal-400 font-medium">
+                  {conversionResult.rowCount} rows converted
                 </span>
               )}
             </div>
@@ -468,56 +486,41 @@ Alice Brown,alice@example.com,29,Chicago`);
                   ? 'JSON output will appear here...'
                   : 'CSV output will appear here...'
               }
-              className={`w-full h-64 px-4 py-3 font-mono text-sm border rounded-lg resize-none ${
+              className={`w-full h-[65vh] px-5 py-4 font-mono text-sm leading-relaxed border-2 rounded-xl resize-none transition-colors ${
                 conversionResult.error
                   ? 'border-red-300 dark:border-red-600 bg-red-50 dark:bg-red-900/10'
-                  : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900'
+                  : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900'
               } dark:text-white`}
               spellCheck={false}
             />
 
-            {/* Error message */}
-            {conversionResult.error && (
-              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-                <p className="text-sm text-red-700 dark:text-red-400">{conversionResult.error}</p>
-              </div>
-            )}
+            {/* Error message or swap button */}
+            <div className="mt-3 min-h-[40px] flex items-center">
+              {conversionResult.error ? (
+                <div className="w-full p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+                  <p className="text-sm text-red-700 dark:text-red-400">{conversionResult.error}</p>
+                </div>
+              ) : conversionResult.success ? (
+                <button
+                  onClick={() => {
+                    if (conversionResult.success && conversionResult.result) {
+                      setInput(conversionResult.result);
+                      setMode(mode === 'csv-to-json' ? 'json-to-csv' : 'csv-to-json');
+                    }
+                  }}
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors"
+                >
+                  Swap & Convert Back
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 mt-6 justify-center">
-          <button
-            onClick={handleCopy}
-            disabled={!conversionResult.success}
-            className="px-6 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
-          >
-            {copySuccess ? 'Copied!' : 'Copy Output'}
-          </button>
-          <button
-            onClick={handleClear}
-            disabled={!input}
-            className="px-6 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 dark:text-gray-300 font-medium rounded-lg transition-colors"
-          >
-            Clear
-          </button>
-          <button
-            onClick={() => {
-              if (conversionResult.success && conversionResult.result) {
-                setInput(conversionResult.result);
-                setMode(mode === 'csv-to-json' ? 'json-to-csv' : 'csv-to-json');
-              }
-            }}
-            disabled={!conversionResult.success}
-            className="px-6 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
-          >
-            Swap & Convert Back
-          </button>
-        </div>
       </div>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
         <div className="flex items-start gap-3">
           <span className="text-green-600 text-xl">🔒</span>
           <div>
@@ -540,7 +543,7 @@ Alice Brown,alice@example.com,29,Chicago`);
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* CSV to JSON */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
               <span className="text-teal-600">CSV → JSON</span>
             </h3>
@@ -554,7 +557,7 @@ Alice Brown,alice@example.com,29,Chicago`);
           </div>
 
           {/* JSON to CSV */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
               <span className="text-purple-600">JSON → CSV</span>
             </h3>
@@ -599,7 +602,7 @@ Alice Brown,alice@example.com,29,Chicago`);
       </section>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg">
+      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
         <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
         <p className="text-sm text-teal-700 dark:text-teal-400">
           Need to format or validate your JSON? Use our{' '}
@@ -626,7 +629,7 @@ Alice Brown,alice@example.com,29,Chicago`);
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               What is the difference between CSV and JSON?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -641,7 +644,7 @@ Alice Brown,alice@example.com,29,Chicago`);
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               How are commas inside values handled?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -655,7 +658,7 @@ Alice Brown,alice@example.com,29,Chicago`);
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               Why should I check &quot;First row is headers&quot;?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -669,7 +672,7 @@ Alice Brown,alice@example.com,29,Chicago`);
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               Can I convert Excel files directly?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -683,7 +686,7 @@ Alice Brown,alice@example.com,29,Chicago`);
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               What happens to nested JSON objects?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>

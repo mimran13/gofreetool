@@ -269,7 +269,7 @@ function JsonTreeViewer({ data }: JsonTreeViewerProps) {
       </div>
 
       {/* Tree view */}
-      <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 overflow-auto max-h-[500px]">
+      <div className="bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 overflow-auto h-[65vh]">
         <JsonTreeNode
           nodeKey=""
           value={data}
@@ -310,7 +310,7 @@ function SyntaxHighlightedJson({ json }: SyntaxHighlightedJsonProps) {
 
   return (
     <pre
-      className="font-mono text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 overflow-auto max-h-[500px] whitespace-pre"
+      className="font-mono text-sm leading-relaxed bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 overflow-auto h-[65vh] whitespace-pre"
       dangerouslySetInnerHTML={{ __html: highlighted }}
     />
   );
@@ -399,129 +399,133 @@ export default function JsonFormatterViewer() {
       </section>
 
       {/* Main Tool Interface */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* Input Panel */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <label
-              htmlFor="json-input"
-              className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
-            >
-              Input JSON
-            </label>
-            <button
-              onClick={handleLoadSample}
-              className="text-xs text-teal-600 hover:text-teal-700 dark:text-teal-400 hover:underline"
-            >
-              Load Sample
-            </button>
-          </div>
-
-          <textarea
-            id="json-input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder='Paste your JSON here, e.g., {"name": "John", "age": 30}'
-            className={`w-full h-[400px] px-4 py-3 font-mono text-sm border rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none transition-colors ${
-              input && !parseResult.success
-                ? 'border-red-300 dark:border-red-600 bg-red-50 dark:bg-red-900/10'
-                : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800'
-            } dark:text-white`}
-            spellCheck={false}
-            aria-describedby="json-error"
-          />
-
-          {/* Error message */}
-          {input && !parseResult.success && (
-            <div
-              id="json-error"
-              className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
-              role="alert"
-            >
-              <p className="text-sm text-red-700 dark:text-red-400 font-medium">
-                {parseResult.error}
-              </p>
-            </div>
-          )}
-
-          {/* Action buttons */}
-          <div className="flex gap-3">
-            <button
-              onClick={handleClear}
-              disabled={!input}
-              className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 dark:text-gray-200 font-medium rounded-lg transition-colors"
-            >
-              Clear
-            </button>
-            <button
-              onClick={handleCopy}
-              disabled={!parseResult.success}
-              className="flex-1 px-4 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
-            >
-              {copySuccess ? 'Copied!' : 'Copy Formatted'}
-            </button>
-          </div>
-        </div>
-
-        {/* Output Panel */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
-              Output
-            </span>
-
-            {/* View mode toggle */}
-            <div className="flex bg-gray-200 dark:bg-gray-700 rounded-lg p-1">
-              <button
-                onClick={() => setViewMode('formatted')}
-                className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
-                  viewMode === 'formatted'
-                    ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                }`}
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+          {/* Input Panel */}
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between mb-3">
+              <label
+                htmlFor="json-input"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
               >
-                Formatted
+                Input JSON
+              </label>
+              <button
+                onClick={handleLoadSample}
+                className="text-xs text-teal-600 hover:text-teal-700 dark:text-teal-400 hover:underline"
+              >
+                Load Sample
+              </button>
+            </div>
+
+            <textarea
+              id="json-input"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder='Paste your JSON here, e.g., {"name": "John", "age": 30}'
+              className={`w-full h-[65vh] px-5 py-4 font-mono text-sm leading-relaxed border-2 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 resize-none transition-colors ${
+                input && !parseResult.success
+                  ? 'border-red-300 dark:border-red-600 bg-red-50 dark:bg-red-900/10'
+                  : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900'
+              } dark:text-white`}
+              spellCheck={false}
+              aria-describedby="json-error"
+            />
+
+            {/* Error message */}
+            {input && !parseResult.success && (
+              <div
+                id="json-error"
+                className="mt-3 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl"
+                role="alert"
+              >
+                <p className="text-sm text-red-700 dark:text-red-400 font-medium">
+                  {parseResult.error}
+                </p>
+              </div>
+            )}
+
+            {/* Action buttons */}
+            <div className="flex gap-3 mt-3">
+              <button
+                onClick={handleClear}
+                disabled={!input}
+                className="flex-1 px-4 py-2.5 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 dark:text-gray-200 font-medium rounded-lg transition-colors"
+              >
+                Clear
               </button>
               <button
-                onClick={() => setViewMode('tree')}
-                className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
-                  viewMode === 'tree'
-                    ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                }`}
+                onClick={handleCopy}
+                disabled={!parseResult.success}
+                className="flex-1 px-4 py-2.5 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
               >
-                Tree View
+                {copySuccess ? 'Copied!' : 'Copy Formatted'}
               </button>
             </div>
           </div>
 
-          {/* Output display */}
-          {parseResult.success && parseResult.formatted ? (
-            viewMode === 'formatted' ? (
-              <SyntaxHighlightedJson json={parseResult.formatted} />
+          {/* Output Panel */}
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between mb-3">
+              <span className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+                Output
+              </span>
+
+              {/* View mode toggle */}
+              <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+                <button
+                  onClick={() => setViewMode('formatted')}
+                  className={`px-4 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                    viewMode === 'formatted'
+                      ? 'bg-teal-600 text-white shadow-sm'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+                >
+                  Formatted
+                </button>
+                <button
+                  onClick={() => setViewMode('tree')}
+                  className={`px-4 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                    viewMode === 'tree'
+                      ? 'bg-teal-600 text-white shadow-sm'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+                >
+                  Tree View
+                </button>
+              </div>
+            </div>
+
+            {/* Output display */}
+            {parseResult.success && parseResult.formatted ? (
+              viewMode === 'formatted' ? (
+                <SyntaxHighlightedJson json={parseResult.formatted} />
+              ) : (
+                <JsonTreeViewer data={parseResult.data} />
+              )
             ) : (
-              <JsonTreeViewer data={parseResult.data} />
-            )
-          ) : (
-            <div className="h-[400px] flex items-center justify-center bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg">
-              <p className="text-gray-500 dark:text-gray-400 text-center px-4">
-                {input ? 'Fix the JSON errors to see output' : 'Enter valid JSON to see formatted output'}
-              </p>
-            </div>
-          )}
+              <div className="h-[65vh] flex items-center justify-center bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl">
+                <p className="text-gray-500 dark:text-gray-400 text-center px-4">
+                  {input ? 'Fix the JSON errors to see output' : 'Enter valid JSON to see formatted output'}
+                </p>
+              </div>
+            )}
 
-          {/* Stats */}
-          {parseResult.success && (
-            <div className="flex gap-4 text-xs text-gray-500 dark:text-gray-400">
-              <span>Characters: {parseResult.formatted?.length.toLocaleString()}</span>
-              <span>Lines: {parseResult.formatted?.split('\n').length.toLocaleString()}</span>
+            {/* Stats */}
+            <div className="flex gap-4 text-xs text-gray-500 dark:text-gray-400 mt-3 min-h-[40px] items-center">
+              {parseResult.success && (
+                <>
+                  <span>Characters: {parseResult.formatted?.length.toLocaleString()}</span>
+                  <span>Lines: {parseResult.formatted?.split('\n').length.toLocaleString()}</span>
+                </>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
         <div className="flex items-start gap-3">
           <span className="text-green-600 text-xl">🔒</span>
           <div>
@@ -577,7 +581,7 @@ export default function JsonFormatterViewer() {
             { icon: '📋', title: 'One-Click Copy', desc: 'Copy formatted JSON to clipboard instantly' },
             { icon: '🔒', title: 'Privacy First', desc: '100% client-side, no server processing' },
           ].map((feature) => (
-            <div key={feature.title} className="flex gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div key={feature.title} className="flex gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
               <span className="text-2xl">{feature.icon}</span>
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white">{feature.title}</h3>
@@ -588,13 +592,35 @@ export default function JsonFormatterViewer() {
         </div>
       </section>
 
+      {/* Related Tools */}
+      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+        <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
+        <p className="text-sm text-teal-700 dark:text-teal-400">
+          Working with HTML code? Try our{' '}
+          <a
+            href="/tools/html-formatter"
+            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+          >
+            HTML Formatter & Beautifier
+          </a>
+          . Need to parse URLs? Use our{' '}
+          <a
+            href="/tools/url-parser"
+            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+          >
+            URL Parser
+          </a>{' '}
+          to break down complex URLs and query strings.
+        </p>
+      </section>
+
       {/* FAQ Section */}
       <section className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               What is JSON and why do I need to format it?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -607,7 +633,7 @@ export default function JsonFormatterViewer() {
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               Is my data safe when using this tool?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -621,7 +647,7 @@ export default function JsonFormatterViewer() {
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               What does &quot;Invalid JSON&quot; error mean?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -634,7 +660,7 @@ export default function JsonFormatterViewer() {
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               Can I format large JSON files?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
@@ -647,7 +673,7 @@ export default function JsonFormatterViewer() {
             </p>
           </details>
 
-          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 cursor-pointer group">
+          <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 cursor-pointer group">
             <summary className="font-semibold text-gray-900 dark:text-white flex items-center justify-between">
               What&apos;s the difference between Formatted and Tree View?
               <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
