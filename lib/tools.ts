@@ -565,7 +565,7 @@ export const tools: Tool[] = [
     relatedTools: ["paint-area-calculator"],
   },
 
-  // ==================== FUN & RANDOM (5) ====================
+  // ==================== FUN & RANDOM (6) ====================
   {
     id: "random-number-generator",
     slug: "random-number-generator",
@@ -640,6 +640,36 @@ export const tools: Tool[] = [
       keywords: ["decision wheel", "choice picker", "random selector"],
     },
     relatedTools: ["yes-no-spinner"],
+  },
+  {
+    id: "pomodoro-timer",
+    slug: "pomodoro-timer",
+    name: "Pomodoro Timer",
+    category: "fun",
+    featured: true,
+    description: "Boost your productivity with the Pomodoro Technique. Work in focused 25-minute intervals with short breaks. Customizable durations, session tracking, and audio notifications. Works offline.",
+    shortDescription: "Focus timer with breaks",
+    icon: "🍅",
+    seo: {
+      title: "Pomodoro Timer - Free Online Focus Timer",
+      description: "Free Pomodoro timer online. Work in focused 25-minute intervals with short breaks. Customizable durations, session tracking, and audio alerts. No signup required.",
+      keywords: ["pomodoro timer", "pomodoro technique", "focus timer", "productivity timer", "study timer", "work timer online", "25 minute timer"],
+    },
+    faq: [
+      {
+        question: "What is the Pomodoro Technique?",
+        answer: "The Pomodoro Technique is a time management method that uses 25-minute focused work intervals followed by 5-minute breaks. After 4 intervals, take a longer 15-minute break.",
+      },
+      {
+        question: "Can I customize the timer duration?",
+        answer: "Yes, you can adjust the focus time, short break, and long break durations in the settings. Common variations include 50/10 and 90/20 minute splits.",
+      },
+      {
+        question: "Does the timer work in the background?",
+        answer: "Yes, the timer continues running when you switch tabs. The remaining time is shown in the page title, and you'll hear an audio chime when it completes.",
+      },
+    ],
+    relatedTools: ["date-difference-calculator", "workdays-calculator", "decision-wheel"],
   },
 
   // ==================== DEVELOPER TOOLS (7) ====================
@@ -1152,7 +1182,7 @@ export const tools: Tool[] = [
     relatedTools: ["json-formatter-viewer", "json-yaml-converter", "csv-json-converter"],
   },
 
-  // ==================== DESIGN & VISUAL TOOLS (7) ====================
+  // ==================== DESIGN & VISUAL TOOLS (8) ====================
   {
     id: "color-picker",
     slug: "color-picker",
@@ -1278,6 +1308,36 @@ export const tools: Tool[] = [
       },
     ],
     relatedTools: ["base64-encoder-decoder", "url-encoder-decoder", "password-generator"],
+  },
+  {
+    id: "image-compressor",
+    slug: "image-compressor",
+    name: "Image Compressor",
+    category: "design",
+    featured: true,
+    description: "Compress images instantly in your browser. Reduce file size while maintaining quality. Supports JPEG, WebP, and PNG output formats with adjustable quality and optional resizing. All processing happens locally.",
+    shortDescription: "Compress images to reduce file size",
+    icon: "🗜️",
+    seo: {
+      title: "Image Compressor - Compress Images Free",
+      description: "Free online image compressor. Reduce image file size while keeping quality. Supports JPEG, WebP, PNG with adjustable compression. 100% client-side, no uploads.",
+      keywords: ["image compressor", "compress image", "reduce image size", "image optimizer", "compress photo", "image compression online", "optimize images"],
+    },
+    faq: [
+      {
+        question: "What quality level should I use?",
+        answer: "For web images, 75-80% offers the best balance between file size and quality. For high-quality photos, use 85-90%. Below 60%, compression artifacts become noticeable.",
+      },
+      {
+        question: "Should I use JPEG, WebP, or PNG?",
+        answer: "Use WebP for best compression in modern browsers. Use JPEG for maximum compatibility with photos. Use PNG when you need transparency or lossless quality.",
+      },
+      {
+        question: "Are my images safe?",
+        answer: "Yes. All compression happens in your browser using the HTML Canvas API. Your images are never sent to any server.",
+      },
+    ],
+    relatedTools: ["image-resizer", "image-format-converter", "qr-code-generator"],
   },
 ];
 
@@ -1501,11 +1561,11 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   writing: ["word-counter", "text-case-converter", "lorem-ipsum-generator", "remove-extra-spaces", "duplicate-line-remover"],
   "date-time": ["age-calculator", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
   home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
-  fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator"],
+  fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator", "pomodoro-timer"],
   developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter", "unix-timestamp-converter", "text-diff-checker"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
   "data-conversion": ["csv-json-converter", "json-xml-converter"],
-  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator"],
+  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator", "image-compressor"],
 };
 
 // ============================================================================
@@ -1632,6 +1692,11 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       icon: "🎯",
       toolSlugs: ["yes-no-spinner", "decision-wheel"],
     },
+    {
+      name: "Productivity",
+      icon: "🍅",
+      toolSlugs: ["pomodoro-timer"],
+    },
   ],
   developer: [
     {
@@ -1688,7 +1753,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Image Tools",
       icon: "🖼️",
-      toolSlugs: ["image-resizer", "image-format-converter"],
+      toolSlugs: ["image-resizer", "image-format-converter", "image-compressor"],
     },
     {
       name: "QR & Barcode",
