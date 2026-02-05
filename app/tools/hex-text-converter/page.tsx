@@ -177,8 +177,52 @@ export default function HexTextConverter() {
 
   if (!tool) return <div>Tool not found</div>;
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the difference between hex and Base64?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Both are ways to represent binary data as text. Hex uses 16 characters (0-9, A-F) and doubles the size (1 byte = 2 hex chars). Base64 uses 64 characters and increases size by about 33%. Base64 is more space-efficient for large data, while hex is more human-readable and commonly used in debugging.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What encoding does this tool use?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'This tool uses UTF-8 encoding, which is backward-compatible with ASCII. Standard ASCII characters (A-Z, 0-9, etc.) use 1 byte each. Extended characters like accented letters use 2 bytes, and emojis may use up to 4 bytes in UTF-8.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Which separator format should I use?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Space-separated (48 65 6C) is the most readable and common in hex editors. Colon-separated (48:65:6C) is used in MAC addresses and network contexts. No separator (48656C) is compact and used in programming and URLs.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I convert binary data (non-text) with this tool?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'This tool is designed for text-to-hex conversion. When converting hex to text, the hex values must represent valid UTF-8 byte sequences. Binary data like images or executables will fail hex-to-text conversion because it cannot be displayed as text.',
+        },
+      },
+    ],
+  };
+
   return (
     <ToolLayout tool={tool}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Introduction */}
       <section className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">

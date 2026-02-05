@@ -923,7 +923,7 @@ export const tools: Tool[] = [
     shortDescription: "Generate and verify MD5/SHA hashes",
     icon: "🔒",
     seo: {
-      title: "MD5/SHA Hash Generator & Checker - Free Online Hash Tool",
+      title: "MD5 & SHA Hash Generator - Verify Hashes",
       description: "Free online hash generator and checker. Generate MD5, SHA-1, SHA-256, SHA-512 hashes and verify hashes instantly. 100% client-side, no data sent to servers.",
       keywords: ["md5 hash generator", "sha256 hash checker", "hash verify online", "md5 checksum", "sha hash generator", "hash checker"],
     },
@@ -949,7 +949,7 @@ export const tools: Tool[] = [
     shortDescription: "Encrypt and decrypt text with AES-256",
     icon: "🛡️",
     seo: {
-      title: "AES Encryption Decryption - Free Online AES Tool",
+      title: "AES Encrypt & Decrypt Text - Free Tool",
       description: "Free online AES-256-GCM encryption and decryption tool. Encrypt text with a passphrase using PBKDF2 key derivation. 100% client-side, no data sent to servers.",
       keywords: ["aes encryption online", "encrypt text online", "aes decrypt", "online encryption tool", "aes-256 encryption", "text encryption"],
     },
@@ -975,8 +975,8 @@ export const tools: Tool[] = [
     shortDescription: "Convert between hex and text",
     icon: "🔢",
     seo: {
-      title: "Hex to Text Converter - Free Online Hexadecimal Tool",
-      description: "Free online hex to text and text to hex converter. Configure separators and case. Supports UTF-8. 100% client-side, no data sent to servers.",
+      title: "Hex Text Converter - Encode & Decode Hex",
+      description: "Free online hex to text and text to hex converter. Supports UTF-8 with configurable separators and case options. No data sent to servers, works in your browser.",
       keywords: ["hex to text converter", "text to hex", "hexadecimal converter", "hex decoder", "hex encoder", "hex string converter"],
     },
     faq: [
@@ -1001,8 +1001,8 @@ export const tools: Tool[] = [
     shortDescription: "Translate text to Morse code and back",
     icon: "📡",
     seo: {
-      title: "Morse Code Translator - Free Online Morse Code Tool",
-      description: "Free online Morse code translator. Convert text to Morse code and decode Morse to text. Audio playback. ITU standard. 100% client-side.",
+      title: "Morse Code Translator - Encode & Decode",
+      description: "Free Morse code translator for converting text to Morse and Morse to text. Supports audio playback and ITU standard. No signup required, works in your browser.",
       keywords: ["morse code translator", "text to morse code", "morse decoder", "morse code converter", "morse code audio", "morse code generator"],
     },
     faq: [

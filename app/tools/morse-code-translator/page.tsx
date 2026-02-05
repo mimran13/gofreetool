@@ -263,8 +263,52 @@ export default function MorseCodeTranslator() {
 
   if (!tool) return <div>Tool not found</div>;
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is Morse code?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Morse code is a character encoding method that represents letters and numbers as sequences of dots (short signals) and dashes (long signals). Invented by Samuel Morse and Alfred Vail in the 1830s, it was originally used for telegraph communication. The International (ITU) standard is the most widely used version today.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What does SOS look like in Morse code?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'SOS in Morse code is ... --- ... (three dots, three dashes, three dots). It was chosen as the international distress signal because it is easy to transmit and recognize.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How is timing structured in Morse code?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A dot is the basic time unit. A dash is 3 dots long. The gap between parts of a letter is 1 dot, between letters is 3 dots, and between words is 7 dots.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is Morse code still used today?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. While Morse code is no longer required for commercial maritime or aviation, it is still used by amateur (ham) radio operators, in aviation navigation aids (VOR/NDB), for accessibility devices, and as a hobby.',
+        },
+      },
+    ],
+  };
+
   return (
     <ToolLayout tool={tool}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Introduction */}
       <section className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">

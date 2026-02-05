@@ -186,8 +186,52 @@ export default function AESEncryptionDecryption() {
 
   if (!tool) return <div>Tool not found</div>;
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is AES encryption?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'AES (Advanced Encryption Standard) is a symmetric encryption algorithm adopted by the U.S. government and used worldwide. AES-256 uses a 256-bit key, providing extremely strong security. GCM (Galois/Counter Mode) adds authenticated encryption, ensuring data integrity alongside confidentiality.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What happens if I lose my passphrase?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'If you lose the passphrase, the encrypted data cannot be recovered. AES-256 encryption is designed to be unbreakable without the correct key. There is no backdoor or recovery mechanism. Always store your passphrase securely.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is this tool secure enough for sensitive data?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'This tool uses AES-256-GCM with PBKDF2, which is industry-standard encryption. The processing happens entirely in your browser. However, for highly sensitive data, consider using dedicated encryption software with additional security features like key management.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why does encrypting the same text twice produce different results?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Each encryption generates a random salt and initialization vector (IV). This ensures that even identical plaintext with the same passphrase produces different ciphertext each time, preventing attackers from detecting patterns.',
+        },
+      },
+    ],
+  };
+
   return (
     <ToolLayout tool={tool}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Introduction */}
       <section className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">

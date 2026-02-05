@@ -348,8 +348,52 @@ export default function HashGeneratorChecker() {
 
   if (!tool) return <div>Tool not found</div>;
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the difference between hashing and encryption?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Hashing is a one-way function — you cannot reverse a hash to get the original data. Encryption is a two-way function — you can decrypt encrypted data with the correct key. Hashing is used for data integrity and password verification, while encryption is used to protect data confidentiality.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is MD5 still safe to use?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'MD5 is cryptographically broken — collision attacks are practical. It should not be used for security purposes like password hashing or digital signatures. However, MD5 is still acceptable for non-security uses like quick checksums or data deduplication.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Which hash algorithm should I use?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'For general purposes, SHA-256 is the recommended choice — it offers strong collision resistance and is widely supported. SHA-512 provides even more security for sensitive applications. For password hashing, use specialized algorithms like bcrypt, scrypt, or Argon2.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can a hash be reversed to get the original text?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. Cryptographic hash functions are designed to be one-way. You cannot mathematically reverse a hash to find the original input. However, short or common strings can be found using rainbow tables or brute-force attacks, which is why passwords should always be hashed with a salt.',
+        },
+      },
+    ],
+  };
+
   return (
     <ToolLayout tool={tool}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Introduction */}
       <section className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
