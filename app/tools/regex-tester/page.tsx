@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // TYPES
@@ -347,7 +347,7 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
   return (
     <ToolLayout tool={tool}>
       {/* Introduction Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           Test and debug <strong>regular expressions</strong> in real-time with our free regex tester.
           Enter a pattern and test string to see all matches highlighted instantly. View capture groups,
@@ -355,10 +355,10 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
           multiline (m), and dotAll (s). <strong>100% client-side processing</strong> means your patterns
           and text never leave your browser.
         </p>
-      </section>
+      </ToolContent>
 
       {/* Main Tool Interface */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <ToolInterface className="mb-8">
         {/* Pattern Input */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
@@ -524,10 +524,11 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
             <MatchesTable matches={result.matches} />
           </div>
         )}
-      </div>
+      </ToolInterface>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+      <ToolContent className="mb-12">
+        <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
         <div className="flex items-start gap-3">
           <span className="text-green-600 text-xl">🔒</span>
           <div>
@@ -538,10 +539,11 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
             </p>
           </div>
         </div>
-      </div>
+        </div>
+      </ToolContent>
 
       {/* How to Use Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           How to Use the Regex Tester
         </h2>
@@ -567,10 +569,10 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
             your captures more readable.
           </li>
         </ol>
-      </section>
+      </ToolContent>
 
       {/* Quick Reference Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Regex Quick Reference
         </h2>
@@ -603,10 +605,10 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
             </div>
           ))}
         </div>
-      </section>
+      </ToolContent>
 
       {/* Flags Reference */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Regex Flags Explained
         </h2>
@@ -648,32 +650,34 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
             </tbody>
           </table>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
-        <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
-        <p className="text-sm text-teal-700 dark:text-teal-400">
-          Working with JSON data? Try our{' '}
-          <Link
-            href="/tools/json-formatter-viewer"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            JSON Formatter & Viewer
-          </Link>
-          . Need to parse URLs? Use our{' '}
-          <Link
-            href="/tools/url-parser"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            URL Parser
-          </Link>{' '}
-          to break down complex URLs and query strings.
-        </p>
-      </section>
+      <ToolContent className="mb-12">
+        <div className="p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+          <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
+          <p className="text-sm text-teal-700 dark:text-teal-400">
+            Working with JSON data? Try our{' '}
+            <Link
+              href="/tools/json-formatter-viewer"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              JSON Formatter & Viewer
+            </Link>
+            . Need to parse URLs? Use our{' '}
+            <Link
+              href="/tools/url-parser"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              URL Parser
+            </Link>{' '}
+            to break down complex URLs and query strings.
+          </p>
+        </div>
+      </ToolContent>
 
       {/* FAQ Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
@@ -741,7 +745,7 @@ Invalid: ftp://files.example.com (won't match - wrong protocol)`);
             </p>
           </details>
         </div>
-      </section>
+      </ToolContent>
     </ToolLayout>
   );
 }

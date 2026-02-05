@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 import { generateRandomNumber } from '@/lib/utils';
 import { trackToolCalculate, trackCopyClick } from '@/lib/analytics';
 

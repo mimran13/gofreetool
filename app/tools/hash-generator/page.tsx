@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // MD5 IMPLEMENTATION (Web Crypto doesn't support MD5)

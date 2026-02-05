@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // URL ENCODING/DECODING HELPERS

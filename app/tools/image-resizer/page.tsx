@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useRef } from 'react';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 import { getToolBySlug } from '@/lib/tools';
 
 interface ImageData {

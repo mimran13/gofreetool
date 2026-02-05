@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // BASE CONVERSION TYPES & HELPERS
@@ -332,7 +332,7 @@ export default function BaseNumberConverter() {
   return (
     <ToolLayout tool={tool}>
       {/* Introduction Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           Convert numbers between <strong>Binary</strong>, <strong>Decimal</strong>,{' '}
           <strong>Hexadecimal</strong>, and <strong>Octal</strong> instantly with our free{' '}
@@ -341,10 +341,10 @@ export default function BaseNumberConverter() {
           working with different number systems. <strong>100% client-side processing</strong> means
           your data never leaves your browser.
         </p>
-      </section>
+      </ToolContent>
 
       {/* Main Tool Interface */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <ToolInterface className="mb-8">
         {/* Input Section */}
         <div className="mb-6">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
@@ -473,24 +473,26 @@ export default function BaseNumberConverter() {
             </p>
           </div>
         )}
-      </div>
+      </ToolInterface>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
-        <div className="flex items-start gap-3">
-          <span className="text-green-600 text-xl">🔒</span>
-          <div>
-            <h3 className="font-semibold text-green-800 dark:text-green-300">100% Client-Side Processing</h3>
-            <p className="text-sm text-green-700 dark:text-green-400">
-              All number conversions happen directly in your browser. Your data is never sent to any server,
-              stored, or logged. This tool works completely offline after the page loads.
-            </p>
+      <ToolContent className="mb-12">
+        <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+          <div className="flex items-start gap-3">
+            <span className="text-green-600 text-xl">🔒</span>
+            <div>
+              <h3 className="font-semibold text-green-800 dark:text-green-300">100% Client-Side Processing</h3>
+              <p className="text-sm text-green-700 dark:text-green-400">
+                All number conversions happen directly in your browser. Your data is never sent to any server,
+                stored, or logged. This tool works completely offline after the page loads.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </ToolContent>
 
       {/* How to Use Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           How to Use the Base Number Converter
         </h2>
@@ -514,10 +516,10 @@ export default function BaseNumberConverter() {
             &quot;Copy All&quot; to copy all conversions at once.
           </li>
         </ol>
-      </section>
+      </ToolContent>
 
       {/* Base Reference Table */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Number Base Reference
         </h2>
@@ -556,10 +558,10 @@ export default function BaseNumberConverter() {
             </tbody>
           </table>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Features Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Features
         </h2>
@@ -581,10 +583,10 @@ export default function BaseNumberConverter() {
             </div>
           ))}
         </div>
-      </section>
+      </ToolContent>
 
       {/* Common Conversions */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Common Number Conversions
         </h2>
@@ -621,46 +623,48 @@ export default function BaseNumberConverter() {
             </tbody>
           </table>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
-        <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
-        <p className="text-sm text-teal-700 dark:text-teal-400">
-          Need unique identifiers? Try our{' '}
-          <Link
-            href="/tools/uuid-generator"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            UUID Generator
-          </Link>
-          . Generate checksums with our{' '}
-          <Link
-            href="/tools/hash-generator"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            Hash Generator
-          </Link>
-          . Working with encoded data? Use our{' '}
-          <Link
-            href="/tools/base64-encoder-decoder"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            Base64 Encoder/Decoder
-          </Link>
-          . Format your JSON with our{' '}
-          <Link
-            href="/tools/json-formatter-viewer"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            JSON Formatter
-          </Link>
-          .
-        </p>
-      </section>
+      <ToolContent className="mb-12">
+        <div className="p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+          <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
+          <p className="text-sm text-teal-700 dark:text-teal-400">
+            Need unique identifiers? Try our{' '}
+            <Link
+              href="/tools/uuid-generator"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              UUID Generator
+            </Link>
+            . Generate checksums with our{' '}
+            <Link
+              href="/tools/hash-generator"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              Hash Generator
+            </Link>
+            . Working with encoded data? Use our{' '}
+            <Link
+              href="/tools/base64-encoder-decoder"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              Base64 Encoder/Decoder
+            </Link>
+            . Format your JSON with our{' '}
+            <Link
+              href="/tools/json-formatter-viewer"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              JSON Formatter
+            </Link>
+            .
+          </p>
+        </div>
+      </ToolContent>
 
       {/* FAQ Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
@@ -742,7 +746,7 @@ export default function BaseNumberConverter() {
             </p>
           </details>
         </div>
-      </section>
+      </ToolContent>
     </ToolLayout>
   );
 }

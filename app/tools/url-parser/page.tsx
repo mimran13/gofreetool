@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // URL PARSING HELPERS
@@ -316,7 +316,7 @@ export default function URLParser() {
   return (
     <ToolLayout tool={tool}>
       {/* Introduction Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           <strong>URL Parser</strong> breaks down any URL into its components for easy analysis.
           Enter a URL to instantly see the <strong>protocol</strong>, <strong>host</strong>,
@@ -325,10 +325,11 @@ export default function URLParser() {
           for each value. Perfect for debugging API calls, analyzing tracking links, or understanding
           complex URLs. All parsing happens in your browser&mdash;your URLs are never sent to any server.
         </p>
-      </section>
+      </ToolContent>
 
       {/* Main Tool Interface */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <ToolInterface className="mb-8">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         {/* Input Section */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
@@ -475,9 +476,11 @@ export default function URLParser() {
           </div>
         )}
       </div>
+      </ToolInterface>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+      <ToolContent className="mb-12">
+      <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
         <div className="flex items-start gap-3">
           <span className="text-green-600 text-xl">🔒</span>
           <div>
@@ -490,9 +493,10 @@ export default function URLParser() {
           </div>
         </div>
       </div>
+      </ToolContent>
 
       {/* How to Use Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           How to Use the URL Parser
         </h2>
@@ -514,10 +518,10 @@ export default function URLParser() {
             component or parameter.
           </li>
         </ol>
-      </section>
+      </ToolContent>
 
       {/* URL Components Reference Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           URL Components Explained
         </h2>
@@ -575,10 +579,10 @@ export default function URLParser() {
             </table>
           </div>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Use Cases Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Common Use Cases
         </h2>
@@ -609,10 +613,11 @@ export default function URLParser() {
             </p>
           </div>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+      <ToolContent className="mb-12">
+      <div className="p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
         <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
         <p className="text-sm text-teal-700 dark:text-teal-400">
           Need to encode special characters for URLs? Try our{' '}
@@ -638,10 +643,11 @@ export default function URLParser() {
           </Link>
           .
         </p>
-      </section>
+      </div>
+      </ToolContent>
 
       {/* FAQ Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
@@ -709,7 +715,7 @@ export default function URLParser() {
             </p>
           </details>
         </div>
-      </section>
+      </ToolContent>
     </ToolLayout>
   );
 }

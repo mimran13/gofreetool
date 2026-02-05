@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // CSV PARSING UTILITIES
@@ -330,7 +330,7 @@ Alice Brown,alice@example.com,29,Chicago`);
   return (
     <ToolLayout tool={tool}>
       {/* Introduction Section - SEO optimized */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           Our free <strong>CSV to JSON Converter</strong> instantly transforms data between CSV
           (Comma-Separated Values) and JSON (JavaScript Object Notation) formats. CSV is the standard
@@ -341,10 +341,10 @@ Alice Brown,alice@example.com,29,Chicago`);
           with data interoperability. <strong>All conversion happens in your browser</strong>—your
           data is never uploaded to any server, ensuring complete privacy for sensitive information.
         </p>
-      </section>
+      </ToolContent>
 
       {/* Main Tool Interface */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <ToolInterface className="mb-8">
         {/* Mode Toggle */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
@@ -517,26 +517,28 @@ Alice Brown,alice@example.com,29,Chicago`);
           </div>
         </div>
 
-      </div>
+      </ToolInterface>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
-        <div className="flex items-start gap-3">
-          <span className="text-green-600 text-xl">🔒</span>
-          <div>
-            <h3 className="font-semibold text-green-800 dark:text-green-300">Your Data Stays Private</h3>
-            <p className="text-sm text-green-700 dark:text-green-400">
-              All CSV and JSON conversion happens directly in your browser using JavaScript. Your
-              data is never uploaded to any server, stored, or transmitted. This tool works offline
-              after the page loads—perfect for converting sensitive data like customer records or
-              financial information.
-            </p>
+      <ToolContent className="mb-12">
+        <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+          <div className="flex items-start gap-3">
+            <span className="text-green-600 text-xl">🔒</span>
+            <div>
+              <h3 className="font-semibold text-green-800 dark:text-green-300">Your Data Stays Private</h3>
+              <p className="text-sm text-green-700 dark:text-green-400">
+                All CSV and JSON conversion happens directly in your browser using JavaScript. Your
+                data is never uploaded to any server, stored, or transmitted. This tool works offline
+                after the page loads—perfect for converting sensitive data like customer records or
+                financial information.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </ToolContent>
 
       {/* How to Use Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           How to Use the CSV to JSON Converter
         </h2>
@@ -570,10 +572,10 @@ Alice Brown,alice@example.com,29,Chicago`);
             </ol>
           </div>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Supported Formats */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Supported Formats
         </h2>
@@ -599,32 +601,34 @@ Alice Brown,alice@example.com,29,Chicago`);
             </ul>
           </div>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
-        <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
-        <p className="text-sm text-teal-700 dark:text-teal-400">
-          Need to format or validate your JSON? Use our{' '}
-          <Link
-            href="/tools/json-formatter-viewer"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            JSON Formatter & Viewer
-          </Link>{' '}
-          for pretty-printing and syntax highlighting. Want to encode data for transmission? Try our{' '}
-          <Link
-            href="/tools/base64-encoder-decoder"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            Base64 Encoder/Decoder
-          </Link>{' '}
-          for text and file encoding.
-        </p>
-      </section>
+      <ToolContent className="mb-12">
+        <div className="p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+          <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
+          <p className="text-sm text-teal-700 dark:text-teal-400">
+            Need to format or validate your JSON? Use our{' '}
+            <Link
+              href="/tools/json-formatter-viewer"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              JSON Formatter & Viewer
+            </Link>{' '}
+            for pretty-printing and syntax highlighting. Want to encode data for transmission? Try our{' '}
+            <Link
+              href="/tools/base64-encoder-decoder"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              Base64 Encoder/Decoder
+            </Link>{' '}
+            for text and file encoding.
+          </p>
+        </div>
+      </ToolContent>
 
       {/* FAQ Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
@@ -700,7 +704,7 @@ Alice Brown,alice@example.com,29,Chicago`);
             </p>
           </details>
         </div>
-      </section>
+      </ToolContent>
     </ToolLayout>
   );
 }

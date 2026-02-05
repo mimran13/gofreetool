@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // JWT DECODING HELPERS
@@ -376,7 +376,7 @@ export default function JWTDecoder() {
   return (
     <ToolLayout tool={tool}>
       {/* Introduction Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           Decode and inspect <strong>JSON Web Tokens (JWT)</strong> instantly with our free decoder.
           Paste any JWT to view the header and payload with pretty-printed JSON and syntax highlighting.
@@ -386,10 +386,10 @@ export default function JWTDecoder() {
           This tool <strong>does not verify signatures</strong> - it&apos;s designed for debugging and inspection only.
           <strong> 100% client-side processing</strong> means your tokens never leave your browser.
         </p>
-      </section>
+      </ToolContent>
 
       {/* Main Tool Interface */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <ToolInterface className="mb-8">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Input Panel */}
           <div className="flex flex-col">
@@ -518,38 +518,40 @@ export default function JWTDecoder() {
             <ClaimsTable payload={result.decoded.payload} />
           </div>
         )}
-      </div>
+      </ToolInterface>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
-        <div className="flex items-start gap-3">
-          <span className="text-green-600 text-xl">🔒</span>
-          <div>
-            <h3 className="font-semibold text-green-800 dark:text-green-300">100% Client-Side Processing</h3>
-            <p className="text-sm text-green-700 dark:text-green-400">
-              All JWT decoding happens directly in your browser. Your tokens are never sent to any server,
-              stored, or logged. This tool works completely offline after the page loads.
-            </p>
+      <ToolContent className="mb-12">
+        <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+          <div className="flex items-start gap-3">
+            <span className="text-green-600 text-xl">🔒</span>
+            <div>
+              <h3 className="font-semibold text-green-800 dark:text-green-300">100% Client-Side Processing</h3>
+              <p className="text-sm text-green-700 dark:text-green-400">
+                All JWT decoding happens directly in your browser. Your tokens are never sent to any server,
+                stored, or logged. This tool works completely offline after the page loads.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Important Notice */}
-      <div className="mb-12 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
-        <div className="flex items-start gap-3">
-          <span className="text-amber-600 text-xl">⚠️</span>
-          <div>
-            <h3 className="font-semibold text-amber-800 dark:text-amber-300">Decode Only - No Signature Verification</h3>
-            <p className="text-sm text-amber-700 dark:text-amber-400">
-              This tool only decodes and displays JWT contents. It does <strong>not verify the signature</strong>.
-              Anyone can create a JWT with any payload. Always verify tokens server-side before trusting their contents.
-            </p>
+        {/* Important Notice */}
+        <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
+          <div className="flex items-start gap-3">
+            <span className="text-amber-600 text-xl">⚠️</span>
+            <div>
+              <h3 className="font-semibold text-amber-800 dark:text-amber-300">Decode Only - No Signature Verification</h3>
+              <p className="text-sm text-amber-700 dark:text-amber-400">
+                This tool only decodes and displays JWT contents. It does <strong>not verify the signature</strong>.
+                Anyone can create a JWT with any payload. Always verify tokens server-side before trusting their contents.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </ToolContent>
 
       {/* How to Use Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           How to Use the JWT Decoder
         </h2>
@@ -572,10 +574,10 @@ export default function JWTDecoder() {
             <strong>Check warnings</strong> for expired tokens or tokens not yet valid.
           </li>
         </ol>
-      </section>
+      </ToolContent>
 
       {/* JWT Structure Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           JWT Structure Explained
         </h2>
@@ -612,10 +614,10 @@ export default function JWTDecoder() {
             </table>
           </div>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Common Claims Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Common JWT Claims
         </h2>
@@ -637,32 +639,34 @@ export default function JWTDecoder() {
             </div>
           ))}
         </div>
-      </section>
+      </ToolContent>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
-        <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
-        <p className="text-sm text-teal-700 dark:text-teal-400">
-          Need to format JSON data? Try our{' '}
-          <Link
-            href="/tools/json-formatter-viewer"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            JSON Formatter & Viewer
-          </Link>
-          . Working with Base64 encoding? Use our{' '}
-          <Link
-            href="/tools/base64-encoder-decoder"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            Base64 Encoder/Decoder
-          </Link>
-          .
-        </p>
-      </section>
+      <ToolContent className="mb-12">
+        <div className="p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+          <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
+          <p className="text-sm text-teal-700 dark:text-teal-400">
+            Need to format JSON data? Try our{' '}
+            <Link
+              href="/tools/json-formatter-viewer"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              JSON Formatter & Viewer
+            </Link>
+            . Working with Base64 encoding? Use our{' '}
+            <Link
+              href="/tools/base64-encoder-decoder"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              Base64 Encoder/Decoder
+            </Link>
+            .
+          </p>
+        </div>
+      </ToolContent>
 
       {/* FAQ Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
@@ -732,7 +736,7 @@ export default function JWTDecoder() {
             </p>
           </details>
         </div>
-      </section>
+      </ToolContent>
     </ToolLayout>
   );
 }

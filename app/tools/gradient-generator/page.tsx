@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 import { getToolBySlug } from '@/lib/tools';
 
 export default function GradientGenerator() {

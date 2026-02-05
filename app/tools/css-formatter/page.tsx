@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // CSS FORMATTING HELPERS
@@ -328,7 +328,7 @@ export default function CSSFormatter() {
   return (
     <ToolLayout tool={tool}>
       {/* Introduction Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           Transform messy or minified CSS into clean, readable code with our free{' '}
           <strong>CSS Formatter & Beautifier</strong>. Instantly format CSS with proper
@@ -337,10 +337,11 @@ export default function CSSFormatter() {
           working with stylesheets. <strong>100% client-side processing</strong> means your code
           never leaves your browser.
         </p>
-      </section>
+      </ToolContent>
 
       {/* Main Tool Interface */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <ToolInterface className="mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         {/* Controls Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           {/* Mode Toggle */}
@@ -476,24 +477,27 @@ export default function CSSFormatter() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </ToolInterface>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
-        <div className="flex items-start gap-3">
-          <span className="text-green-600 text-xl">🔒</span>
-          <div>
-            <h3 className="font-semibold text-green-800 dark:text-green-300">100% Client-Side Processing</h3>
-            <p className="text-sm text-green-700 dark:text-green-400">
-              All CSS formatting happens directly in your browser. Your code is never sent to any server,
-              stored, or logged. This tool works completely offline after the page loads.
-            </p>
+      <ToolContent className="mb-12">
+        <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+          <div className="flex items-start gap-3">
+            <span className="text-green-600 text-xl">🔒</span>
+            <div>
+              <h3 className="font-semibold text-green-800 dark:text-green-300">100% Client-Side Processing</h3>
+              <p className="text-sm text-green-700 dark:text-green-400">
+                All CSS formatting happens directly in your browser. Your code is never sent to any server,
+                stored, or logged. This tool works completely offline after the page loads.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </ToolContent>
 
       {/* How to Use Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           How to Use the CSS Formatter
         </h2>
@@ -516,10 +520,10 @@ export default function CSSFormatter() {
             <strong>Copy the output</strong> using the Copy button to use in your project.
           </li>
         </ol>
-      </section>
+      </ToolContent>
 
       {/* Features Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Features
         </h2>
@@ -541,10 +545,10 @@ export default function CSSFormatter() {
             </div>
           ))}
         </div>
-      </section>
+      </ToolContent>
 
       {/* CSS Tips Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           CSS Formatting Best Practices
         </h2>
@@ -568,46 +572,48 @@ export default function CSSFormatter() {
             </ul>
           </div>
         </div>
-      </section>
+      </ToolContent>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
-        <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
-        <p className="text-sm text-teal-700 dark:text-teal-400">
-          Working with HTML? Try our{' '}
-          <Link
-            href="/tools/html-formatter"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            HTML Formatter & Beautifier
-          </Link>
-          . Need to format JSON data? Use our{' '}
-          <Link
-            href="/tools/json-formatter-viewer"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            JSON Formatter
-          </Link>
-          . Testing patterns? Check out our{' '}
-          <Link
-            href="/tools/regex-tester"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            Regex Tester
-          </Link>
-          . Working with encoded data? Try our{' '}
-          <Link
-            href="/tools/base64-encoder-decoder"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            Base64 Encoder/Decoder
-          </Link>
-          .
-        </p>
-      </section>
+      <ToolContent className="mb-12">
+        <div className="p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+          <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
+          <p className="text-sm text-teal-700 dark:text-teal-400">
+            Working with HTML? Try our{' '}
+            <Link
+              href="/tools/html-formatter"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              HTML Formatter & Beautifier
+            </Link>
+            . Need to format JSON data? Use our{' '}
+            <Link
+              href="/tools/json-formatter-viewer"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              JSON Formatter
+            </Link>
+            . Testing patterns? Check out our{' '}
+            <Link
+              href="/tools/regex-tester"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              Regex Tester
+            </Link>
+            . Working with encoded data? Try our{' '}
+            <Link
+              href="/tools/base64-encoder-decoder"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              Base64 Encoder/Decoder
+            </Link>
+            .
+          </p>
+        </div>
+      </ToolContent>
 
       {/* FAQ Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
@@ -677,7 +683,7 @@ export default function CSSFormatter() {
             </p>
           </details>
         </div>
-      </section>
+      </ToolContent>
     </ToolLayout>
   );
 }

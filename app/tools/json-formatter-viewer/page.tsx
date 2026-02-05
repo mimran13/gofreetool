@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import { getToolBySlug } from '@/lib/tools';
-import ToolLayout from '@/components/ToolLayout';
+import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
 
 // ============================================================================
 // TYPES
@@ -386,7 +386,7 @@ export default function JsonFormatterViewer() {
   return (
     <ToolLayout tool={tool}>
       {/* Introduction Section - SEO optimized */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           Our free <strong>JSON Formatter & Viewer</strong> helps developers and data professionals
           instantly format, validate, and explore JSON data. Paste your minified or messy JSON and
@@ -396,10 +396,11 @@ export default function JsonFormatterViewer() {
           processing</strong> means your data never leaves your browser, ensuring complete privacy
           and security. No signup required, no data stored, no limits.
         </p>
-      </section>
+      </ToolContent>
 
       {/* Main Tool Interface */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <ToolInterface className="mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Input Panel */}
           <div className="flex flex-col">
@@ -522,10 +523,12 @@ export default function JsonFormatterViewer() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </ToolInterface>
 
       {/* Privacy Notice */}
-      <div className="mb-12 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+      <ToolContent className="mb-12">
+        <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
         <div className="flex items-start gap-3">
           <span className="text-green-600 text-xl">🔒</span>
           <div>
@@ -536,10 +539,11 @@ export default function JsonFormatterViewer() {
             </p>
           </div>
         </div>
-      </div>
+        </div>
+      </ToolContent>
 
       {/* How to Use Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           How to Use the JSON Formatter
         </h2>
@@ -565,10 +569,10 @@ export default function JsonFormatterViewer() {
             tell you exactly what went wrong.
           </li>
         </ol>
-      </section>
+      </ToolContent>
 
       {/* Features Section */}
-      <section className="mb-12">
+      <ToolContent className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Features
         </h2>
@@ -590,32 +594,34 @@ export default function JsonFormatterViewer() {
             </div>
           ))}
         </div>
-      </section>
+      </ToolContent>
 
       {/* Related Tools */}
-      <section className="mb-12 p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
-        <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
-        <p className="text-sm text-teal-700 dark:text-teal-400">
-          Working with HTML code? Try our{' '}
-          <a
-            href="/tools/html-formatter"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            HTML Formatter & Beautifier
-          </a>
-          . Need to parse URLs? Use our{' '}
-          <a
-            href="/tools/url-parser"
-            className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
-          >
-            URL Parser
-          </a>{' '}
-          to break down complex URLs and query strings.
-        </p>
-      </section>
+      <ToolContent className="mb-12">
+        <div className="p-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl">
+          <h3 className="font-semibold text-teal-800 dark:text-teal-300 mb-2">Related Tools</h3>
+          <p className="text-sm text-teal-700 dark:text-teal-400">
+            Working with HTML code? Try our{' '}
+            <a
+              href="/tools/html-formatter"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              HTML Formatter & Beautifier
+            </a>
+            . Need to parse URLs? Use our{' '}
+            <a
+              href="/tools/url-parser"
+              className="font-medium underline hover:text-teal-900 dark:hover:text-teal-200"
+            >
+              URL Parser
+            </a>{' '}
+            to break down complex URLs and query strings.
+          </p>
+        </div>
+      </ToolContent>
 
       {/* FAQ Section */}
-      <section className="mb-8">
+      <ToolContent className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Frequently Asked Questions
         </h2>
@@ -686,7 +692,7 @@ export default function JsonFormatterViewer() {
             </p>
           </details>
         </div>
-      </section>
+      </ToolContent>
     </ToolLayout>
   );
 }
