@@ -69,7 +69,7 @@ export default function Footer() {
                 <li key={category.slug}>
                   <Link
                     href={`/category/${category.slug}`}
-                    className="text-gray-400 hover:text-teal-400 transition-colors"
+                    className="text-gray-400 hover:text-slate-300 transition-colors"
                   >
                     {category.name.replace(/^[^\s]+\s/, "")}
                   </Link>
@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
             &copy; {currentYear} gofreetool.com. All rights reserved.
           </p>

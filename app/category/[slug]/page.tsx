@@ -116,9 +116,11 @@ function IntroSection({ category, intro, toolCount }: { category: Category; intr
   return (
     <header className="mb-12">
       <div className="flex items-center gap-4 mb-4">
-        <span className="text-5xl" role="img" aria-hidden="true">
-          {category.icon}
-        </span>
+        <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800/50">
+          <span className="text-4xl" role="img" aria-hidden="true">
+            {category.icon}
+          </span>
+        </div>
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
             Free {categoryName} Tools Online
@@ -162,7 +164,7 @@ function ToolCard({ tool }: { tool: Tool }) {
 
   return (
     <Link href={`/tools/${tool.slug}`} className="group">
-      <article className="h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-600 transition-all">
+      <article className="h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-slate-400 dark:hover:border-slate-500 transition-all">
         <div className="flex items-start gap-4">
           <span className="text-4xl group-hover:scale-110 transition-transform" role="img" aria-hidden="true">
             {tool.icon}
@@ -174,7 +176,7 @@ function ToolCard({ tool }: { tool: Tool }) {
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
               {tool.shortDescription}
             </p>
-            <span className="inline-block mt-3 text-xs font-medium px-2.5 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 rounded-full">
+            <span className="inline-block mt-3 text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-400 rounded-full">
               {categoryName}
             </span>
           </div>
@@ -276,13 +278,15 @@ function RelatedCategoriesSection({ relatedCategories }: { relatedCategories: Ca
             <Link
               key={cat.slug}
               href={`/category/${cat.slug}`}
-              className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-md hover:border-teal-300 dark:hover:border-teal-600 transition-all"
+              className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-md hover:border-slate-400 dark:hover:border-slate-500 transition-all"
             >
-              <span className="text-3xl group-hover:scale-110 transition-transform" role="img" aria-hidden="true">
-                {cat.icon}
-              </span>
+              <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800/50 group-hover:bg-slate-200 dark:group-hover:bg-slate-700/50 transition-colors flex-shrink-0">
+                <span className="text-2xl group-hover:scale-110 transition-transform" role="img" aria-hidden="true">
+                  {cat.icon}
+                </span>
+              </div>
               <div className="min-w-0">
-                <p className="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                <p className="font-semibold text-gray-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">
                   {catName}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 truncate">

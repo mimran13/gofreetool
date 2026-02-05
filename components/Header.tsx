@@ -295,9 +295,9 @@ function CategoriesMegaMenu() {
                   key={category.slug}
                   href={`/category/${category.slug}`}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors group"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors group"
                 >
-                  <span className="text-lg w-7 text-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <span className="w-8 h-8 flex items-center justify-center rounded-md bg-slate-100 dark:bg-slate-800/60 text-base flex-shrink-0 group-hover:scale-110 transition-transform">
                     {category.icon}
                   </span>
                   <div className="min-w-0">
@@ -319,9 +319,9 @@ function CategoriesMegaMenu() {
                   key={category.slug}
                   href={`/category/${category.slug}`}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors group"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors group"
                 >
-                  <span className="text-lg w-7 text-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <span className="w-8 h-8 flex items-center justify-center rounded-md bg-slate-100 dark:bg-slate-800/60 text-base flex-shrink-0 group-hover:scale-110 transition-transform">
                     {category.icon}
                   </span>
                   <div className="min-w-0">
@@ -338,12 +338,12 @@ function CategoriesMegaMenu() {
           </div>
 
           {/* Footer link */}
-          <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700/60">
+          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/60">
             <Link
               href="/#categories"
               onClick={() => setIsOpen(false)}
               title="Browse all free online tools by category"
-              className="flex items-center justify-center gap-2 text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium py-1"
+              className="flex items-center justify-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 font-medium py-1"
             >
               Browse all {tools.length} free tools
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

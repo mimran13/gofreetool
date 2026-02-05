@@ -100,7 +100,7 @@ function ToolSearch() {
                           {tool.shortDescription}
                         </p>
                       </div>
-                      <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full">
+                      <span className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-400 rounded-full">
                         {category?.name.replace(/^[^\s]+\s/, "") || tool.category}
                       </span>
                     </Link>
@@ -132,7 +132,7 @@ function PopularToolCard({ slug, name, description, icon, category }: PopularToo
 
   return (
     <Link href={`/tools/${slug}`}>
-      <article className="group h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-600 transition-all">
+      <article className="group h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-slate-400 dark:hover:border-slate-500 transition-all">
         <div className="flex items-start gap-4">
           <span className="text-4xl group-hover:scale-110 transition-transform">{icon}</span>
           <div className="flex-1 min-w-0">
@@ -142,7 +142,7 @@ function PopularToolCard({ slug, name, description, icon, category }: PopularToo
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
               {description}
             </p>
-            <span className="inline-block mt-3 text-xs font-medium px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full">
+            <span className="inline-block mt-3 text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-400 rounded-full">
               {cat?.name.replace(/^[^\s]+\s/, "") || category}
             </span>
           </div>
@@ -167,15 +167,17 @@ interface CategoryCardProps {
 function CategoryCard({ slug, name, icon, description, toolCount }: CategoryCardProps) {
   return (
     <Link href={`/category/${slug}`}>
-      <article className="group h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-600 transition-all text-center">
-        <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{icon}</div>
-        <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+      <article className="group h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-slate-400 dark:hover:border-slate-500 transition-all text-center">
+        <div className="w-14 h-14 mx-auto mb-3 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800/50 group-hover:bg-slate-200 dark:group-hover:bg-slate-700/50 transition-colors">
+          <span className="text-3xl group-hover:scale-110 transition-transform">{icon}</span>
+        </div>
+        <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">
           {name.replace(/^[^\s]+\s/, "")}
         </h3>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
           {description}
         </p>
-        <p className="text-xs text-teal-600 dark:text-teal-400 mt-3 font-medium">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-3 font-medium">
           {toolCount} tools
         </p>
       </article>
@@ -264,7 +266,7 @@ export default function Home() {
                 <Link
                   href="#categories"
                   title="Browse free online tools by category"
-                  className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 font-semibold rounded-lg transition-colors"
+                  className="px-8 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-slate-500 hover:text-slate-900 dark:hover:border-slate-400 dark:hover:text-white font-semibold rounded-lg transition-colors"
                 >
                   Browse Tool Categories
                 </Link>

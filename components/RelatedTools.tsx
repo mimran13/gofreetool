@@ -23,7 +23,7 @@ export default function RelatedTools({ tools }: RelatedToolsProps) {
             key={tool.slug}
             href={`/tools/${tool.slug}`}
             title={`Try our free ${tool.name} - ${tool.shortDescription}`}
-            className="group block bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md hover:border-teal-300 transition-all"
+            className="group block bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md hover:border-slate-400 transition-all"
           >
             <div className="flex items-start gap-3">
               <span className="text-2xl" aria-hidden="true">{tool.icon}</span>
