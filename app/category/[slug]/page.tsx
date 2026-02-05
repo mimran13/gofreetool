@@ -7,8 +7,11 @@ import {
   getCategorySEO,
   getPopularToolsForCategory,
   getRelatedCategories,
+  getSubcategoriesForCategory,
+  getToolBySlug,
   Tool,
   Category,
+  Subcategory,
 } from "@/lib/tools";
 
 // ============================================================================
@@ -247,6 +250,83 @@ function AllToolsSection({ tools, categoryName }: { tools: Tool[]; categoryName:
   );
 }
 
+function SubcategorizedToolsSection({
+  subcategories,
+  allTools,
+  categoryName,
+}: {
+  subcategories: Subcategory[];
+  allTools: Tool[];
+  categoryName: string;
+}) {
+  // Collect slugs that appear in any subcategory
+  const groupedSlugs = new Set(subcategories.flatMap((s) => s.toolSlugs));
+
+  // Tools that don't belong to any subcategory
+  const ungrouped = allTools.filter((t) => !groupedSlugs.has(t.slug));
+
+  return (
+    <section className="mb-16" aria-labelledby="all-tools-heading">
+      <h2 id="all-tools-heading" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+        All {categoryName} Tools
+      </h2>
+
+      <div className="space-y-12">
+        {subcategories.map((sub) => {
+          const tools = sub.toolSlugs
+            .map((slug) => getToolBySlug(slug))
+            .filter((t): t is Tool => t !== undefined);
+
+          if (tools.length === 0) return null;
+
+          return (
+            <div key={sub.name}>
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800/50">
+                  <span className="text-lg">{sub.icon}</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {sub.name}
+                </h3>
+                <span className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/50 px-2 py-0.5 rounded-full">
+                  {tools.length}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {tools.map((tool) => (
+                  <ToolCard key={tool.slug} tool={tool} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
+
+        {/* Ungrouped tools, if any */}
+        {ungrouped.length > 0 && (
+          <div>
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800/50">
+                <span className="text-lg">📦</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Other Tools
+              </h3>
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/50 px-2 py-0.5 rounded-full">
+                {ungrouped.length}
+              </span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {ungrouped.map((tool) => (
+                <ToolCard key={tool.slug} tool={tool} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function SEOContentSection({ content, categoryName }: { content: string; categoryName: string }) {
   return (
     <section className="mb-16" aria-labelledby="about-section-heading">
@@ -358,6 +438,7 @@ export default async function CategoryPage({ params }: Props) {
   const tools = getToolsByCategory(slug);
   const popularTools = getPopularToolsForCategory(slug);
   const relatedCategories = getRelatedCategories(slug);
+  const subcategories = getSubcategoriesForCategory(slug);
   const categoryName = category.name.replace(/^[^\s]+\s/, "");
 
   return (
@@ -372,8 +453,16 @@ export default async function CategoryPage({ params }: Props) {
         {/* Popular Tools (Featured) */}
         <PopularToolsSection tools={popularTools} />
 
-        {/* All Tools Grid */}
-        <AllToolsSection tools={tools} categoryName={categoryName} />
+        {/* All Tools — subcategorized or flat grid */}
+        {subcategories ? (
+          <SubcategorizedToolsSection
+            subcategories={subcategories}
+            allTools={tools}
+            categoryName={categoryName}
+          />
+        ) : (
+          <AllToolsSection tools={tools} categoryName={categoryName} />
+        )}
 
         {/* SEO Content Section */}
         <SEOContentSection content={seoConfig.seoContent} categoryName={categoryName} />

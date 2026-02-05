@@ -864,7 +864,7 @@ export const tools: Tool[] = [
     relatedTools: ["uuid-generator", "json-formatter-viewer", "base64-encoder-decoder", "base-number-converter"],
   },
 
-  // ==================== SECURITY & ENCODING TOOLS (2) ====================
+  // ==================== SECURITY & ENCODING TOOLS (6) ====================
   {
     id: "base64-encoder-decoder",
     slug: "base64-encoder-decoder",
@@ -912,6 +912,110 @@ export const tools: Tool[] = [
       keywords: ["password generator", "secure password", "random password", "strong password generator", "password creator", "safe password generator"],
     },
     relatedTools: ["hash-generator", "uuid-generator", "base64-encoder-decoder"],
+  },
+  {
+    id: "hash-generator-checker",
+    slug: "hash-generator-checker",
+    name: "MD5/SHA Hash Generator & Checker",
+    category: "security-encoding",
+    featured: true,
+    description: "Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from any text, or verify a hash against input text. Perfect for file integrity checks, checksums, and hash comparison. All hashing happens in your browser.",
+    shortDescription: "Generate and verify MD5/SHA hashes",
+    icon: "🔒",
+    seo: {
+      title: "MD5/SHA Hash Generator & Checker - Free Online Hash Tool",
+      description: "Free online hash generator and checker. Generate MD5, SHA-1, SHA-256, SHA-512 hashes and verify hashes instantly. 100% client-side, no data sent to servers.",
+      keywords: ["md5 hash generator", "sha256 hash checker", "hash verify online", "md5 checksum", "sha hash generator", "hash checker"],
+    },
+    faq: [
+      {
+        question: "What is the difference between hashing and encryption?",
+        answer: "Hashing is a one-way function — you cannot reverse a hash to get the original data. Encryption is two-way — you can decrypt with the correct key. Hashing is used for data integrity and password verification, while encryption protects data confidentiality.",
+      },
+      {
+        question: "Which hash algorithm should I use?",
+        answer: "SHA-256 is recommended for general purposes. MD5 is cryptographically broken and should only be used for non-security checksums. SHA-512 provides the highest security. For password hashing, use bcrypt or Argon2 instead.",
+      },
+    ],
+    relatedTools: ["aes-encryption-decryption", "base64-encoder-decoder", "password-generator"],
+  },
+  {
+    id: "aes-encryption-decryption",
+    slug: "aes-encryption-decryption",
+    name: "AES Encryption / Decryption",
+    category: "security-encoding",
+    featured: true,
+    description: "Encrypt and decrypt text using AES-256-GCM with PBKDF2 key derivation. Enter a passphrase to encrypt sensitive text or decrypt ciphertext. All processing happens in your browser using the Web Crypto API.",
+    shortDescription: "Encrypt and decrypt text with AES-256",
+    icon: "🛡️",
+    seo: {
+      title: "AES Encryption Decryption - Free Online AES Tool",
+      description: "Free online AES-256-GCM encryption and decryption tool. Encrypt text with a passphrase using PBKDF2 key derivation. 100% client-side, no data sent to servers.",
+      keywords: ["aes encryption online", "encrypt text online", "aes decrypt", "online encryption tool", "aes-256 encryption", "text encryption"],
+    },
+    faq: [
+      {
+        question: "What is AES encryption?",
+        answer: "AES (Advanced Encryption Standard) is a symmetric encryption algorithm used worldwide. AES-256 uses a 256-bit key for extremely strong security. GCM mode adds authenticated encryption for both confidentiality and integrity.",
+      },
+      {
+        question: "What happens if I lose my passphrase?",
+        answer: "The encrypted data cannot be recovered without the correct passphrase. AES-256 is designed to be unbreakable without the key. Always store your passphrase securely.",
+      },
+    ],
+    relatedTools: ["hash-generator-checker", "base64-encoder-decoder", "password-generator"],
+  },
+  {
+    id: "hex-text-converter",
+    slug: "hex-text-converter",
+    name: "Hex-Text Converter",
+    category: "security-encoding",
+    featured: true,
+    description: "Convert text to hexadecimal and hex to text instantly. Supports UTF-8 encoding with configurable separators and case options. Perfect for debugging, network analysis, and data encoding.",
+    shortDescription: "Convert between hex and text",
+    icon: "🔢",
+    seo: {
+      title: "Hex to Text Converter - Free Online Hexadecimal Tool",
+      description: "Free online hex to text and text to hex converter. Configure separators and case. Supports UTF-8. 100% client-side, no data sent to servers.",
+      keywords: ["hex to text converter", "text to hex", "hexadecimal converter", "hex decoder", "hex encoder", "hex string converter"],
+    },
+    faq: [
+      {
+        question: "What is hexadecimal encoding?",
+        answer: "Hexadecimal (base-16) uses digits 0-9 and letters A-F to represent values. Each hex digit represents 4 bits, so two hex digits represent one byte. It's a compact way to represent binary data.",
+      },
+      {
+        question: "What is the difference between hex and Base64?",
+        answer: "Both represent binary data as text. Hex uses 16 characters and doubles the size. Base64 uses 64 characters and increases size by ~33%. Base64 is more space-efficient, while hex is more human-readable.",
+      },
+    ],
+    relatedTools: ["base64-encoder-decoder", "base-number-converter", "url-encoder-decoder"],
+  },
+  {
+    id: "morse-code-translator",
+    slug: "morse-code-translator",
+    name: "Morse Code Translator",
+    category: "security-encoding",
+    featured: true,
+    description: "Convert text to Morse code and Morse code to text. Supports ITU Morse code standard with letters, numbers, and punctuation. Listen to Morse code audio playback using the Web Audio API.",
+    shortDescription: "Translate text to Morse code and back",
+    icon: "📡",
+    seo: {
+      title: "Morse Code Translator - Free Online Morse Code Tool",
+      description: "Free online Morse code translator. Convert text to Morse code and decode Morse to text. Audio playback. ITU standard. 100% client-side.",
+      keywords: ["morse code translator", "text to morse code", "morse decoder", "morse code converter", "morse code audio", "morse code generator"],
+    },
+    faq: [
+      {
+        question: "What is Morse code?",
+        answer: "Morse code represents letters and numbers as sequences of dots (short signals) and dashes (long signals). Invented in the 1830s for telegraph communication, the International (ITU) standard is still used today.",
+      },
+      {
+        question: "Is Morse code still used today?",
+        answer: "Yes. While no longer required commercially, Morse code is used by amateur radio operators, in aviation navigation aids, for accessibility devices, and as a hobby.",
+      },
+    ],
+    relatedTools: ["base64-encoder-decoder", "hex-text-converter", "url-encoder-decoder"],
   },
 
   // ==================== DATA CONVERSION TOOLS (1) ====================
@@ -1253,7 +1357,7 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
   fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator"],
   developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter"],
-  "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator"],
+  "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
   "data-conversion": ["csv-json-converter"],
   design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter"],
 };
@@ -1274,6 +1378,166 @@ export const RELATED_CATEGORIES: Record<string, string[]> = {
   "data-conversion": ["developer", "security-encoding", "writing"],
   design: ["developer", "writing", "data-conversion"],
 };
+
+// ============================================================================
+// SUBCATEGORIES (tool groupings within a category page)
+// ============================================================================
+
+export interface Subcategory {
+  name: string;
+  icon: string;
+  toolSlugs: string[];
+}
+
+export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
+  calculators: [
+    {
+      name: "Financial Calculators",
+      icon: "🏦",
+      toolSlugs: ["emi-calculator", "simple-interest-calculator", "compound-interest-calculator", "savings-goal-calculator", "loan-eligibility-calculator"],
+    },
+    {
+      name: "Everyday Math",
+      icon: "📊",
+      toolSlugs: ["percentage-calculator", "discount-calculator", "tip-calculator"],
+    },
+    {
+      name: "Bill & Rent Splitting",
+      icon: "🤝",
+      toolSlugs: ["split-bill-calculator", "rent-split-calculator"],
+    },
+  ],
+  health: [
+    {
+      name: "Body Metrics",
+      icon: "📏",
+      toolSlugs: ["bmi-calculator", "ideal-weight-calculator"],
+    },
+    {
+      name: "Nutrition & Metabolism",
+      icon: "🍎",
+      toolSlugs: ["bmr-calculator", "water-intake-calculator"],
+    },
+    {
+      name: "Fitness Tracking",
+      icon: "🏃",
+      toolSlugs: ["step-calorie-converter"],
+    },
+  ],
+  writing: [
+    {
+      name: "Text Analysis",
+      icon: "📈",
+      toolSlugs: ["word-counter"],
+    },
+    {
+      name: "Text Transformation",
+      icon: "🔤",
+      toolSlugs: ["text-case-converter", "remove-extra-spaces"],
+    },
+    {
+      name: "List Management",
+      icon: "📋",
+      toolSlugs: ["line-sorter", "duplicate-line-remover"],
+    },
+  ],
+  "date-time": [
+    {
+      name: "Date Calculators",
+      icon: "📆",
+      toolSlugs: ["age-calculator", "date-difference-calculator"],
+    },
+    {
+      name: "Calendar Tools",
+      icon: "🗓️",
+      toolSlugs: ["day-of-week-finder", "workdays-calculator"],
+    },
+  ],
+  home: [
+    {
+      name: "Energy & Utilities",
+      icon: "⚡",
+      toolSlugs: ["electricity-bill-calculator", "appliance-energy-calculator"],
+    },
+    {
+      name: "Home Projects",
+      icon: "🏠",
+      toolSlugs: ["paint-area-calculator"],
+    },
+    {
+      name: "Travel & Transport",
+      icon: "🚗",
+      toolSlugs: ["fuel-cost-calculator"],
+    },
+  ],
+  fun: [
+    {
+      name: "Random Generators",
+      icon: "🎲",
+      toolSlugs: ["random-number-generator", "random-password-generator", "lucky-number-generator"],
+    },
+    {
+      name: "Decision Makers",
+      icon: "🎯",
+      toolSlugs: ["yes-no-spinner", "decision-wheel"],
+    },
+  ],
+  developer: [
+    {
+      name: "Formatters & Beautifiers",
+      icon: "✨",
+      toolSlugs: ["json-formatter-viewer", "html-formatter", "css-formatter", "markdown-previewer"],
+    },
+    {
+      name: "Converters & Parsers",
+      icon: "🔄",
+      toolSlugs: ["json-yaml-converter", "curl-to-http-converter", "url-parser", "base-number-converter"],
+    },
+    {
+      name: "Generators",
+      icon: "⚙️",
+      toolSlugs: ["uuid-generator", "hash-generator"],
+    },
+    {
+      name: "Testers & Debuggers",
+      icon: "🧪",
+      toolSlugs: ["regex-tester", "jwt-decoder", "cron-expression-parser"],
+    },
+  ],
+  "security-encoding": [
+    {
+      name: "Encoding & Decoding",
+      icon: "🔄",
+      toolSlugs: ["base64-encoder-decoder", "url-encoder-decoder", "hex-text-converter"],
+    },
+    {
+      name: "Encryption & Hashing",
+      icon: "🔐",
+      toolSlugs: ["password-generator", "hash-generator-checker", "aes-encryption-decryption"],
+    },
+    {
+      name: "Communication",
+      icon: "📡",
+      toolSlugs: ["morse-code-translator"],
+    },
+  ],
+  design: [
+    {
+      name: "Color Tools",
+      icon: "🎨",
+      toolSlugs: ["color-picker", "gradient-generator", "hex-rgb-converter", "contrast-checker"],
+    },
+    {
+      name: "Image Tools",
+      icon: "🖼️",
+      toolSlugs: ["image-resizer", "image-format-converter"],
+    },
+  ],
+};
+
+export function getSubcategoriesForCategory(categorySlug: string): Subcategory[] | undefined {
+  return CATEGORY_SUBCATEGORIES[categorySlug];
+}
 
 // ============================================================================
 // CATEGORY HELPER FUNCTIONS
