@@ -672,7 +672,7 @@ export const tools: Tool[] = [
     relatedTools: ["date-difference-calculator", "workdays-calculator", "decision-wheel"],
   },
 
-  // ==================== DEVELOPER TOOLS (7) ====================
+  // ==================== DEVELOPER TOOLS (8) ====================
   {
     id: "url-parser",
     slug: "url-parser",
@@ -978,6 +978,36 @@ export const tools: Tool[] = [
       },
     ],
     relatedTools: ["word-counter", "remove-extra-spaces", "duplicate-line-remover"],
+  },
+  {
+    id: "sql-formatter",
+    slug: "sql-formatter",
+    name: "SQL Formatter",
+    category: "developer",
+    featured: true,
+    description: "Format and beautify SQL queries with proper indentation. Supports SELECT, INSERT, UPDATE, DELETE, JOINs, and subqueries. Minify mode compresses SQL to a single line. Uppercase keyword option.",
+    shortDescription: "Format and beautify SQL queries",
+    icon: "🗄️",
+    seo: {
+      title: "SQL Formatter - Beautify SQL Online",
+      description: "Free online SQL formatter and beautifier. Format SQL queries with proper indentation and keyword casing. Supports MySQL, PostgreSQL, SQLite. 100% client-side.",
+      keywords: ["sql formatter", "sql beautifier", "format sql", "sql formatter online", "sql pretty print", "sql minifier", "beautify sql query"],
+    },
+    faq: [
+      {
+        question: "Which SQL dialects are supported?",
+        answer: "This formatter works with standard ANSI SQL and is compatible with MySQL, PostgreSQL, SQLite, SQL Server, and Oracle. It formats based on common keywords and structure.",
+      },
+      {
+        question: "Does this validate SQL syntax?",
+        answer: "No, this is a formatting tool, not a validator. It reformats your SQL for readability but does not check whether the query is syntactically correct.",
+      },
+      {
+        question: "Are my queries safe?",
+        answer: "Yes. All formatting happens in your browser. Your SQL queries are never sent to any server, logged, or stored.",
+      },
+    ],
+    relatedTools: ["json-formatter-viewer", "html-formatter", "css-formatter", "text-diff-checker"],
   },
 
   // ==================== SECURITY & ENCODING TOOLS (6) ====================
@@ -1562,7 +1592,7 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   "date-time": ["age-calculator", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
   home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
   fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator", "pomodoro-timer"],
-  developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter", "unix-timestamp-converter", "text-diff-checker"],
+  developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter", "unix-timestamp-converter", "text-diff-checker", "sql-formatter"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
   "data-conversion": ["csv-json-converter", "json-xml-converter"],
   design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator", "image-compressor"],
@@ -1702,7 +1732,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Formatters & Beautifiers",
       icon: "✨",
-      toolSlugs: ["json-formatter-viewer", "html-formatter", "css-formatter", "markdown-previewer"],
+      toolSlugs: ["json-formatter-viewer", "html-formatter", "css-formatter", "markdown-previewer", "sql-formatter"],
     },
     {
       name: "Converters & Parsers",
