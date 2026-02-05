@@ -726,6 +726,96 @@ export const tools: Tool[] = [
     relatedTools: ["html-formatter", "json-formatter-viewer", "css-formatter", "regex-tester"],
   },
   {
+    id: "json-yaml-converter",
+    slug: "json-yaml-converter",
+    name: "JSON ⇄ YAML Converter",
+    category: "developer",
+    featured: true,
+    description: "Convert between JSON and YAML formats instantly. Paste JSON to get YAML or YAML to get JSON. Real-time validation with clear error messages. Perfect for DevOps engineers, Kubernetes config editing, and working with CI/CD pipelines. 100% client-side processing.",
+    shortDescription: "Convert between JSON and YAML formats",
+    icon: "🔄",
+    seo: {
+      title: "JSON to YAML Converter – Free Online Tool",
+      description: "Free online JSON to YAML and YAML to JSON converter. Convert DevOps configs, Kubernetes manifests, and CI/CD pipelines instantly. Real-time validation. 100% client-side, no data uploaded.",
+      keywords: ["JSON to YAML", "YAML to JSON", "JSON YAML converter", "YAML converter", "Kubernetes config", "DevOps tools", "config file converter", "YAML parser", "JSON converter online"],
+    },
+    faq: [
+      {
+        question: "What is JSON?",
+        answer: "JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write. It uses key-value pairs and arrays, and is the most common format for APIs and web services.",
+      },
+      {
+        question: "What is YAML?",
+        answer: "YAML (YAML Ain't Markup Language) is a human-friendly data serialization format commonly used for configuration files. It uses indentation instead of braces, making it easier to read. YAML is widely used in Kubernetes, Docker Compose, Ansible, and CI/CD pipelines.",
+      },
+      {
+        question: "Is my data uploaded to any server?",
+        answer: "No. All conversion happens entirely in your browser using JavaScript. Your data never leaves your device — nothing is sent to any server, stored, or logged.",
+      },
+    ],
+    relatedTools: ["json-formatter-viewer", "csv-json-converter", "regex-tester"],
+  },
+  {
+    id: "cron-expression-parser",
+    slug: "cron-expression-parser",
+    name: "Cron Expression Parser & Explainer",
+    category: "developer",
+    featured: true,
+    description: "Parse and explain cron expressions in plain English. Enter any standard 5-field cron expression and get a human-readable explanation plus the next scheduled execution times in your browser timezone. Quick presets for common schedules. Perfect for backend engineers and DevOps.",
+    shortDescription: "Parse cron expressions to plain English",
+    icon: "⏰",
+    seo: {
+      title: "Cron Expression Parser & Explainer – Free Online Tool",
+      description: "Free online cron expression parser and explainer. Convert cron syntax to human-readable text, see next execution times. For backend engineers and scheduling jobs. 100% client-side.",
+      keywords: ["cron parser", "cron expression", "cron explainer", "cron job", "crontab", "cron schedule", "cron syntax", "cron generator", "cron next run", "scheduled tasks"],
+    },
+    faq: [
+      {
+        question: "What is a cron expression?",
+        answer: "A cron expression is a string of five fields separated by spaces that defines a schedule. The fields represent: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 is Sunday). Special characters like *, /, -, and commas allow flexible scheduling.",
+      },
+      {
+        question: "How does cron scheduling work?",
+        answer: "Cron is a time-based job scheduler found in Unix-like systems. It runs tasks automatically at specified intervals. The cron daemon checks the crontab (cron table) every minute and executes any commands whose schedule matches the current time.",
+      },
+      {
+        question: "Is timezone supported?",
+        answer: "Yes. This tool uses your browser's local timezone to calculate and display the next execution times. The timezone is shown alongside the results so you know exactly when jobs will run in your local time.",
+      },
+    ],
+    relatedTools: ["regex-tester", "json-formatter-viewer", "json-yaml-converter"],
+  },
+  {
+    id: "curl-to-http-converter",
+    slug: "curl-to-http-converter",
+    name: "Curl to HTTP Request Converter",
+    category: "developer",
+    featured: true,
+    description: "Convert curl commands to JavaScript fetch, Axios, and Python requests code instantly. Paste any curl command and get clean, ready-to-use code. Supports headers, body, auth, cookies, and more. All processing happens in your browser for complete privacy.",
+    shortDescription: "Convert curl to fetch, axios, python",
+    icon: "📡",
+    seo: {
+      title: "Curl to HTTP Request Converter – Free Online Tool",
+      description: "Convert curl commands to fetch, axios, and Python requests — 100% client-side. Parse headers, body, auth, and more. No data uploaded.",
+      keywords: ["curl converter", "curl to fetch", "curl to axios", "curl to python", "HTTP request", "API testing", "curl parser", "curl to code"],
+    },
+    faq: [
+      {
+        question: "What is curl?",
+        answer: "curl is a command-line tool for transferring data using various network protocols, most commonly HTTP and HTTPS. It's available on virtually every operating system and is widely used by developers to test APIs, download files, and debug network requests.",
+      },
+      {
+        question: "What output formats are supported?",
+        answer: "This tool generates code in three popular formats: JavaScript fetch (the built-in browser API), Axios (a popular HTTP client for Node.js and browsers), and Python requests (the most popular Python HTTP library).",
+      },
+      {
+        question: "Is my data uploaded to any server?",
+        answer: "No. All parsing and code generation happens entirely in your browser using JavaScript. Your curl commands — including any API keys, tokens, or sensitive URLs — never leave your device.",
+      },
+    ],
+    relatedTools: ["json-formatter-viewer", "json-yaml-converter", "regex-tester"],
+  },
+  {
     id: "json-formatter-viewer",
     slug: "json-formatter-viewer",
     name: "JSON Formatter & Viewer",
@@ -1162,7 +1252,7 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   "date-time": ["age-calculator", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
   home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
   fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator"],
-  developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer"],
+  developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator"],
   "data-conversion": ["csv-json-converter"],
   design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter"],

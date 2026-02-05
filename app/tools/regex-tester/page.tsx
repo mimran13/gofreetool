@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { getToolBySlug } from '@/lib/tools';
 import ToolLayout, { ToolContent, ToolInterface } from '@/components/ToolLayout';
@@ -106,7 +106,7 @@ function HighlightedText({ text, matches }: HighlightedTextProps) {
   // Sort matches by start position
   const sortedMatches = [...matches].sort((a, b) => a.start - b.start);
 
-  const elements: JSX.Element[] = [];
+  const elements: React.ReactElement[] = [];
   let lastEnd = 0;
 
   sortedMatches.forEach((match, idx) => {
