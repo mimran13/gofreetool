@@ -143,7 +143,7 @@ function convertNumber(input: string, inputBase: Base | 'auto'): ConversionResul
     const decimalValue = BigInt(parseInt(absInput, baseInfo.radix) * (isNegative ? -1 : 1));
 
     // For negative numbers, only show decimal representation
-    if (decimalValue < 0n) {
+    if (decimalValue < BigInt(0)) {
       return {
         success: true,
         detectedBase,
