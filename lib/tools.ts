@@ -330,7 +330,7 @@ export const tools: Tool[] = [
     relatedTools: ["bmr-calculator"],
   },
 
-  // ==================== WRITING & TEXT (5) ====================
+  // ==================== WRITING & TEXT (6) ====================
   {
     id: "word-counter",
     slug: "word-counter",
@@ -407,6 +407,36 @@ export const tools: Tool[] = [
       keywords: ["duplicate remover", "unique lines", "text cleaner"],
     },
     relatedTools: ["line-sorter", "word-counter"],
+  },
+  {
+    id: "lorem-ipsum-generator",
+    slug: "lorem-ipsum-generator",
+    name: "Lorem Ipsum Generator",
+    category: "writing",
+    featured: true,
+    description: "Generate lorem ipsum placeholder text for your designs, mockups, and layouts. Create paragraphs, sentences, or words of classic dummy text instantly with customizable options.",
+    shortDescription: "Generate placeholder dummy text",
+    icon: "📝",
+    seo: {
+      title: "Lorem Ipsum Generator - Dummy Text",
+      description: "Free lorem ipsum generator. Create placeholder dummy text for designs and mockups. Generate paragraphs, sentences, or words of lorem ipsum text instantly online.",
+      keywords: ["lorem ipsum generator", "dummy text generator", "placeholder text", "lorem ipsum", "filler text", "lipsum generator", "blind text generator"],
+    },
+    faq: [
+      {
+        question: "What is Lorem Ipsum?",
+        answer: "Lorem Ipsum is dummy placeholder text used in the printing and typesetting industry since the 1500s. It originates from a scrambled passage of Cicero's 'De Finibus Bonorum et Malorum' (45 BC) and is used to fill layouts without distracting from the design.",
+      },
+      {
+        question: "Why use Lorem Ipsum instead of real text?",
+        answer: "Lorem Ipsum provides a natural-looking text distribution without distracting readers with meaningful content. This lets designers and developers focus on visual elements like typography, spacing, and layout rather than being distracted by readable text.",
+      },
+      {
+        question: "Is this tool free to use?",
+        answer: "Yes, this Lorem Ipsum generator is completely free with no limits. Generate as much placeholder text as you need for your projects. All processing happens in your browser.",
+      },
+    ],
+    relatedTools: ["word-counter", "text-case-converter", "remove-extra-spaces"],
   },
 
   // ==================== DATE & TIME (4) ====================
@@ -612,7 +642,7 @@ export const tools: Tool[] = [
     relatedTools: ["yes-no-spinner"],
   },
 
-  // ==================== DEVELOPER TOOLS (5) ====================
+  // ==================== DEVELOPER TOOLS (7) ====================
   {
     id: "url-parser",
     slug: "url-parser",
@@ -863,6 +893,62 @@ export const tools: Tool[] = [
     },
     relatedTools: ["uuid-generator", "json-formatter-viewer", "base64-encoder-decoder", "base-number-converter"],
   },
+  {
+    id: "unix-timestamp-converter",
+    slug: "unix-timestamp-converter",
+    name: "Unix Timestamp Converter",
+    category: "developer",
+    featured: true,
+    description: "Convert Unix timestamps to human-readable dates and dates to timestamps. Supports seconds and milliseconds, multiple date formats including ISO 8601, UTC, and RFC 2822. Shows relative time.",
+    shortDescription: "Convert Unix timestamps to dates",
+    icon: "⏱️",
+    seo: {
+      title: "Unix Timestamp Converter - Free Online",
+      description: "Free Unix timestamp converter. Convert epoch time to dates and dates to Unix timestamps. Supports seconds, milliseconds, ISO 8601, and more. 100% client-side.",
+      keywords: ["unix timestamp converter", "epoch converter", "timestamp to date", "unix time", "epoch time", "posix time", "date to timestamp"],
+    },
+    faq: [
+      {
+        question: "What is a Unix timestamp?",
+        answer: "A Unix timestamp counts the number of seconds since January 1, 1970, 00:00:00 UTC (the Unix Epoch). It is used in programming, databases, and APIs for timezone-independent time representation.",
+      },
+      {
+        question: "What is the difference between seconds and milliseconds?",
+        answer: "Traditional Unix timestamps use seconds (10 digits). JavaScript's Date.now() uses milliseconds (13 digits). Java and .NET also commonly use milliseconds. Use whichever your system expects.",
+      },
+      {
+        question: "What is the Year 2038 problem?",
+        answer: "Systems using 32-bit signed integers for timestamps will overflow on January 19, 2038. Most modern systems now use 64-bit integers to avoid this issue.",
+      },
+    ],
+    relatedTools: ["date-difference-calculator", "age-calculator", "cron-expression-parser"],
+  },
+  {
+    id: "text-diff-checker",
+    slug: "text-diff-checker",
+    name: "Text Diff Checker",
+    category: "developer",
+    featured: true,
+    description: "Compare two texts side by side and see the differences highlighted. Line-by-line diff with additions in green and deletions in red. Supports case-insensitive and whitespace-ignoring comparison.",
+    shortDescription: "Compare and diff two texts",
+    icon: "📊",
+    seo: {
+      title: "Text Diff Checker - Compare Text Online",
+      description: "Free online text diff checker. Compare two texts side by side with highlighted additions and deletions. Supports ignore case and whitespace. 100% client-side.",
+      keywords: ["text diff", "text compare", "diff checker", "compare text online", "text difference", "file compare", "online diff tool"],
+    },
+    faq: [
+      {
+        question: "What diff algorithm does this tool use?",
+        answer: "This tool uses a Longest Common Subsequence (LCS) based diff algorithm, similar to what Git uses. It finds the optimal set of additions and deletions to transform one text into another.",
+      },
+      {
+        question: "Is my data safe?",
+        answer: "Yes. All comparison happens entirely in your browser. Your text is never sent to any server or stored anywhere. This tool works offline after loading.",
+      },
+    ],
+    relatedTools: ["word-counter", "remove-extra-spaces", "duplicate-line-remover"],
+  },
 
   // ==================== SECURITY & ENCODING TOOLS (6) ====================
   {
@@ -1018,7 +1104,7 @@ export const tools: Tool[] = [
     relatedTools: ["base64-encoder-decoder", "hex-text-converter", "url-encoder-decoder"],
   },
 
-  // ==================== DATA CONVERSION TOOLS (1) ====================
+  // ==================== DATA CONVERSION TOOLS (2) ====================
   {
     id: "csv-json-converter",
     slug: "csv-json-converter",
@@ -1035,8 +1121,38 @@ export const tools: Tool[] = [
     },
     relatedTools: ["json-formatter-viewer", "regex-tester", "base64-encoder-decoder"],
   },
+  {
+    id: "json-xml-converter",
+    slug: "json-xml-converter",
+    name: "JSON to XML Converter",
+    category: "data-conversion",
+    featured: true,
+    description: "Convert JSON to XML and XML to JSON instantly. Supports nested objects, arrays, attributes, and custom root element names. Well-formatted output with proper indentation.",
+    shortDescription: "Convert between JSON and XML",
+    icon: "🔄",
+    seo: {
+      title: "JSON to XML Converter - Free Online",
+      description: "Free JSON to XML and XML to JSON converter. Transform data formats instantly with proper formatting. Supports nested objects, arrays, and attributes. 100% client-side.",
+      keywords: ["json to xml", "xml to json", "json xml converter", "convert json to xml", "xml converter", "json converter online", "data format converter"],
+    },
+    faq: [
+      {
+        question: "How are JSON arrays converted to XML?",
+        answer: "JSON arrays are converted to repeated XML elements with the same tag name. When converting back, repeated elements are automatically detected and converted to JSON arrays.",
+      },
+      {
+        question: "How are XML attributes handled?",
+        answer: "When converting XML to JSON, attributes are prefixed with @ (e.g., @id). Text content of elements with attributes is stored in #text.",
+      },
+      {
+        question: "Is the conversion lossless?",
+        answer: "JSON to XML is generally lossless. XML to JSON may lose comments, processing instructions, and CDATA sections. Data types are heuristically parsed when converting back.",
+      },
+    ],
+    relatedTools: ["json-formatter-viewer", "json-yaml-converter", "csv-json-converter"],
+  },
 
-  // ==================== DESIGN & VISUAL TOOLS (6) ====================
+  // ==================== DESIGN & VISUAL TOOLS (7) ====================
   {
     id: "color-picker",
     slug: "color-picker",
@@ -1132,6 +1248,36 @@ export const tools: Tool[] = [
       keywords: ["image converter", "png to jpg", "jpg to png", "webp converter", "image format converter", "convert image online"],
     },
     relatedTools: ["image-resizer", "color-picker"],
+  },
+  {
+    id: "qr-code-generator",
+    slug: "qr-code-generator",
+    name: "QR Code Generator",
+    category: "design",
+    featured: true,
+    description: "Generate QR codes from any text, URL, email, phone number, or WiFi credentials. Customize size, colors, and error correction level. Download as PNG. All processing happens in your browser.",
+    shortDescription: "Generate QR codes instantly",
+    icon: "📱",
+    seo: {
+      title: "QR Code Generator - Free Online",
+      description: "Free QR code generator. Create QR codes from URLs, text, WiFi, email, and phone numbers. Customize colors and size. Download as PNG. 100% client-side, no data sent to servers.",
+      keywords: ["qr code generator", "create qr code", "qr code maker", "free qr code", "qr code creator", "generate qr code online", "wifi qr code"],
+    },
+    faq: [
+      {
+        question: "How much data can a QR code hold?",
+        answer: "A QR code can store up to 7,089 numeric characters, 4,296 alphanumeric characters, or 2,953 bytes of binary data. The actual capacity depends on the error correction level.",
+      },
+      {
+        question: "Can I customize the colors of my QR code?",
+        answer: "Yes, you can customize both the foreground and background colors. Ensure sufficient contrast between the two colors for reliable scanning.",
+      },
+      {
+        question: "Is this QR code generator free?",
+        answer: "Yes, this QR code generator is completely free with no limits, no watermarks, and no sign-up required. All QR codes are generated locally in your browser.",
+      },
+    ],
+    relatedTools: ["base64-encoder-decoder", "url-encoder-decoder", "password-generator"],
   },
 ];
 
@@ -1352,14 +1498,14 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
 export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   calculators: ["emi-calculator", "percentage-calculator", "discount-calculator", "tip-calculator"],
   health: ["bmi-calculator", "bmr-calculator", "water-intake-calculator", "ideal-weight-calculator"],
-  writing: ["word-counter", "text-case-converter", "remove-extra-spaces", "duplicate-line-remover"],
+  writing: ["word-counter", "text-case-converter", "lorem-ipsum-generator", "remove-extra-spaces", "duplicate-line-remover"],
   "date-time": ["age-calculator", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
   home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
   fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator"],
-  developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter"],
+  developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter", "unix-timestamp-converter", "text-diff-checker"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
-  "data-conversion": ["csv-json-converter"],
-  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter"],
+  "data-conversion": ["csv-json-converter", "json-xml-converter"],
+  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator"],
 };
 
 // ============================================================================
@@ -1436,6 +1582,11 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       toolSlugs: ["text-case-converter", "remove-extra-spaces"],
     },
     {
+      name: "Text Generation",
+      icon: "📝",
+      toolSlugs: ["lorem-ipsum-generator"],
+    },
+    {
       name: "List Management",
       icon: "📋",
       toolSlugs: ["line-sorter", "duplicate-line-remover"],
@@ -1491,7 +1642,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Converters & Parsers",
       icon: "🔄",
-      toolSlugs: ["json-yaml-converter", "curl-to-http-converter", "url-parser", "base-number-converter"],
+      toolSlugs: ["json-yaml-converter", "curl-to-http-converter", "url-parser", "base-number-converter", "unix-timestamp-converter"],
     },
     {
       name: "Generators",
@@ -1501,7 +1652,14 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Testers & Debuggers",
       icon: "🧪",
-      toolSlugs: ["regex-tester", "jwt-decoder", "cron-expression-parser"],
+      toolSlugs: ["regex-tester", "jwt-decoder", "cron-expression-parser", "text-diff-checker"],
+    },
+  ],
+  "data-conversion": [
+    {
+      name: "Format Converters",
+      icon: "🔄",
+      toolSlugs: ["csv-json-converter", "json-xml-converter"],
     },
   ],
   "security-encoding": [
@@ -1531,6 +1689,11 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       name: "Image Tools",
       icon: "🖼️",
       toolSlugs: ["image-resizer", "image-format-converter"],
+    },
+    {
+      name: "QR & Barcode",
+      icon: "📱",
+      toolSlugs: ["qr-code-generator"],
     },
   ],
 };
