@@ -90,6 +90,12 @@ export const categories: Category[] = [
     icon: "🖼️",
     description: "Color pickers, image tools, and visual design utilities",
   },
+  {
+    slug: "seo",
+    name: "🔍 SEO & Marketing",
+    icon: "📈",
+    description: "SEO tools, meta tag generators, and marketing utilities for better search rankings",
+  },
 ];
 
 export const tools: Tool[] = [
@@ -1369,6 +1375,158 @@ export const tools: Tool[] = [
     ],
     relatedTools: ["image-resizer", "image-format-converter", "qr-code-generator"],
   },
+
+  // ==================== SEO & MARKETING TOOLS (5) ====================
+  {
+    id: "meta-tag-generator",
+    slug: "meta-tag-generator",
+    name: "Meta Tag Generator",
+    category: "seo",
+    featured: true,
+    description: "Generate SEO-optimized meta tags for your website including title, description, keywords, Open Graph, and Twitter Card tags. Copy ready-to-use HTML code for better search engine rankings.",
+    shortDescription: "Generate SEO meta tags",
+    icon: "🏷️",
+    seo: {
+      title: "Meta Tag Generator - Free SEO Meta Tags Tool",
+      description: "Free meta tag generator for SEO. Create title, description, Open Graph, and Twitter Card tags. Copy HTML code instantly. No signup required.",
+      keywords: ["meta tag generator", "seo meta tags", "meta description generator", "open graph generator", "twitter card generator", "html meta tags"],
+    },
+    faq: [
+      {
+        question: "What are meta tags and why are they important?",
+        answer: "Meta tags are HTML elements that provide information about your webpage to search engines and social media platforms. They affect how your page appears in search results and when shared on social media, impacting click-through rates and SEO.",
+      },
+      {
+        question: "What is the ideal length for meta descriptions?",
+        answer: "Meta descriptions should be between 150-160 characters. Google typically displays up to 155-160 characters in search results. Keep it concise but descriptive to encourage clicks.",
+      },
+      {
+        question: "Do I need Open Graph and Twitter Card tags?",
+        answer: "Yes, if you want your content to look good when shared on social media. Open Graph tags control how your page appears on Facebook, LinkedIn, and other platforms. Twitter Cards provide similar functionality for Twitter.",
+      },
+    ],
+    relatedTools: ["open-graph-preview", "schema-markup-generator", "robots-txt-generator"],
+  },
+  {
+    id: "open-graph-preview",
+    slug: "open-graph-preview",
+    name: "Open Graph Preview",
+    category: "seo",
+    featured: true,
+    description: "Preview how your webpage will look when shared on Facebook, Twitter, LinkedIn, and other social media platforms. Test Open Graph and Twitter Card tags before publishing.",
+    shortDescription: "Preview social media shares",
+    icon: "👁️",
+    seo: {
+      title: "Open Graph Preview - Social Media Share Preview Tool",
+      description: "Free Open Graph preview tool. See how your links appear on Facebook, Twitter, LinkedIn before sharing. Test OG tags and Twitter Cards instantly.",
+      keywords: ["open graph preview", "social media preview", "facebook share preview", "twitter card preview", "og tag tester", "linkedin preview"],
+    },
+    faq: [
+      {
+        question: "What is Open Graph?",
+        answer: "Open Graph is a protocol created by Facebook that allows you to control how your content appears when shared on social media. It includes tags for title, description, image, and more.",
+      },
+      {
+        question: "Why does my shared link look different than expected?",
+        answer: "Social platforms cache Open Graph data. If you've recently updated your tags, use Facebook's Sharing Debugger or Twitter's Card Validator to clear the cache and fetch fresh data.",
+      },
+      {
+        question: "What image size should I use for Open Graph?",
+        answer: "The recommended size is 1200x630 pixels for optimal display across platforms. Images should be at least 200x200 pixels, and Facebook recommends a 1.91:1 aspect ratio.",
+      },
+    ],
+    relatedTools: ["meta-tag-generator", "schema-markup-generator", "keyword-density-checker"],
+  },
+  {
+    id: "robots-txt-generator",
+    slug: "robots-txt-generator",
+    name: "Robots.txt Generator",
+    category: "seo",
+    featured: true,
+    description: "Generate robots.txt files for your website to control search engine crawlers. Easily allow or disallow specific paths, add sitemaps, and set crawl delays for better SEO control.",
+    shortDescription: "Create robots.txt files",
+    icon: "🤖",
+    seo: {
+      title: "Robots.txt Generator - Free Online Tool",
+      description: "Free robots.txt generator. Create and customize robots.txt files for your website. Control search engine crawlers, add sitemaps, set crawl delays. No signup required.",
+      keywords: ["robots.txt generator", "robots txt creator", "robots file generator", "seo robots.txt", "crawl control", "search engine robots"],
+    },
+    faq: [
+      {
+        question: "What is robots.txt?",
+        answer: "Robots.txt is a text file placed in your website's root directory that tells search engine crawlers which pages or sections they can or cannot access. It helps control crawling and indexing of your site.",
+      },
+      {
+        question: "Where should I place the robots.txt file?",
+        answer: "The robots.txt file must be placed in the root directory of your website (e.g., https://example.com/robots.txt). Search engines will only look for it at this specific location.",
+      },
+      {
+        question: "Can robots.txt hide pages from Google?",
+        answer: "No, robots.txt only prevents crawling, not indexing. If a page is linked from other indexed pages, it may still appear in search results. Use the 'noindex' meta tag or X-Robots-Tag header to prevent indexing.",
+      },
+    ],
+    relatedTools: ["meta-tag-generator", "schema-markup-generator", "keyword-density-checker"],
+  },
+  {
+    id: "schema-markup-generator",
+    slug: "schema-markup-generator",
+    name: "Schema Markup Generator",
+    category: "seo",
+    featured: true,
+    description: "Generate JSON-LD structured data markup for rich snippets in search results. Support for Article, Product, FAQ, Organization, Local Business, and more schema types.",
+    shortDescription: "Generate JSON-LD schema",
+    icon: "📋",
+    seo: {
+      title: "Schema Markup Generator - Free JSON-LD Tool",
+      description: "Free schema markup generator. Create JSON-LD structured data for rich snippets. Support for Article, Product, FAQ, Organization schema types. Copy code instantly.",
+      keywords: ["schema markup generator", "json-ld generator", "structured data generator", "rich snippets", "schema.org generator", "seo schema"],
+    },
+    faq: [
+      {
+        question: "What is schema markup?",
+        answer: "Schema markup is structured data code that helps search engines understand your content better. It can result in rich snippets in search results, such as star ratings, prices, FAQs, and more.",
+      },
+      {
+        question: "Which schema type should I use?",
+        answer: "Choose based on your content: Article for blog posts, Product for e-commerce, LocalBusiness for physical stores, Organization for companies, FAQ for question-answer pages, and Recipe for cooking content.",
+      },
+      {
+        question: "Where do I add schema markup?",
+        answer: "Add JSON-LD schema markup in the <head> section of your HTML or just before the closing </body> tag. JSON-LD is the recommended format by Google.",
+      },
+    ],
+    relatedTools: ["meta-tag-generator", "open-graph-preview", "robots-txt-generator"],
+  },
+  {
+    id: "keyword-density-checker",
+    slug: "keyword-density-checker",
+    name: "Keyword Density Checker",
+    category: "seo",
+    featured: true,
+    description: "Analyze keyword density in your content for SEO optimization. Check word frequency, keyword prominence, and get suggestions for better on-page SEO. Supports single and multi-word phrases.",
+    shortDescription: "Check keyword density",
+    icon: "🔑",
+    seo: {
+      title: "Keyword Density Checker - Free SEO Tool",
+      description: "Free keyword density checker for SEO. Analyze word frequency, check keyword prominence, optimize content. Supports single and multi-word phrases. No signup required.",
+      keywords: ["keyword density checker", "keyword analyzer", "seo keyword tool", "word frequency counter", "keyword optimization", "content analysis"],
+    },
+    faq: [
+      {
+        question: "What is the ideal keyword density?",
+        answer: "There's no perfect number, but generally 1-2% is considered natural. Focus on writing naturally for readers rather than hitting a specific percentage. Keyword stuffing (over 3%) can hurt your rankings.",
+      },
+      {
+        question: "Does keyword density still matter for SEO?",
+        answer: "Modern search engines focus more on content quality and user intent than exact keyword density. However, it's still useful to ensure your target keywords appear naturally throughout your content.",
+      },
+      {
+        question: "What is keyword prominence?",
+        answer: "Keyword prominence refers to where keywords appear in your content. Keywords in titles, headings, first paragraph, and meta descriptions carry more weight than those buried in the middle of content.",
+      },
+    ],
+    relatedTools: ["meta-tag-generator", "open-graph-preview", "schema-markup-generator"],
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
@@ -1579,6 +1737,24 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     seoContent:
       "Design work requires precise tools for color selection, format conversion, and accessibility testing. Our free online design utilities give you professional-grade capabilities without expensive software subscriptions or complex installations. Pick colors with precision using our color picker that displays HEX, RGB, and HSL values simultaneously. Convert between color formats instantly, create beautiful CSS gradients visually, and test color combinations for WCAG accessibility compliance. For image work, resize photos to exact dimensions or convert between PNG, JPG, and WebP formats — all processing happens locally in your browser, so your images stay private. These browser-based tools are essential for web developers styling interfaces, graphic designers matching brand colors, content creators preparing images for different platforms, or anyone who needs quick visual utilities. No accounts to create, no software to install, and no files uploaded to external servers. Professional design tools, completely free and ready when you need them.",
   },
+  seo: {
+    title: "Free SEO & Marketing Tools Online",
+    description:
+      "Free SEO tools for meta tags, Open Graph preview, robots.txt, schema markup, and keyword analysis. Improve your search rankings. No signup required.",
+    keywords: [
+      "seo tools",
+      "meta tag generator",
+      "open graph preview",
+      "robots.txt generator",
+      "schema markup",
+      "keyword density",
+      "search engine optimization",
+    ],
+    intro:
+      "Boost your website's search rankings with free SEO tools. Generate meta tags, preview social shares, create robots.txt files, add schema markup, and analyze keyword density. All tools run in your browser — fast and private.",
+    seoContent:
+      "Search engine optimization doesn't require expensive software or agency fees for the fundamentals. Our free online SEO tools give you everything needed to optimize your website's technical SEO and content strategy. Generate perfect meta tags including title, description, Open Graph, and Twitter Card tags with our meta tag generator — then preview exactly how your pages will appear when shared on Facebook, Twitter, and LinkedIn. Create properly formatted robots.txt files to control search engine crawlers, and add JSON-LD schema markup for rich snippets in search results. The keyword density checker helps you analyze your content's keyword usage to ensure natural optimization without over-stuffing. These browser-based tools process everything locally, so your content strategy and website details stay private. Perfect for bloggers optimizing posts, developers building SEO-friendly sites, marketers improving click-through rates, or business owners taking control of their search presence. Professional SEO tools, completely free, with no accounts required.",
+  },
 };
 
 // ============================================================================
@@ -1596,6 +1772,7 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
   "data-conversion": ["csv-json-converter", "json-xml-converter"],
   design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator", "image-compressor"],
+  seo: ["meta-tag-generator", "open-graph-preview", "robots-txt-generator", "schema-markup-generator", "keyword-density-checker"],
 };
 
 // ============================================================================
@@ -1612,7 +1789,8 @@ export const RELATED_CATEGORIES: Record<string, string[]> = {
   developer: ["security-encoding", "data-conversion", "design"],
   "security-encoding": ["developer", "data-conversion", "fun"],
   "data-conversion": ["developer", "security-encoding", "writing"],
-  design: ["developer", "writing", "data-conversion"],
+  design: ["developer", "writing", "seo"],
+  seo: ["developer", "writing", "design"],
 };
 
 // ============================================================================
@@ -1789,6 +1967,23 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       name: "QR & Barcode",
       icon: "📱",
       toolSlugs: ["qr-code-generator"],
+    },
+  ],
+  seo: [
+    {
+      name: "Meta & Social Tags",
+      icon: "🏷️",
+      toolSlugs: ["meta-tag-generator", "open-graph-preview"],
+    },
+    {
+      name: "Technical SEO",
+      icon: "🤖",
+      toolSlugs: ["robots-txt-generator", "schema-markup-generator"],
+    },
+    {
+      name: "Content Analysis",
+      icon: "📊",
+      toolSlugs: ["keyword-density-checker"],
     },
   ],
 };
