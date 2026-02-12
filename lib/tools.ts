@@ -96,6 +96,18 @@ export const categories: Category[] = [
     icon: "📈",
     description: "SEO tools, meta tag generators, and marketing utilities for better search rankings",
   },
+  {
+    slug: "unit-converters",
+    name: "📐 Unit Converters",
+    icon: "🔢",
+    description: "Convert between units of length, weight, temperature, data storage, and more",
+  },
+  {
+    slug: "social-media",
+    name: "📱 Social Media",
+    icon: "📲",
+    description: "Tools for social media content creation, hashtags, and platform optimization",
+  },
 ];
 
 export const tools: Tool[] = [
@@ -1527,6 +1539,416 @@ export const tools: Tool[] = [
     ],
     relatedTools: ["meta-tag-generator", "open-graph-preview", "schema-markup-generator"],
   },
+
+  // ==================== UNIT CONVERTERS (5) ====================
+  {
+    id: "length-converter",
+    slug: "length-converter",
+    name: "Length Converter",
+    category: "unit-converters",
+    featured: true,
+    description: "Convert between length and distance units including meters, feet, inches, centimeters, kilometers, miles, yards, and more. Instant, accurate conversions.",
+    shortDescription: "Convert length and distance units",
+    icon: "📏",
+    seo: {
+      title: "Length Converter - Free Unit Conversion Tool",
+      description: "Free length converter. Convert meters, feet, inches, cm, km, miles instantly. Accurate unit conversion calculator. No signup required.",
+      keywords: ["length converter", "distance converter", "meters to feet", "inches to cm", "km to miles", "unit converter"],
+    },
+    faq: [
+      {
+        question: "How many centimeters are in an inch?",
+        answer: "There are exactly 2.54 centimeters in one inch. This is the internationally accepted conversion factor.",
+      },
+      {
+        question: "How do I convert kilometers to miles?",
+        answer: "Multiply the number of kilometers by 0.621371 to get miles. For example, 10 km = 6.21 miles.",
+      },
+    ],
+    relatedTools: ["weight-converter", "speed-converter", "temperature-converter"],
+  },
+  {
+    id: "weight-converter",
+    slug: "weight-converter",
+    name: "Weight Converter",
+    category: "unit-converters",
+    featured: true,
+    description: "Convert between weight and mass units including kilograms, pounds, ounces, grams, stones, and tons. Quick and accurate conversions.",
+    shortDescription: "Convert weight and mass units",
+    icon: "⚖️",
+    seo: {
+      title: "Weight Converter - Free Mass Unit Conversion",
+      description: "Free weight converter. Convert kg, pounds, ounces, grams, stones instantly. Accurate mass unit calculator. No signup required.",
+      keywords: ["weight converter", "mass converter", "kg to lbs", "pounds to kg", "ounces to grams", "unit converter"],
+    },
+    faq: [
+      {
+        question: "How many pounds are in a kilogram?",
+        answer: "There are approximately 2.20462 pounds in one kilogram.",
+      },
+      {
+        question: "What is a stone in weight?",
+        answer: "A stone is a unit of weight equal to 14 pounds (6.35 kg), commonly used in the UK and Ireland for body weight.",
+      },
+    ],
+    relatedTools: ["length-converter", "temperature-converter", "data-storage-converter"],
+  },
+  {
+    id: "temperature-converter",
+    slug: "temperature-converter",
+    name: "Temperature Converter",
+    category: "unit-converters",
+    featured: true,
+    description: "Convert temperatures between Celsius, Fahrenheit, and Kelvin. Includes common temperature reference points and formulas.",
+    shortDescription: "Convert temperature units",
+    icon: "🌡️",
+    seo: {
+      title: "Temperature Converter - Celsius Fahrenheit Kelvin",
+      description: "Free temperature converter. Convert Celsius, Fahrenheit, and Kelvin instantly. Accurate temperature conversion calculator. No signup required.",
+      keywords: ["temperature converter", "celsius to fahrenheit", "fahrenheit to celsius", "kelvin converter", "temperature calculator"],
+    },
+    faq: [
+      {
+        question: "What is the formula to convert Celsius to Fahrenheit?",
+        answer: "Multiply Celsius by 9/5 (or 1.8) and add 32. Formula: °F = (°C × 9/5) + 32",
+      },
+      {
+        question: "What is absolute zero?",
+        answer: "Absolute zero is 0 Kelvin, -273.15°C, or -459.67°F. It's the lowest possible temperature where all molecular motion stops.",
+      },
+    ],
+    relatedTools: ["length-converter", "weight-converter", "speed-converter"],
+  },
+  {
+    id: "data-storage-converter",
+    slug: "data-storage-converter",
+    name: "Data Storage Converter",
+    category: "unit-converters",
+    featured: true,
+    description: "Convert between digital storage units: bytes, kilobytes, megabytes, gigabytes, terabytes, and petabytes. Supports both binary (1024) and decimal (1000) standards.",
+    shortDescription: "Convert bytes, KB, MB, GB, TB",
+    icon: "💾",
+    seo: {
+      title: "Data Storage Converter - Bytes KB MB GB TB",
+      description: "Free data storage converter. Convert bytes, KB, MB, GB, TB, PB instantly. Supports binary and decimal standards. No signup required.",
+      keywords: ["data storage converter", "bytes to mb", "gb to tb", "file size converter", "storage calculator", "mb to gb"],
+    },
+    faq: [
+      {
+        question: "What's the difference between MB and MiB?",
+        answer: "MB (megabyte) uses decimal: 1 MB = 1,000,000 bytes. MiB (mebibyte) uses binary: 1 MiB = 1,048,576 bytes. Storage manufacturers use decimal; operating systems often use binary.",
+      },
+      {
+        question: "How many GB are in a TB?",
+        answer: "In decimal: 1 TB = 1,000 GB. In binary: 1 TiB = 1,024 GiB.",
+      },
+    ],
+    relatedTools: ["length-converter", "weight-converter", "speed-converter"],
+  },
+  {
+    id: "speed-converter",
+    slug: "speed-converter",
+    name: "Speed Converter",
+    category: "unit-converters",
+    featured: true,
+    description: "Convert between speed units including mph, km/h, m/s, knots, and feet per second. Perfect for travel, sports, and science calculations.",
+    shortDescription: "Convert speed and velocity units",
+    icon: "🚀",
+    seo: {
+      title: "Speed Converter - MPH KM/H M/S Knots",
+      description: "Free speed converter. Convert mph, km/h, m/s, knots, fps instantly. Accurate velocity unit calculator. No signup required.",
+      keywords: ["speed converter", "mph to kmh", "km/h to mph", "knots converter", "velocity converter", "m/s converter"],
+    },
+    faq: [
+      {
+        question: "How do I convert mph to km/h?",
+        answer: "Multiply mph by 1.60934 to get km/h. For example, 60 mph = 96.56 km/h.",
+      },
+      {
+        question: "What is a knot?",
+        answer: "A knot is a unit of speed equal to one nautical mile per hour, approximately 1.15 mph or 1.85 km/h. It's used in maritime and aviation contexts.",
+      },
+    ],
+    relatedTools: ["length-converter", "temperature-converter", "data-storage-converter"],
+  },
+
+  // ==================== SOCIAL MEDIA TOOLS (4) ====================
+  {
+    id: "hashtag-generator",
+    slug: "hashtag-generator",
+    name: "Hashtag Generator",
+    category: "social-media",
+    featured: true,
+    description: "Generate relevant hashtags for Instagram, Twitter, TikTok, and LinkedIn. Get popular and niche hashtags based on your topic to increase reach and engagement.",
+    shortDescription: "Generate social media hashtags",
+    icon: "#️⃣",
+    seo: {
+      title: "Hashtag Generator - Free Instagram Twitter TikTok",
+      description: "Free hashtag generator for Instagram, Twitter, TikTok, LinkedIn. Generate relevant hashtags to boost engagement. No signup required.",
+      keywords: ["hashtag generator", "instagram hashtags", "twitter hashtags", "tiktok hashtags", "trending hashtags", "social media hashtags"],
+    },
+    faq: [
+      {
+        question: "How many hashtags should I use?",
+        answer: "Instagram allows up to 30 hashtags (5-15 recommended). Twitter works best with 1-2. TikTok allows up to 100 characters of hashtags. LinkedIn recommends 3-5 hashtags.",
+      },
+      {
+        question: "Should I use popular or niche hashtags?",
+        answer: "Use a mix of both. Popular hashtags have more reach but more competition. Niche hashtags have less competition and more targeted audiences. A ratio of 30% popular, 70% niche often works well.",
+      },
+    ],
+    relatedTools: ["social-media-character-counter", "youtube-timestamp-generator", "lorem-ipsum-generator"],
+  },
+  {
+    id: "social-media-character-counter",
+    slug: "social-media-character-counter",
+    name: "Social Media Character Counter",
+    category: "social-media",
+    featured: true,
+    description: "Count characters for Twitter/X, Instagram, Facebook, LinkedIn, YouTube, and TikTok. See limits for posts, bios, and descriptions across all platforms.",
+    shortDescription: "Count characters for social posts",
+    icon: "📊",
+    seo: {
+      title: "Social Media Character Counter - Twitter Instagram LinkedIn",
+      description: "Free character counter for social media. Check limits for Twitter, Instagram, Facebook, LinkedIn, YouTube. Real-time counting. No signup required.",
+      keywords: ["character counter", "twitter character limit", "instagram caption length", "social media limits", "post length checker"],
+    },
+    faq: [
+      {
+        question: "What is Twitter's character limit?",
+        answer: "Twitter/X allows 280 characters for regular tweets. Twitter Blue/Premium subscribers can post up to 25,000 characters.",
+      },
+      {
+        question: "What's the Instagram caption limit?",
+        answer: "Instagram captions can be up to 2,200 characters, but only the first 125 characters show before 'more'. Instagram bio limit is 150 characters.",
+      },
+    ],
+    relatedTools: ["hashtag-generator", "word-counter", "twitter-thread-maker"],
+  },
+  {
+    id: "youtube-timestamp-generator",
+    slug: "youtube-timestamp-generator",
+    name: "YouTube Timestamp Generator",
+    category: "social-media",
+    featured: true,
+    description: "Create timestamped links to specific moments in YouTube videos. Generate formatted timestamps for video chapters and descriptions.",
+    shortDescription: "Create YouTube video timestamps",
+    icon: "🎬",
+    seo: {
+      title: "YouTube Timestamp Generator - Create Video Chapters",
+      description: "Free YouTube timestamp generator. Create links to specific video moments and generate formatted chapter timestamps. No signup required.",
+      keywords: ["youtube timestamp", "video timestamp generator", "youtube chapters", "youtube time link", "video chapter maker"],
+    },
+    faq: [
+      {
+        question: "How do YouTube timestamps work?",
+        answer: "Add ?t=XXs or &t=XXs to a YouTube URL, where XX is seconds. For example, ?t=90s starts at 1:30. You can also use ?t=1m30s format.",
+      },
+      {
+        question: "How do I add chapters to YouTube videos?",
+        answer: "Add timestamps in your video description starting from 0:00. Each timestamp needs a title. YouTube automatically creates chapters if you have at least 3 timestamps, each at least 10 seconds apart.",
+      },
+    ],
+    relatedTools: ["hashtag-generator", "social-media-character-counter", "unix-timestamp-converter"],
+  },
+  {
+    id: "twitter-thread-maker",
+    slug: "twitter-thread-maker",
+    name: "Twitter Thread Maker",
+    category: "social-media",
+    featured: true,
+    description: "Split long text into Twitter/X threads with proper character counts. Automatically numbers tweets and ensures clean breaks at sentence boundaries.",
+    shortDescription: "Create Twitter/X threads",
+    icon: "🧵",
+    seo: {
+      title: "Twitter Thread Maker - Split Text into Tweets",
+      description: "Free Twitter thread maker. Split long text into tweet-sized chunks. Auto-numbering and smart text splitting. No signup required.",
+      keywords: ["twitter thread maker", "tweet splitter", "thread generator", "twitter thread creator", "split text into tweets"],
+    },
+    faq: [
+      {
+        question: "What's the best length for a Twitter thread?",
+        answer: "Most engaging threads are 3-10 tweets. Longer threads (15-25 tweets) work well for educational content. Very long threads may lose reader attention.",
+      },
+      {
+        question: "Should I number my tweets?",
+        answer: "Yes, numbering helps readers follow along and know how much is left. Common formats: 1/, 1/10, or [1/10].",
+      },
+    ],
+    relatedTools: ["social-media-character-counter", "hashtag-generator", "text-case-converter"],
+  },
+
+  // ==================== ADDITIONAL WRITING TOOLS (2) ====================
+  {
+    id: "slug-generator",
+    slug: "slug-generator",
+    name: "URL Slug Generator",
+    category: "writing",
+    featured: true,
+    description: "Convert text into URL-friendly slugs. Removes special characters, converts spaces to hyphens, and creates SEO-friendly URLs for your blog posts and pages.",
+    shortDescription: "Generate URL-friendly slugs",
+    icon: "🔗",
+    seo: {
+      title: "URL Slug Generator - Create SEO-Friendly URLs",
+      description: "Free URL slug generator. Convert titles to URL-friendly slugs. Remove special characters, lowercase, hyphenate. Perfect for blogs and CMS. No signup required.",
+      keywords: ["slug generator", "url slug", "seo url", "permalink generator", "url friendly text", "slug maker"],
+    },
+    faq: [
+      {
+        question: "What is a URL slug?",
+        answer: "A URL slug is the part of a URL that identifies a specific page in human-readable form. For example, in 'example.com/blog/my-first-post', 'my-first-post' is the slug.",
+      },
+      {
+        question: "Why are slugs important for SEO?",
+        answer: "SEO-friendly slugs help search engines understand page content, improve click-through rates by being readable, and can include target keywords for better rankings.",
+      },
+    ],
+    relatedTools: ["text-case-converter", "remove-extra-spaces", "meta-tag-generator"],
+  },
+  {
+    id: "text-reverser",
+    slug: "text-reverser",
+    name: "Text Reverser",
+    category: "writing",
+    description: "Reverse text, words, or lines. Create mirror text, backwards text, or flip the order of words and sentences. Fun and useful for various applications.",
+    shortDescription: "Reverse text and words",
+    icon: "🔄",
+    seo: {
+      title: "Text Reverser - Reverse Words and Letters Online",
+      description: "Free text reverser tool. Reverse letters, words, or lines of text instantly. Create backwards text and mirror text. No signup required.",
+      keywords: ["text reverser", "reverse text", "backwards text", "mirror text", "reverse words", "flip text"],
+    },
+    relatedTools: ["text-case-converter", "slug-generator", "lorem-ipsum-generator"],
+  },
+
+  // ==================== ADDITIONAL DEVELOPER TOOLS (3) ====================
+  {
+    id: "css-minifier",
+    slug: "css-minifier",
+    name: "CSS Minifier",
+    category: "developer",
+    featured: true,
+    description: "Minify CSS code by removing whitespace, comments, and unnecessary characters. Reduce file size for faster page loads while preserving functionality.",
+    shortDescription: "Minify and compress CSS",
+    icon: "🎨",
+    seo: {
+      title: "CSS Minifier - Compress CSS Online Free",
+      description: "Free CSS minifier. Compress CSS code by removing whitespace and comments. Reduce file size for faster loading. No signup required.",
+      keywords: ["css minifier", "minify css", "css compressor", "compress css", "css optimizer", "reduce css size"],
+    },
+    faq: [
+      {
+        question: "What does CSS minification do?",
+        answer: "Minification removes unnecessary characters (whitespace, comments, newlines) from CSS without changing functionality. This reduces file size by 10-30%, improving page load times.",
+      },
+      {
+        question: "Should I minify CSS for production?",
+        answer: "Yes, always minify CSS for production websites. Keep the original formatted version for development. Most build tools can automate this process.",
+      },
+    ],
+    relatedTools: ["javascript-minifier", "html-minifier", "css-formatter"],
+  },
+  {
+    id: "javascript-minifier",
+    slug: "javascript-minifier",
+    name: "JavaScript Minifier",
+    category: "developer",
+    featured: true,
+    description: "Minify JavaScript code to reduce file size. Removes whitespace, shortens variable names, and optimizes code for faster page loads.",
+    shortDescription: "Minify and compress JavaScript",
+    icon: "📜",
+    seo: {
+      title: "JavaScript Minifier - Compress JS Online Free",
+      description: "Free JavaScript minifier. Compress JS code to reduce file size and improve loading speed. No signup required.",
+      keywords: ["javascript minifier", "minify js", "js compressor", "compress javascript", "js optimizer", "uglify js"],
+    },
+    faq: [
+      {
+        question: "Is minified JavaScript harder to debug?",
+        answer: "Yes, minified code is difficult to read. Use source maps in development to map minified code back to original source. Keep unminified versions for debugging.",
+      },
+      {
+        question: "How much can minification reduce file size?",
+        answer: "JavaScript minification typically reduces file size by 20-50%. Combined with gzip compression, total reduction can reach 70-80%.",
+      },
+    ],
+    relatedTools: ["css-minifier", "html-minifier", "json-formatter-viewer"],
+  },
+  {
+    id: "html-minifier",
+    slug: "html-minifier",
+    name: "HTML Minifier",
+    category: "developer",
+    description: "Minify HTML code by removing whitespace, comments, and optional tags. Reduce page size for faster loading while maintaining valid markup.",
+    shortDescription: "Minify and compress HTML",
+    icon: "📄",
+    seo: {
+      title: "HTML Minifier - Compress HTML Online Free",
+      description: "Free HTML minifier. Compress HTML by removing whitespace and comments. Reduce page size for faster loading. No signup required.",
+      keywords: ["html minifier", "minify html", "html compressor", "compress html", "html optimizer", "reduce html size"],
+    },
+    faq: [
+      {
+        question: "What gets removed during HTML minification?",
+        answer: "HTML minification removes unnecessary whitespace, comments, optional closing tags, redundant attributes, and can inline small CSS/JS. The result is valid HTML that renders identically.",
+      },
+    ],
+    relatedTools: ["css-minifier", "javascript-minifier", "html-formatter"],
+  },
+
+  // ==================== ADDITIONAL DESIGN TOOLS (2) ====================
+  {
+    id: "image-to-base64",
+    slug: "image-to-base64",
+    name: "Image to Base64 Converter",
+    category: "design",
+    featured: true,
+    description: "Convert images to Base64 encoded strings. Generate data URLs for embedding images directly in HTML, CSS, or JSON without separate file requests.",
+    shortDescription: "Convert images to Base64",
+    icon: "🖼️",
+    seo: {
+      title: "Image to Base64 Converter - Encode Images Online",
+      description: "Free image to Base64 converter. Convert PNG, JPG, GIF to Base64 data URLs. Embed images in HTML/CSS. No signup required.",
+      keywords: ["image to base64", "base64 image encoder", "image to data url", "encode image", "base64 converter", "inline image"],
+    },
+    faq: [
+      {
+        question: "When should I use Base64 images?",
+        answer: "Use Base64 for small images (under 10KB) like icons, logos, or UI elements. This reduces HTTP requests. For larger images, regular files with proper caching are more efficient.",
+      },
+      {
+        question: "Does Base64 increase file size?",
+        answer: "Yes, Base64 encoding increases size by about 33%. However, for small images, eliminating an HTTP request can still improve performance.",
+      },
+    ],
+    relatedTools: ["base64-encoder-decoder", "image-compressor", "image-format-converter"],
+  },
+  {
+    id: "favicon-generator",
+    slug: "favicon-generator",
+    name: "Favicon Generator",
+    category: "design",
+    featured: true,
+    description: "Generate favicons from images for your website. Create multiple sizes for different devices and browsers, including ICO, PNG, and Apple Touch icons.",
+    shortDescription: "Create website favicons",
+    icon: "⭐",
+    seo: {
+      title: "Favicon Generator - Create Website Icons Free",
+      description: "Free favicon generator. Create ICO, PNG, and Apple Touch icons from any image. Generate all sizes needed for modern websites. No signup required.",
+      keywords: ["favicon generator", "favicon creator", "ico generator", "website icon", "apple touch icon", "favicon maker"],
+    },
+    faq: [
+      {
+        question: "What sizes do I need for favicons?",
+        answer: "Essential sizes: 16x16, 32x32 (standard), 180x180 (Apple Touch), and 192x192 (Android). For comprehensive support, also include 48x48, 96x96, and 512x512.",
+      },
+      {
+        question: "Should I use ICO or PNG for favicons?",
+        answer: "Use both. ICO format (containing 16x16 and 32x32) ensures compatibility with older browsers. PNG files work for modern browsers and mobile devices.",
+      },
+    ],
+    relatedTools: ["image-to-base64", "image-resizer", "qr-code-generator"],
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
@@ -1755,6 +2177,42 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
     seoContent:
       "Search engine optimization doesn't require expensive software or agency fees for the fundamentals. Our free online SEO tools give you everything needed to optimize your website's technical SEO and content strategy. Generate perfect meta tags including title, description, Open Graph, and Twitter Card tags with our meta tag generator — then preview exactly how your pages will appear when shared on Facebook, Twitter, and LinkedIn. Create properly formatted robots.txt files to control search engine crawlers, and add JSON-LD schema markup for rich snippets in search results. The keyword density checker helps you analyze your content's keyword usage to ensure natural optimization without over-stuffing. These browser-based tools process everything locally, so your content strategy and website details stay private. Perfect for bloggers optimizing posts, developers building SEO-friendly sites, marketers improving click-through rates, or business owners taking control of their search presence. Professional SEO tools, completely free, with no accounts required.",
   },
+  "unit-converters": {
+    title: "Free Unit Converter Tools Online",
+    description:
+      "Free unit converters for length, weight, temperature, data storage, and speed. Instant, accurate conversions. No signup required.",
+    keywords: [
+      "unit converter",
+      "length converter",
+      "weight converter",
+      "temperature converter",
+      "data storage converter",
+      "speed converter",
+      "measurement converter",
+    ],
+    intro:
+      "Convert between units instantly with our free online converters. Length, weight, temperature, data storage, and speed — all conversions happen in your browser with complete accuracy.",
+    seoContent:
+      "Unit conversions are a daily necessity for students, professionals, travelers, and anyone working with measurements. Our free online unit converters provide instant, accurate conversions across all common measurement systems. Convert between metric and imperial units for length and distance — meters to feet, kilometers to miles, centimeters to inches. Switch between weight units including kilograms, pounds, ounces, and stones. Temperature conversions between Celsius, Fahrenheit, and Kelvin are essential for cooking, science, and travel. Data storage conversions help you understand file sizes across bytes, kilobytes, megabytes, gigabytes, and terabytes — with support for both binary and decimal standards. Speed conversions cover mph, km/h, meters per second, and knots for automotive, aviation, and scientific applications. All converters process instantly in your browser with no server requests, ensuring your data stays private and conversions are lightning fast. Bookmark these tools for quick access whenever you need accurate unit conversions.",
+  },
+  "social-media": {
+    title: "Free Social Media Tools Online",
+    description:
+      "Free tools for social media content creation. Hashtag generators, character counters, YouTube timestamps, and thread makers. No signup required.",
+    keywords: [
+      "social media tools",
+      "hashtag generator",
+      "character counter",
+      "twitter thread",
+      "youtube timestamp",
+      "instagram tools",
+      "content creator tools",
+    ],
+    intro:
+      "Optimize your social media presence with free tools for hashtags, character counts, timestamps, and threads. Create better content for Instagram, Twitter, YouTube, and more — all in your browser.",
+    seoContent:
+      "Creating engaging social media content requires the right tools. Our free online social media utilities help content creators, marketers, and businesses optimize their posts across all major platforms. Generate relevant hashtags for Instagram, Twitter, TikTok, and LinkedIn to increase your content's reach and discoverability. Check character limits for each platform with our social media character counter — never exceed Twitter's 280 characters or LinkedIn's post limits again. Create timestamped links to specific moments in YouTube videos, perfect for referencing key points or creating video chapters. Split long-form content into perfectly-sized Twitter threads with automatic numbering and smart text breaks. These browser-based tools respect your privacy — your content ideas and social strategy never leave your device. Whether you're a solo creator, social media manager, or marketing team, these utilities streamline your workflow and help you create more effective social content. No accounts required, no limitations, just instant results.",
+  },
 };
 
 // ============================================================================
@@ -1771,8 +2229,10 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter", "unix-timestamp-converter", "text-diff-checker", "sql-formatter"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
   "data-conversion": ["csv-json-converter", "json-xml-converter"],
-  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator", "image-compressor"],
+  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator", "image-compressor", "image-to-base64", "favicon-generator"],
   seo: ["meta-tag-generator", "open-graph-preview", "robots-txt-generator", "schema-markup-generator", "keyword-density-checker"],
+  "unit-converters": ["length-converter", "weight-converter", "temperature-converter", "data-storage-converter", "speed-converter"],
+  "social-media": ["hashtag-generator", "social-media-character-counter", "youtube-timestamp-generator", "twitter-thread-maker"],
 };
 
 // ============================================================================
@@ -1780,17 +2240,19 @@ export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
 // ============================================================================
 
 export const RELATED_CATEGORIES: Record<string, string[]> = {
-  calculators: ["health", "home", "date-time"],
+  calculators: ["health", "home", "unit-converters"],
   health: ["calculators", "home", "fun"],
-  writing: ["developer", "data-conversion", "fun"],
+  writing: ["developer", "social-media", "seo"],
   "date-time": ["calculators", "home", "writing"],
-  home: ["calculators", "date-time", "health"],
-  fun: ["writing", "security-encoding", "developer"],
+  home: ["calculators", "date-time", "unit-converters"],
+  fun: ["writing", "social-media", "developer"],
   developer: ["security-encoding", "data-conversion", "design"],
   "security-encoding": ["developer", "data-conversion", "fun"],
   "data-conversion": ["developer", "security-encoding", "writing"],
-  design: ["developer", "writing", "seo"],
-  seo: ["developer", "writing", "design"],
+  design: ["developer", "seo", "social-media"],
+  seo: ["developer", "writing", "social-media"],
+  "unit-converters": ["calculators", "home", "developer"],
+  "social-media": ["seo", "writing", "design"],
 };
 
 // ============================================================================
@@ -1847,7 +2309,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Text Transformation",
       icon: "🔤",
-      toolSlugs: ["text-case-converter", "remove-extra-spaces"],
+      toolSlugs: ["text-case-converter", "remove-extra-spaces", "text-reverser", "slug-generator"],
     },
     {
       name: "Text Generation",
@@ -1913,6 +2375,11 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       toolSlugs: ["json-formatter-viewer", "html-formatter", "css-formatter", "markdown-previewer", "sql-formatter"],
     },
     {
+      name: "Minifiers & Compressors",
+      icon: "🗜️",
+      toolSlugs: ["css-minifier", "javascript-minifier", "html-minifier"],
+    },
+    {
       name: "Converters & Parsers",
       icon: "🔄",
       toolSlugs: ["json-yaml-converter", "curl-to-http-converter", "url-parser", "base-number-converter", "unix-timestamp-converter"],
@@ -1961,7 +2428,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Image Tools",
       icon: "🖼️",
-      toolSlugs: ["image-resizer", "image-format-converter", "image-compressor"],
+      toolSlugs: ["image-resizer", "image-format-converter", "image-compressor", "image-to-base64", "favicon-generator"],
     },
     {
       name: "QR & Barcode",
@@ -1984,6 +2451,35 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       name: "Content Analysis",
       icon: "📊",
       toolSlugs: ["keyword-density-checker"],
+    },
+  ],
+  "unit-converters": [
+    {
+      name: "Length & Distance",
+      icon: "📏",
+      toolSlugs: ["length-converter", "speed-converter"],
+    },
+    {
+      name: "Mass & Weight",
+      icon: "⚖️",
+      toolSlugs: ["weight-converter"],
+    },
+    {
+      name: "Temperature & Data",
+      icon: "🌡️",
+      toolSlugs: ["temperature-converter", "data-storage-converter"],
+    },
+  ],
+  "social-media": [
+    {
+      name: "Content Creation",
+      icon: "✍️",
+      toolSlugs: ["hashtag-generator", "twitter-thread-maker"],
+    },
+    {
+      name: "Analytics & Optimization",
+      icon: "📊",
+      toolSlugs: ["social-media-character-counter", "youtube-timestamp-generator"],
     },
   ],
 };
