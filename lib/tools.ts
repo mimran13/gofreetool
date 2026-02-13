@@ -1949,6 +1949,489 @@ export const tools: Tool[] = [
     ],
     relatedTools: ["image-to-base64", "image-resizer", "qr-code-generator"],
   },
+
+  // ==================== HIGH-TRAFFIC CALCULATORS (4) ====================
+  {
+    id: "mortgage-calculator",
+    slug: "mortgage-calculator",
+    name: "Mortgage Calculator",
+    category: "calculators",
+    featured: true,
+    description: "Calculate monthly mortgage payments, total interest, and amortization schedule. Compare different loan terms and interest rates to find the best mortgage option.",
+    shortDescription: "Calculate mortgage payments",
+    icon: "🏠",
+    seo: {
+      title: "Mortgage Calculator - Free Home Loan Payment Calculator",
+      description: "Free mortgage calculator. Calculate monthly payments, total interest, and view amortization schedule. Compare loan terms and rates. No signup required.",
+      keywords: ["mortgage calculator", "home loan calculator", "monthly payment calculator", "amortization calculator", "house payment calculator", "mortgage payment"],
+    },
+    faq: [
+      {
+        question: "How is monthly mortgage payment calculated?",
+        answer: "Monthly payment = P × [r(1+r)^n] / [(1+r)^n – 1], where P is principal, r is monthly interest rate, and n is number of payments. This formula accounts for both principal and interest.",
+      },
+      {
+        question: "What's included in a mortgage payment?",
+        answer: "A typical mortgage payment includes Principal, Interest, Taxes, and Insurance (PITI). This calculator shows principal and interest. Add 1-2% of home value annually for taxes and insurance.",
+      },
+    ],
+    relatedTools: ["emi-calculator", "loan-eligibility-calculator", "compound-interest-calculator"],
+  },
+  {
+    id: "salary-calculator",
+    slug: "salary-calculator",
+    name: "Salary Calculator",
+    category: "calculators",
+    featured: true,
+    description: "Convert between hourly, daily, weekly, bi-weekly, monthly, and annual salary. Account for work hours, vacation days, and see take-home estimates.",
+    shortDescription: "Convert salary between periods",
+    icon: "💰",
+    seo: {
+      title: "Salary Calculator - Hourly to Annual Wage Converter",
+      description: "Free salary calculator. Convert hourly wage to annual salary and vice versa. Calculate weekly, bi-weekly, monthly income. No signup required.",
+      keywords: ["salary calculator", "hourly to salary", "annual salary calculator", "wage calculator", "pay calculator", "income calculator"],
+    },
+    faq: [
+      {
+        question: "How do I convert hourly to annual salary?",
+        answer: "Multiply hourly rate × hours per week × 52 weeks. For example, $25/hour × 40 hours × 52 weeks = $52,000 annually.",
+      },
+      {
+        question: "What's the difference between gross and net salary?",
+        answer: "Gross salary is your total earnings before deductions. Net salary (take-home pay) is what you receive after taxes, insurance, and other deductions.",
+      },
+    ],
+    relatedTools: ["percentage-calculator", "tip-calculator", "discount-calculator"],
+  },
+  {
+    id: "gpa-calculator",
+    slug: "gpa-calculator",
+    name: "GPA Calculator",
+    category: "calculators",
+    featured: true,
+    description: "Calculate your Grade Point Average from letter grades and credit hours. Supports 4.0, 5.0, and weighted GPA scales. Plan grades needed to reach target GPA.",
+    shortDescription: "Calculate grade point average",
+    icon: "🎓",
+    seo: {
+      title: "GPA Calculator - Free Grade Point Average Calculator",
+      description: "Free GPA calculator. Calculate cumulative GPA from grades and credit hours. Supports 4.0 and 5.0 scales. Plan target GPA. No signup required.",
+      keywords: ["gpa calculator", "grade point average", "college gpa calculator", "cumulative gpa", "grade calculator", "semester gpa"],
+    },
+    faq: [
+      {
+        question: "How is GPA calculated?",
+        answer: "GPA = Total Grade Points ÷ Total Credit Hours. Each grade has a point value (A=4.0, B=3.0, etc.). Multiply each grade point by credit hours, sum them, then divide by total credits.",
+      },
+      {
+        question: "What's a good GPA?",
+        answer: "On a 4.0 scale: 3.5+ is excellent, 3.0-3.5 is good, 2.5-3.0 is average. Requirements vary by institution and program. Graduate schools often require 3.0+.",
+      },
+    ],
+    relatedTools: ["percentage-calculator", "age-calculator", "date-difference-calculator"],
+  },
+  {
+    id: "loan-payoff-calculator",
+    slug: "loan-payoff-calculator",
+    name: "Loan Payoff Calculator",
+    category: "calculators",
+    description: "Calculate how long to pay off a loan with extra payments. See how additional payments reduce interest and payoff time. Create a debt-free plan.",
+    shortDescription: "Calculate loan payoff time",
+    icon: "📉",
+    seo: {
+      title: "Loan Payoff Calculator - Extra Payment Calculator",
+      description: "Free loan payoff calculator. See how extra payments reduce payoff time and interest. Plan your debt-free date. No signup required.",
+      keywords: ["loan payoff calculator", "extra payment calculator", "debt payoff calculator", "loan calculator", "pay off loan early", "debt free calculator"],
+    },
+    faq: [
+      {
+        question: "How much can I save with extra payments?",
+        answer: "Extra payments go directly to principal, reducing interest charges. Even $50-100 extra monthly can save thousands in interest and years off your loan.",
+      },
+    ],
+    relatedTools: ["mortgage-calculator", "emi-calculator", "compound-interest-calculator"],
+  },
+
+  // ==================== HIGH-TRAFFIC TEXT TOOLS (3) ====================
+  {
+    id: "number-to-words",
+    slug: "number-to-words",
+    name: "Number to Words Converter",
+    category: "writing",
+    featured: true,
+    description: "Convert numbers to words in English. Perfect for writing checks, legal documents, and formal writing. Supports large numbers up to trillions.",
+    shortDescription: "Convert numbers to words",
+    icon: "🔢",
+    seo: {
+      title: "Number to Words Converter - Free Online Tool",
+      description: "Free number to words converter. Convert numbers to written words for checks and documents. Supports large numbers. No signup required.",
+      keywords: ["number to words", "number to text", "convert number to words", "spell out numbers", "numbers in words", "check writing"],
+    },
+    faq: [
+      {
+        question: "When should I write numbers as words?",
+        answer: "Write numbers as words for checks, legal documents, formal writing, and numbers under 10 in general writing. Use numerals for statistics, measurements, and technical content.",
+      },
+      {
+        question: "How do I write large numbers in words?",
+        answer: "Break into groups of three: 1,234,567 = one million, two hundred thirty-four thousand, five hundred sixty-seven.",
+      },
+    ],
+    relatedTools: ["word-counter", "text-case-converter", "slug-generator"],
+  },
+  {
+    id: "fancy-text-generator",
+    slug: "fancy-text-generator",
+    name: "Fancy Text Generator",
+    category: "writing",
+    featured: true,
+    description: "Convert plain text to fancy Unicode text styles. Create bold, italic, cursive, gothic, bubble, and other stylish text for social media bios and posts.",
+    shortDescription: "Generate stylish Unicode text",
+    icon: "✨",
+    seo: {
+      title: "Fancy Text Generator - Cool Fonts for Instagram & Social Media",
+      description: "Free fancy text generator. Create stylish Unicode fonts for Instagram, Twitter, Facebook bios. Bold, italic, cursive, gothic styles. Copy and paste.",
+      keywords: ["fancy text generator", "cool text generator", "instagram fonts", "stylish text", "unicode fonts", "fancy letters", "text styles"],
+    },
+    faq: [
+      {
+        question: "How does fancy text work?",
+        answer: "Fancy text uses Unicode characters that look like styled letters. These aren't fonts—they're special characters that work anywhere Unicode is supported, including social media.",
+      },
+      {
+        question: "Will fancy text work on all platforms?",
+        answer: "Most Unicode styles work on Instagram, Twitter, Facebook, TikTok, and messaging apps. Some rare characters may not display on older devices.",
+      },
+    ],
+    relatedTools: ["text-case-converter", "text-reverser", "hashtag-generator"],
+  },
+  {
+    id: "text-to-binary",
+    slug: "text-to-binary",
+    name: "Text to Binary Converter",
+    category: "writing",
+    description: "Convert text to binary code and binary to text. Learn how computers represent text as 1s and 0s. Supports ASCII and UTF-8 encoding.",
+    shortDescription: "Convert text to binary code",
+    icon: "01",
+    seo: {
+      title: "Text to Binary Converter - Free Online Tool",
+      description: "Free text to binary converter. Convert text to binary code and decode binary to text. Learn binary encoding. No signup required.",
+      keywords: ["text to binary", "binary to text", "binary converter", "binary code", "ascii to binary", "binary translator"],
+    },
+    faq: [
+      {
+        question: "How does text to binary conversion work?",
+        answer: "Each character has an ASCII/Unicode number. That number is converted to binary (base 2). For example, 'A' = 65 = 01000001 in binary.",
+      },
+    ],
+    relatedTools: ["base64-encoder-decoder", "hex-text-converter", "base-number-converter"],
+  },
+
+  // ==================== HIGH-TRAFFIC DATE/TIME TOOLS (2) ====================
+  {
+    id: "timezone-converter",
+    slug: "timezone-converter",
+    name: "Time Zone Converter",
+    category: "date-time",
+    featured: true,
+    description: "Convert time between different time zones worldwide. Schedule meetings across time zones, find the best time for international calls, and never miss a global event.",
+    shortDescription: "Convert between time zones",
+    icon: "🌍",
+    seo: {
+      title: "Time Zone Converter - World Time Converter",
+      description: "Free time zone converter. Convert times between any time zones worldwide. Schedule international meetings easily. No signup required.",
+      keywords: ["time zone converter", "world time converter", "timezone calculator", "time difference", "international time", "meeting scheduler"],
+    },
+    faq: [
+      {
+        question: "How do time zones work?",
+        answer: "The world is divided into 24 time zones, roughly 15° longitude each. UTC (Coordinated Universal Time) is the reference. Zones are expressed as UTC+/- hours.",
+      },
+      {
+        question: "What about Daylight Saving Time?",
+        answer: "DST shifts clocks forward in spring and back in fall in some regions. This converter accounts for DST based on current date and location.",
+      },
+    ],
+    relatedTools: ["date-difference-calculator", "unix-timestamp-converter", "workdays-calculator"],
+  },
+  {
+    id: "countdown-timer",
+    slug: "countdown-timer",
+    name: "Countdown Timer",
+    category: "date-time",
+    featured: true,
+    description: "Create countdowns to any date or event. See days, hours, minutes until birthdays, holidays, deadlines, or any special occasion. Share countdown links.",
+    shortDescription: "Countdown to any date",
+    icon: "⏳",
+    seo: {
+      title: "Countdown Timer - Days Until Date Calculator",
+      description: "Free countdown timer. Count days, hours, minutes until any date. Birthdays, holidays, events. Create shareable countdowns. No signup required.",
+      keywords: ["countdown timer", "days until", "date countdown", "event countdown", "days calculator", "countdown to date"],
+    },
+    faq: [
+      {
+        question: "How accurate is the countdown?",
+        answer: "The countdown updates in real-time to the second. It accounts for your local time zone and adjusts for daylight saving time changes.",
+      },
+    ],
+    relatedTools: ["date-difference-calculator", "age-calculator", "pomodoro-timer"],
+  },
+
+  // ==================== CSS GENERATORS (4) ====================
+  {
+    id: "box-shadow-generator",
+    slug: "box-shadow-generator",
+    name: "Box Shadow Generator",
+    category: "developer",
+    featured: true,
+    description: "Create CSS box shadows visually with real-time preview. Adjust offset, blur, spread, color, and opacity. Generate multiple layered shadows for depth effects.",
+    shortDescription: "Generate CSS box-shadow",
+    icon: "🔲",
+    seo: {
+      title: "CSS Box Shadow Generator - Visual Shadow Editor",
+      description: "Free CSS box shadow generator. Create shadows visually with live preview. Multiple layers, all properties. Copy CSS code instantly.",
+      keywords: ["box shadow generator", "css shadow", "shadow generator", "css box-shadow", "drop shadow css", "shadow effect"],
+    },
+    faq: [
+      {
+        question: "What are box-shadow properties?",
+        answer: "box-shadow: offset-x offset-y blur spread color inset. X/Y offset position the shadow, blur softens edges, spread expands size, and inset creates inner shadow.",
+      },
+    ],
+    relatedTools: ["gradient-generator", "border-radius-generator", "css-formatter"],
+  },
+  {
+    id: "border-radius-generator",
+    slug: "border-radius-generator",
+    name: "Border Radius Generator",
+    category: "developer",
+    description: "Create CSS border-radius visually. Design rounded corners, pill shapes, and organic blob shapes with per-corner control. Copy CSS code instantly.",
+    shortDescription: "Generate CSS border-radius",
+    icon: "⬜",
+    seo: {
+      title: "CSS Border Radius Generator - Rounded Corners Tool",
+      description: "Free CSS border radius generator. Create rounded corners visually. Per-corner control, organic shapes. Copy CSS code instantly.",
+      keywords: ["border radius generator", "rounded corners css", "css border-radius", "corner radius", "pill shape css", "blob generator"],
+    },
+    relatedTools: ["box-shadow-generator", "gradient-generator", "css-formatter"],
+  },
+  {
+    id: "glassmorphism-generator",
+    slug: "glassmorphism-generator",
+    name: "Glassmorphism Generator",
+    category: "developer",
+    featured: true,
+    description: "Create trendy glassmorphism/frosted glass effects with CSS. Adjust blur, transparency, and colors. Generate cross-browser compatible code with backdrop-filter.",
+    shortDescription: "Generate glass effect CSS",
+    icon: "🪟",
+    seo: {
+      title: "Glassmorphism Generator - CSS Glass Effect Tool",
+      description: "Free glassmorphism CSS generator. Create frosted glass effects visually. Adjust blur, transparency. Cross-browser code. No signup required.",
+      keywords: ["glassmorphism generator", "glass effect css", "frosted glass css", "backdrop filter", "blur effect", "glass ui"],
+    },
+    faq: [
+      {
+        question: "What is glassmorphism?",
+        answer: "Glassmorphism is a design trend featuring frosted-glass-like elements with background blur, transparency, and subtle borders. It creates depth while maintaining visibility of background content.",
+      },
+      {
+        question: "Is glassmorphism supported in all browsers?",
+        answer: "backdrop-filter is supported in modern browsers (Chrome, Firefox, Safari, Edge). For older browsers, provide a fallback solid or semi-transparent background.",
+      },
+    ],
+    relatedTools: ["box-shadow-generator", "gradient-generator", "color-picker"],
+  },
+  {
+    id: "text-shadow-generator",
+    slug: "text-shadow-generator",
+    name: "Text Shadow Generator",
+    category: "developer",
+    description: "Create CSS text shadows visually. Add depth, glow, and effects to text. Multiple shadow layers for complex effects like neon glow and 3D text.",
+    shortDescription: "Generate CSS text-shadow",
+    icon: "🔤",
+    seo: {
+      title: "CSS Text Shadow Generator - Visual Text Effect Tool",
+      description: "Free CSS text shadow generator. Create text shadows visually. Neon glow, 3D effects, multiple layers. Copy CSS code instantly.",
+      keywords: ["text shadow generator", "css text shadow", "text glow effect", "neon text css", "3d text css", "text effects"],
+    },
+    relatedTools: ["box-shadow-generator", "gradient-generator", "css-formatter"],
+  },
+
+  // ==================== HIGH-TRAFFIC DESIGN TOOLS (2) ====================
+  {
+    id: "color-palette-generator",
+    slug: "color-palette-generator",
+    name: "Color Palette Generator",
+    category: "design",
+    featured: true,
+    description: "Generate beautiful color palettes and schemes. Create harmonious colors using color theory rules: complementary, analogous, triadic, and more. Export for design tools.",
+    shortDescription: "Generate color schemes",
+    icon: "🎨",
+    seo: {
+      title: "Color Palette Generator - Free Color Scheme Tool",
+      description: "Free color palette generator. Create harmonious color schemes. Complementary, analogous, triadic palettes. Export hex codes. No signup required.",
+      keywords: ["color palette generator", "color scheme generator", "color harmony", "palette creator", "color combinations", "design colors"],
+    },
+    faq: [
+      {
+        question: "What are color harmony rules?",
+        answer: "Complementary uses opposite colors. Analogous uses adjacent colors. Triadic uses three evenly spaced colors. Split-complementary uses a base plus two adjacent to its complement.",
+      },
+    ],
+    relatedTools: ["color-picker", "gradient-generator", "contrast-checker"],
+  },
+  {
+    id: "barcode-generator",
+    slug: "barcode-generator",
+    name: "Barcode Generator",
+    category: "design",
+    featured: true,
+    description: "Generate barcodes in multiple formats: Code 128, Code 39, EAN-13, UPC, and more. Download as PNG or SVG. Perfect for inventory, products, and labels.",
+    shortDescription: "Generate product barcodes",
+    icon: "📊",
+    seo: {
+      title: "Barcode Generator - Free Online Barcode Maker",
+      description: "Free barcode generator. Create Code 128, EAN-13, UPC, Code 39 barcodes. Download PNG/SVG. Perfect for products and inventory. No signup required.",
+      keywords: ["barcode generator", "create barcode", "code 128 generator", "ean-13 generator", "upc barcode", "barcode maker"],
+    },
+    faq: [
+      {
+        question: "Which barcode type should I use?",
+        answer: "Code 128: General purpose, alphanumeric. EAN-13: International retail products. UPC-A: North American retail. Code 39: Industrial, alphanumeric. QR Code: Mobile scanning with more data.",
+      },
+    ],
+    relatedTools: ["qr-code-generator", "image-to-base64", "favicon-generator"],
+  },
+
+  // ==================== HIGH-TRAFFIC FUN/PRODUCTIVITY (4) ====================
+  {
+    id: "typing-speed-test",
+    slug: "typing-speed-test",
+    name: "Typing Speed Test",
+    category: "fun",
+    featured: true,
+    description: "Test your typing speed and accuracy. See your WPM (words per minute) and accuracy percentage. Practice with different text samples and track improvement.",
+    shortDescription: "Test typing speed (WPM)",
+    icon: "⌨️",
+    seo: {
+      title: "Typing Speed Test - Free WPM Test Online",
+      description: "Free typing speed test. Measure your WPM and accuracy. Practice typing and improve speed. Track your progress. No signup required.",
+      keywords: ["typing speed test", "wpm test", "typing test", "words per minute", "typing practice", "keyboard speed test"],
+    },
+    faq: [
+      {
+        question: "What's a good typing speed?",
+        answer: "Average: 40 WPM. Good: 50-60 WPM. Professional: 65-75 WPM. Expert: 80+ WPM. Court reporters type 200+ WPM using stenography.",
+      },
+      {
+        question: "How can I improve my typing speed?",
+        answer: "Practice regularly, use all fingers (touch typing), maintain proper posture, don't look at keyboard, start slow for accuracy then build speed.",
+      },
+    ],
+    relatedTools: ["word-counter", "pomodoro-timer", "random-password-generator"],
+  },
+  {
+    id: "stopwatch",
+    slug: "stopwatch",
+    name: "Online Stopwatch",
+    category: "fun",
+    featured: true,
+    description: "Simple online stopwatch with lap timing. Start, stop, reset, and record lap times. Precise millisecond accuracy. Works in any browser, no app needed.",
+    shortDescription: "Stopwatch with lap times",
+    icon: "⏱️",
+    seo: {
+      title: "Online Stopwatch - Free Timer with Lap Times",
+      description: "Free online stopwatch. Record lap times, millisecond precision. Simple start/stop interface. Works on any device. No download required.",
+      keywords: ["online stopwatch", "stopwatch timer", "lap timer", "sports timer", "digital stopwatch", "free stopwatch"],
+    },
+    relatedTools: ["pomodoro-timer", "countdown-timer", "typing-speed-test"],
+  },
+  {
+    id: "username-generator",
+    slug: "username-generator",
+    name: "Username Generator",
+    category: "fun",
+    featured: true,
+    description: "Generate unique usernames for gaming, social media, and accounts. Create cool names with adjectives, nouns, numbers, and custom words. Check availability hints.",
+    shortDescription: "Generate unique usernames",
+    icon: "👤",
+    seo: {
+      title: "Username Generator - Cool Name Ideas Generator",
+      description: "Free username generator. Create unique usernames for games, social media, accounts. Cool name combinations. No signup required.",
+      keywords: ["username generator", "name generator", "gaming name generator", "gamertag generator", "cool usernames", "username ideas"],
+    },
+    faq: [
+      {
+        question: "How to create a good username?",
+        answer: "Combine memorable words, avoid personal info, keep it short (under 15 chars), make it easy to type and remember. Add numbers/symbols if needed for uniqueness.",
+      },
+    ],
+    relatedTools: ["random-password-generator", "random-number-generator", "lucky-number-generator"],
+  },
+  {
+    id: "alarm-clock",
+    slug: "alarm-clock",
+    name: "Online Alarm Clock",
+    category: "fun",
+    description: "Set alarms online with custom sounds. Multiple alarm support, snooze function, and countdown display. Works in your browser—no app needed.",
+    shortDescription: "Set online alarms",
+    icon: "⏰",
+    seo: {
+      title: "Online Alarm Clock - Free Web Alarm Timer",
+      description: "Free online alarm clock. Set multiple alarms, custom sounds, snooze function. Works in browser. No download required.",
+      keywords: ["online alarm clock", "web alarm", "alarm timer", "wake up alarm", "browser alarm", "free alarm clock"],
+    },
+    relatedTools: ["countdown-timer", "stopwatch", "pomodoro-timer"],
+  },
+
+  // ==================== ADDITIONAL CONVERTERS (2) ====================
+  {
+    id: "roman-numeral-converter",
+    slug: "roman-numeral-converter",
+    name: "Roman Numeral Converter",
+    category: "unit-converters",
+    featured: true,
+    description: "Convert between Roman numerals and Arabic numbers. Learn Roman numeral rules and see step-by-step conversions. Supports numbers from 1 to 3,999.",
+    shortDescription: "Convert Roman numerals",
+    icon: "🏛️",
+    seo: {
+      title: "Roman Numeral Converter - Free Online Tool",
+      description: "Free Roman numeral converter. Convert to and from Roman numerals. Learn the rules. Supports 1-3999. No signup required.",
+      keywords: ["roman numeral converter", "roman numerals", "convert to roman numerals", "roman number converter", "numeral translator"],
+    },
+    faq: [
+      {
+        question: "What are the basic Roman numerals?",
+        answer: "I=1, V=5, X=10, L=50, C=100, D=500, M=1000. Numbers are formed by combining these. Smaller values before larger subtract (IV=4), after add (VI=6).",
+      },
+    ],
+    relatedTools: ["base-number-converter", "number-to-words", "percentage-calculator"],
+  },
+  {
+    id: "aspect-ratio-calculator",
+    slug: "aspect-ratio-calculator",
+    name: "Aspect Ratio Calculator",
+    category: "design",
+    featured: true,
+    description: "Calculate and convert aspect ratios for video, images, and screens. Find width/height from ratio, resize while maintaining proportions, and compare common ratios.",
+    shortDescription: "Calculate aspect ratios",
+    icon: "📐",
+    seo: {
+      title: "Aspect Ratio Calculator - Free Ratio Converter",
+      description: "Free aspect ratio calculator. Calculate width and height from ratio. Resize images maintaining proportions. Common video and screen ratios. No signup required.",
+      keywords: ["aspect ratio calculator", "ratio calculator", "16:9 calculator", "image ratio", "video aspect ratio", "screen ratio"],
+    },
+    faq: [
+      {
+        question: "What is aspect ratio?",
+        answer: "Aspect ratio is the proportional relationship between width and height. 16:9 means for every 16 units of width, there are 9 units of height. It doesn't specify actual size.",
+      },
+      {
+        question: "What are common aspect ratios?",
+        answer: "16:9 (widescreen TV/video), 4:3 (old TV), 1:1 (square/Instagram), 9:16 (vertical video), 21:9 (ultrawide), 3:2 (photography).",
+      },
+    ],
+    relatedTools: ["image-resizer", "image-compressor", "image-format-converter"],
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
@@ -2220,18 +2703,18 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
 // ============================================================================
 
 export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
-  calculators: ["emi-calculator", "percentage-calculator", "discount-calculator", "tip-calculator"],
+  calculators: ["emi-calculator", "mortgage-calculator", "percentage-calculator", "salary-calculator", "gpa-calculator", "discount-calculator", "tip-calculator", "loan-payoff-calculator"],
   health: ["bmi-calculator", "bmr-calculator", "water-intake-calculator", "ideal-weight-calculator"],
-  writing: ["word-counter", "text-case-converter", "lorem-ipsum-generator", "remove-extra-spaces", "duplicate-line-remover"],
-  "date-time": ["age-calculator", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
+  writing: ["word-counter", "text-case-converter", "number-to-words", "fancy-text-generator", "text-to-binary", "lorem-ipsum-generator", "slug-generator", "text-reverser"],
+  "date-time": ["age-calculator", "timezone-converter", "countdown-timer", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
   home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
-  fun: ["random-number-generator", "decision-wheel", "random-password-generator", "lucky-number-generator", "pomodoro-timer"],
-  developer: ["css-formatter", "regex-tester", "jwt-decoder", "html-formatter", "url-parser", "json-formatter-viewer", "uuid-generator", "hash-generator", "base-number-converter", "markdown-previewer", "json-yaml-converter", "cron-expression-parser", "curl-to-http-converter", "unix-timestamp-converter", "text-diff-checker", "sql-formatter"],
+  fun: ["typing-speed-test", "stopwatch", "username-generator", "alarm-clock", "random-number-generator", "decision-wheel", "random-password-generator", "pomodoro-timer"],
+  developer: ["box-shadow-generator", "glassmorphism-generator", "text-shadow-generator", "border-radius-generator", "css-minifier", "javascript-minifier", "css-formatter", "regex-tester", "jwt-decoder", "json-formatter-viewer", "uuid-generator"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
   "data-conversion": ["csv-json-converter", "json-xml-converter"],
-  design: ["color-picker", "contrast-checker", "image-resizer", "image-format-converter", "qr-code-generator", "image-compressor", "image-to-base64", "favicon-generator"],
+  design: ["color-palette-generator", "aspect-ratio-calculator", "barcode-generator", "color-picker", "contrast-checker", "image-resizer", "qr-code-generator", "image-compressor", "image-to-base64", "favicon-generator"],
   seo: ["meta-tag-generator", "open-graph-preview", "robots-txt-generator", "schema-markup-generator", "keyword-density-checker"],
-  "unit-converters": ["length-converter", "weight-converter", "temperature-converter", "data-storage-converter", "speed-converter"],
+  "unit-converters": ["length-converter", "weight-converter", "temperature-converter", "roman-numeral-converter", "data-storage-converter", "speed-converter"],
   "social-media": ["hashtag-generator", "social-media-character-counter", "youtube-timestamp-generator", "twitter-thread-maker"],
 };
 
@@ -2270,12 +2753,17 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Financial Calculators",
       icon: "🏦",
-      toolSlugs: ["emi-calculator", "simple-interest-calculator", "compound-interest-calculator", "savings-goal-calculator", "loan-eligibility-calculator"],
+      toolSlugs: ["emi-calculator", "mortgage-calculator", "loan-payoff-calculator", "simple-interest-calculator", "compound-interest-calculator", "savings-goal-calculator", "loan-eligibility-calculator"],
+    },
+    {
+      name: "Salary & Income",
+      icon: "💰",
+      toolSlugs: ["salary-calculator", "tip-calculator"],
     },
     {
       name: "Everyday Math",
       icon: "📊",
-      toolSlugs: ["percentage-calculator", "discount-calculator", "tip-calculator"],
+      toolSlugs: ["percentage-calculator", "discount-calculator", "gpa-calculator"],
     },
     {
       name: "Bill & Rent Splitting",
@@ -2309,7 +2797,12 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Text Transformation",
       icon: "🔤",
-      toolSlugs: ["text-case-converter", "remove-extra-spaces", "text-reverser", "slug-generator"],
+      toolSlugs: ["text-case-converter", "remove-extra-spaces", "text-reverser", "slug-generator", "fancy-text-generator"],
+    },
+    {
+      name: "Number & Code Converters",
+      icon: "🔢",
+      toolSlugs: ["number-to-words", "text-to-binary"],
     },
     {
       name: "Text Generation",
@@ -2326,7 +2819,12 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Date Calculators",
       icon: "📆",
-      toolSlugs: ["age-calculator", "date-difference-calculator"],
+      toolSlugs: ["age-calculator", "date-difference-calculator", "countdown-timer"],
+    },
+    {
+      name: "Time Tools",
+      icon: "🌍",
+      toolSlugs: ["timezone-converter"],
     },
     {
       name: "Calendar Tools",
@@ -2355,7 +2853,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Random Generators",
       icon: "🎲",
-      toolSlugs: ["random-number-generator", "random-password-generator", "lucky-number-generator"],
+      toolSlugs: ["random-number-generator", "random-password-generator", "lucky-number-generator", "username-generator"],
     },
     {
       name: "Decision Makers",
@@ -2363,12 +2861,22 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       toolSlugs: ["yes-no-spinner", "decision-wheel"],
     },
     {
-      name: "Productivity",
-      icon: "🍅",
-      toolSlugs: ["pomodoro-timer"],
+      name: "Productivity & Timers",
+      icon: "⏱️",
+      toolSlugs: ["pomodoro-timer", "stopwatch", "alarm-clock", "countdown-timer"],
+    },
+    {
+      name: "Skill Testing",
+      icon: "⌨️",
+      toolSlugs: ["typing-speed-test"],
     },
   ],
   developer: [
+    {
+      name: "CSS Generators",
+      icon: "🎨",
+      toolSlugs: ["box-shadow-generator", "text-shadow-generator", "border-radius-generator", "glassmorphism-generator", "gradient-generator"],
+    },
     {
       name: "Formatters & Beautifiers",
       icon: "✨",
@@ -2423,17 +2931,17 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Color Tools",
       icon: "🎨",
-      toolSlugs: ["color-picker", "gradient-generator", "hex-rgb-converter", "contrast-checker"],
+      toolSlugs: ["color-picker", "color-palette-generator", "gradient-generator", "hex-rgb-converter", "contrast-checker"],
     },
     {
       name: "Image Tools",
       icon: "🖼️",
-      toolSlugs: ["image-resizer", "image-format-converter", "image-compressor", "image-to-base64", "favicon-generator"],
+      toolSlugs: ["image-resizer", "image-format-converter", "image-compressor", "image-to-base64", "favicon-generator", "aspect-ratio-calculator"],
     },
     {
       name: "QR & Barcode",
       icon: "📱",
-      toolSlugs: ["qr-code-generator"],
+      toolSlugs: ["qr-code-generator", "barcode-generator"],
     },
   ],
   seo: [
@@ -2468,6 +2976,11 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       name: "Temperature & Data",
       icon: "🌡️",
       toolSlugs: ["temperature-converter", "data-storage-converter"],
+    },
+    {
+      name: "Number Systems",
+      icon: "🏛️",
+      toolSlugs: ["roman-numeral-converter"],
     },
   ],
   "social-media": [
