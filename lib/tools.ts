@@ -2432,6 +2432,206 @@ export const tools: Tool[] = [
     ],
     relatedTools: ["image-resizer", "image-compressor", "image-format-converter"],
   },
+
+  // ==================== ADDITIONAL HIGH-TRAFFIC TOOLS (10) ====================
+  {
+    id: "screen-resolution-checker",
+    slug: "screen-resolution-checker",
+    name: "Screen Resolution Checker",
+    category: "developer",
+    featured: true,
+    description: "Check your screen resolution, viewport size, pixel density (DPI), and device pixel ratio. Perfect for responsive design testing and display troubleshooting.",
+    shortDescription: "Check screen & viewport size",
+    icon: "🖥️",
+    seo: {
+      title: "Screen Resolution Checker - What Is My Screen Size?",
+      description: "Free screen resolution checker. Find your screen size, viewport dimensions, pixel density, and device info. No signup required.",
+      keywords: ["screen resolution", "what is my screen size", "viewport size", "screen dimensions", "display resolution", "pixel density", "dpi checker"],
+    },
+    faq: [
+      {
+        question: "What's the difference between screen and viewport?",
+        answer: "Screen resolution is your monitor's total pixels. Viewport is the browser's visible area, which changes when you resize the window.",
+      },
+    ],
+    relatedTools: ["aspect-ratio-calculator", "image-resizer", "contrast-checker"],
+  },
+  {
+    id: "reading-time-calculator",
+    slug: "reading-time-calculator",
+    name: "Reading Time Calculator",
+    category: "writing",
+    featured: true,
+    description: "Calculate how long it takes to read your text. Perfect for bloggers, content creators, and writers. Shows word count and estimated reading time.",
+    shortDescription: "Estimate reading time",
+    icon: "📖",
+    seo: {
+      title: "Reading Time Calculator - Estimate Read Time",
+      description: "Free reading time calculator. Estimate how long your article takes to read. Perfect for bloggers and content creators. No signup required.",
+      keywords: ["reading time calculator", "read time estimator", "article length", "blog post time", "word count time", "content length"],
+    },
+    faq: [
+      {
+        question: "What's the average reading speed?",
+        answer: "Average adult reading speed is 200-250 words per minute. We use 200 WPM for comfortable reading and 300 WPM for skimming.",
+      },
+    ],
+    relatedTools: ["word-counter", "text-case-converter", "lorem-ipsum-generator"],
+  },
+  {
+    id: "coin-flip",
+    slug: "coin-flip",
+    name: "Coin Flip",
+    category: "fun",
+    featured: true,
+    description: "Flip a virtual coin to make random decisions. Heads or tails with animated coin flip. Track your flip history and statistics.",
+    shortDescription: "Flip heads or tails",
+    icon: "🪙",
+    seo: {
+      title: "Coin Flip - Free Online Coin Toss",
+      description: "Free online coin flip. Flip heads or tails with animation. Track history and statistics. Perfect for random decisions. No signup required.",
+      keywords: ["coin flip", "coin toss", "heads or tails", "flip a coin", "random coin", "online coin flip"],
+    },
+    relatedTools: ["decision-wheel", "random-number-generator", "yes-no-spinner"],
+  },
+  {
+    id: "dice-roller",
+    slug: "dice-roller",
+    name: "Dice Roller",
+    category: "fun",
+    featured: true,
+    description: "Roll virtual dice for games and decisions. Support for multiple dice, different sided dice (D4, D6, D8, D10, D12, D20), and roll history.",
+    shortDescription: "Roll virtual dice",
+    icon: "🎲",
+    seo: {
+      title: "Dice Roller - Free Online Dice Roll",
+      description: "Free online dice roller. Roll D6, D20, and custom dice. Multiple dice support. Perfect for board games and RPGs. No signup required.",
+      keywords: ["dice roller", "roll dice", "d20 roller", "d6 roller", "online dice", "virtual dice", "rpg dice"],
+    },
+    faq: [
+      {
+        question: "What dice types are available?",
+        answer: "D4 (4-sided), D6 (standard), D8, D10, D12, D20 (RPG), and D100. You can roll multiple dice at once.",
+      },
+    ],
+    relatedTools: ["random-number-generator", "coin-flip", "decision-wheel"],
+  },
+  {
+    id: "neumorphism-generator",
+    slug: "neumorphism-generator",
+    name: "Neumorphism Generator",
+    category: "developer",
+    description: "Create soft UI (neumorphism) effects with CSS. Generate inset and outset shadows for the modern soft design trend. Copy ready-to-use CSS.",
+    shortDescription: "Generate soft UI CSS",
+    icon: "🔘",
+    seo: {
+      title: "Neumorphism Generator - Soft UI CSS Generator",
+      description: "Free neumorphism CSS generator. Create soft UI effects visually. Inset and outset shadows. Copy CSS code instantly.",
+      keywords: ["neumorphism generator", "soft ui", "neumorphic design", "soft shadows css", "neumorphism css", "soft ui generator"],
+    },
+    faq: [
+      {
+        question: "What is neumorphism?",
+        answer: "Neumorphism (soft UI) combines background colors with subtle shadows to create soft, extruded shapes. Elements appear to push out of or into the background.",
+      },
+    ],
+    relatedTools: ["glassmorphism-generator", "box-shadow-generator", "gradient-generator"],
+  },
+  {
+    id: "flexbox-generator",
+    slug: "flexbox-generator",
+    name: "CSS Flexbox Generator",
+    category: "developer",
+    featured: true,
+    description: "Build CSS flexbox layouts visually. Adjust justify-content, align-items, flex-direction, and more. See real-time preview and copy CSS code.",
+    shortDescription: "Build flexbox layouts visually",
+    icon: "📦",
+    seo: {
+      title: "CSS Flexbox Generator - Visual Flexbox Builder",
+      description: "Free CSS flexbox generator. Build layouts visually. Adjust all flex properties with live preview. Copy CSS code instantly.",
+      keywords: ["flexbox generator", "css flexbox", "flex layout", "flexbox builder", "css layout generator", "flexbox tool"],
+    },
+    faq: [
+      {
+        question: "When should I use Flexbox vs Grid?",
+        answer: "Use Flexbox for one-dimensional layouts (row OR column). Use Grid for two-dimensional layouts (rows AND columns). Flexbox is great for navigation, cards, and centering.",
+      },
+    ],
+    relatedTools: ["box-shadow-generator", "border-radius-generator", "css-formatter"],
+  },
+  {
+    id: "invoice-generator",
+    slug: "invoice-generator",
+    name: "Invoice Generator",
+    category: "home",
+    featured: true,
+    description: "Create professional invoices for free. Add your business details, line items, and generate a PDF invoice. Perfect for freelancers and small businesses.",
+    shortDescription: "Create professional invoices",
+    icon: "🧾",
+    seo: {
+      title: "Invoice Generator - Free Online Invoice Maker",
+      description: "Free invoice generator. Create professional invoices with your logo and details. Download as PDF. Perfect for freelancers. No signup required.",
+      keywords: ["invoice generator", "create invoice", "invoice maker", "free invoice", "invoice template", "billing generator"],
+    },
+    faq: [
+      {
+        question: "What should an invoice include?",
+        answer: "Essential elements: your business name/contact, client details, invoice number, date, itemized list with quantities and prices, total amount, and payment terms.",
+      },
+    ],
+    relatedTools: ["salary-calculator", "discount-calculator", "percentage-calculator"],
+  },
+  {
+    id: "email-signature-generator",
+    slug: "email-signature-generator",
+    name: "Email Signature Generator",
+    category: "writing",
+    description: "Create professional HTML email signatures. Add your photo, social links, and contact info. Works with Gmail, Outlook, and all email clients.",
+    shortDescription: "Create email signatures",
+    icon: "✉️",
+    seo: {
+      title: "Email Signature Generator - Free HTML Signature Maker",
+      description: "Free email signature generator. Create professional HTML signatures with photo and social links. Works with Gmail, Outlook. No signup required.",
+      keywords: ["email signature generator", "html signature", "gmail signature", "outlook signature", "professional signature", "email footer"],
+    },
+    relatedTools: ["meta-tag-generator", "hashtag-generator", "qr-code-generator"],
+  },
+  {
+    id: "quote-generator",
+    slug: "quote-generator",
+    name: "Random Quote Generator",
+    category: "fun",
+    description: "Get random inspirational quotes, motivational sayings, and famous quotes. Copy and share quotes for social media, presentations, or daily inspiration.",
+    shortDescription: "Get random quotes",
+    icon: "💬",
+    seo: {
+      title: "Random Quote Generator - Inspirational Quotes",
+      description: "Free random quote generator. Get inspirational and motivational quotes. Copy for social media. New quote with one click.",
+      keywords: ["quote generator", "random quotes", "inspirational quotes", "motivational quotes", "famous quotes", "daily quotes"],
+    },
+    relatedTools: ["lorem-ipsum-generator", "fancy-text-generator", "hashtag-generator"],
+  },
+  {
+    id: "privacy-policy-generator",
+    slug: "privacy-policy-generator",
+    name: "Privacy Policy Generator",
+    category: "seo",
+    description: "Generate a privacy policy for your website or app. Customize for your data collection practices. Covers GDPR, CCPA, and common requirements.",
+    shortDescription: "Generate privacy policies",
+    icon: "🔒",
+    seo: {
+      title: "Privacy Policy Generator - Free Website Policy Maker",
+      description: "Free privacy policy generator. Create GDPR compliant privacy policies for websites and apps. Customize to your needs. No signup required.",
+      keywords: ["privacy policy generator", "privacy policy template", "gdpr privacy policy", "website privacy policy", "app privacy policy"],
+    },
+    faq: [
+      {
+        question: "Do I need a privacy policy?",
+        answer: "Yes, if you collect any user data (emails, cookies, analytics). Laws like GDPR and CCPA require disclosure of data practices. App stores also require privacy policies.",
+      },
+    ],
+    relatedTools: ["robots-txt-generator", "meta-tag-generator", "schema-markup-generator"],
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
@@ -2705,15 +2905,15 @@ export const CATEGORY_SEO_CONFIG: Record<string, CategorySEO> = {
 export const POPULAR_TOOLS_BY_CATEGORY: Record<string, string[]> = {
   calculators: ["emi-calculator", "mortgage-calculator", "percentage-calculator", "salary-calculator", "gpa-calculator", "discount-calculator", "tip-calculator", "loan-payoff-calculator"],
   health: ["bmi-calculator", "bmr-calculator", "water-intake-calculator", "ideal-weight-calculator"],
-  writing: ["word-counter", "text-case-converter", "number-to-words", "fancy-text-generator", "text-to-binary", "lorem-ipsum-generator", "slug-generator", "text-reverser"],
+  writing: ["word-counter", "reading-time-calculator", "text-case-converter", "number-to-words", "fancy-text-generator", "email-signature-generator", "text-to-binary", "lorem-ipsum-generator"],
   "date-time": ["age-calculator", "timezone-converter", "countdown-timer", "date-difference-calculator", "day-of-week-finder", "workdays-calculator"],
-  home: ["electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
-  fun: ["typing-speed-test", "stopwatch", "username-generator", "alarm-clock", "random-number-generator", "decision-wheel", "random-password-generator", "pomodoro-timer"],
-  developer: ["box-shadow-generator", "glassmorphism-generator", "text-shadow-generator", "border-radius-generator", "css-minifier", "javascript-minifier", "css-formatter", "regex-tester", "jwt-decoder", "json-formatter-viewer", "uuid-generator"],
+  home: ["invoice-generator", "electricity-bill-calculator", "fuel-cost-calculator", "paint-area-calculator", "rent-split-calculator"],
+  fun: ["coin-flip", "dice-roller", "typing-speed-test", "stopwatch", "username-generator", "quote-generator", "alarm-clock", "random-number-generator", "decision-wheel", "pomodoro-timer"],
+  developer: ["screen-resolution-checker", "flexbox-generator", "box-shadow-generator", "glassmorphism-generator", "neumorphism-generator", "text-shadow-generator", "border-radius-generator", "css-formatter", "regex-tester", "jwt-decoder", "json-formatter-viewer"],
   "security-encoding": ["base64-encoder-decoder", "url-encoder-decoder", "password-generator", "hash-generator-checker", "aes-encryption-decryption", "hex-text-converter", "morse-code-translator"],
   "data-conversion": ["csv-json-converter", "json-xml-converter"],
   design: ["color-palette-generator", "aspect-ratio-calculator", "barcode-generator", "color-picker", "contrast-checker", "image-resizer", "qr-code-generator", "image-compressor", "image-to-base64", "favicon-generator"],
-  seo: ["meta-tag-generator", "open-graph-preview", "robots-txt-generator", "schema-markup-generator", "keyword-density-checker"],
+  seo: ["privacy-policy-generator", "meta-tag-generator", "open-graph-preview", "robots-txt-generator", "schema-markup-generator", "keyword-density-checker"],
   "unit-converters": ["length-converter", "weight-converter", "temperature-converter", "roman-numeral-converter", "data-storage-converter", "speed-converter"],
   "social-media": ["hashtag-generator", "social-media-character-counter", "youtube-timestamp-generator", "twitter-thread-maker"],
 };
@@ -2792,7 +2992,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Text Analysis",
       icon: "📈",
-      toolSlugs: ["word-counter"],
+      toolSlugs: ["word-counter", "reading-time-calculator"],
     },
     {
       name: "Text Transformation",
@@ -2807,7 +3007,7 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Text Generation",
       icon: "📝",
-      toolSlugs: ["lorem-ipsum-generator"],
+      toolSlugs: ["lorem-ipsum-generator", "email-signature-generator"],
     },
     {
       name: "List Management",
@@ -2834,6 +3034,11 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
   ],
   home: [
     {
+      name: "Business & Finance",
+      icon: "🧾",
+      toolSlugs: ["invoice-generator", "rent-split-calculator"],
+    },
+    {
       name: "Energy & Utilities",
       icon: "⚡",
       toolSlugs: ["electricity-bill-calculator", "appliance-energy-calculator"],
@@ -2853,12 +3058,12 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "Random Generators",
       icon: "🎲",
-      toolSlugs: ["random-number-generator", "random-password-generator", "lucky-number-generator", "username-generator"],
+      toolSlugs: ["random-number-generator", "random-password-generator", "lucky-number-generator", "username-generator", "quote-generator"],
     },
     {
       name: "Decision Makers",
       icon: "🎯",
-      toolSlugs: ["yes-no-spinner", "decision-wheel"],
+      toolSlugs: ["coin-flip", "dice-roller", "yes-no-spinner", "decision-wheel"],
     },
     {
       name: "Productivity & Timers",
@@ -2875,7 +3080,17 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
     {
       name: "CSS Generators",
       icon: "🎨",
-      toolSlugs: ["box-shadow-generator", "text-shadow-generator", "border-radius-generator", "glassmorphism-generator", "gradient-generator"],
+      toolSlugs: ["box-shadow-generator", "text-shadow-generator", "border-radius-generator", "glassmorphism-generator", "neumorphism-generator", "gradient-generator"],
+    },
+    {
+      name: "Layout Builders",
+      icon: "📦",
+      toolSlugs: ["flexbox-generator"],
+    },
+    {
+      name: "Device & Testing",
+      icon: "🖥️",
+      toolSlugs: ["screen-resolution-checker"],
     },
     {
       name: "Formatters & Beautifiers",
@@ -2954,6 +3169,11 @@ export const CATEGORY_SUBCATEGORIES: Record<string, Subcategory[]> = {
       name: "Technical SEO",
       icon: "🤖",
       toolSlugs: ["robots-txt-generator", "schema-markup-generator"],
+    },
+    {
+      name: "Legal & Compliance",
+      icon: "🔒",
+      toolSlugs: ["privacy-policy-generator"],
     },
     {
       name: "Content Analysis",

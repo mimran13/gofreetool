@@ -18,7 +18,7 @@ export default function UsernameGenerator() {
 
   const generateUsername = useCallback((): string => {
     let username = '';
-    const random = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
+    const random = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
     const randomNum = () => Math.floor(Math.random() * 1000);
 
     switch (style) {
