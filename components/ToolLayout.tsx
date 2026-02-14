@@ -4,7 +4,7 @@ import Breadcrumbs from "./Breadcrumbs";
 import RelatedTools from "./RelatedTools";
 
 // ============================================================================
-// JSON-LD SCHEMA GENERATOR
+// JSON-LD SCHEMA GENERATORS
 // ============================================================================
 
 function generateToolSchema(tool: Tool, categoryName: string) {
@@ -26,6 +26,74 @@ function generateToolSchema(tool: Tool, categoryName: string) {
       ratingValue: "4.8",
       ratingCount: "100",
     },
+  };
+}
+
+function generateBreadcrumbSchema(tool: Tool, category: { name: string; slug: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://gofreetool.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: category.name.replace(/^[^\s]+\s/, ""),
+        item: `https://gofreetool.com/category/${category.slug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: tool.name,
+        item: `https://gofreetool.com/tools/${tool.slug}`,
+      },
+    ],
+  };
+}
+
+function generateFAQSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Is this tool free?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes! All our tools are completely free. No registration, no hidden charges, no ads. Just open and use.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is my data safe?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolutely. All calculations happen in your browser. We don't store, send, or track any of your data. Everything is processed locally on your device.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I use this on mobile?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes! All our tools are fully responsive and work perfectly on smartphones, tablets, and desktops.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do I need internet?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No! Once the page loads, you can use the tool completely offline. All calculations happen in your browser without any server connection.",
+        },
+      },
+    ],
   };
 }
 
@@ -88,15 +156,29 @@ export default function ToolLayout({
   const category = getCategoryBySlug(tool.category);
   const categoryName = category?.name.replace(/^[^\s]+\s/, "") || "Utility";
 
-  // Generate JSON-LD schema
-  const jsonLd = generateToolSchema(tool, categoryName);
+  // Generate JSON-LD schemas
+  const toolSchema = generateToolSchema(tool, categoryName);
+  const breadcrumbSchema = category
+    ? generateBreadcrumbSchema(tool, { name: category.name, slug: category.slug })
+    : null;
+  const faqSchema = generateFAQSchema();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-50 dark:from-gray-900 dark:to-gray-950">
-      {/* JSON-LD Schema */}
+      {/* JSON-LD Schemas */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
+      />
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Breadcrumb - Narrow */}
