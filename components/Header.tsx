@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useCallback, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { categories, tools } from "@/lib/tools";
+import DarkModeToggle from "./DarkModeToggle";
 
 // ============================================================================
 // SEARCH COMPONENT
@@ -549,6 +550,17 @@ export default function Header() {
               {/* Categories - Primary Navigation */}
               <CategoriesMegaMenu />
 
+              {/* Favorites */}
+              <Link
+                href="/favorites"
+                className="px-3 py-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm flex items-center gap-1.5"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                Favorites
+              </Link>
+
               {/* About - De-emphasized */}
               <Link
                 href="/about"
@@ -560,6 +572,11 @@ export default function Header() {
 
             {/* Right section */}
             <div className="flex items-center gap-2.5">
+              {/* Dark mode toggle */}
+              <div className="hidden sm:block">
+                <DarkModeToggle />
+              </div>
+
               {/* Search button */}
               <button
                 onClick={() => setSearchOpen(true)}

@@ -8,6 +8,8 @@ import Analytics from "@/components/Analytics";
 import { Analytics as VAnalytics } from "@vercel/analytics/next";
 import InstallPWA from "@/components/InstallPWA";
 import KeyboardShortcuts from "@/components/KeyboardShortcuts";
+import OfflineIndicator from "@/components/OfflineIndicator";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,7 +48,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
@@ -58,6 +76,8 @@ export default function RootLayout({
         <VAnalytics />
         <InstallPWA />
         <KeyboardShortcuts />
+        <OfflineIndicator />
+        <ServiceWorkerRegister />
       </body>
     </html>
   );

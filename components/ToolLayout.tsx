@@ -6,7 +6,9 @@ import ShareButtons from "./ShareButtons";
 import FavoriteButton from "./FavoriteButton";
 import EmbedCode from "./EmbedCode";
 import PrintButton from "./PrintButton";
-import ToolUsageStats from "./ToolUsageStats";
+import QRCodeShare from "./QRCodeShare";
+import FullscreenButton from "./FullscreenButton";
+import ToolTracker from "./ToolTracker";
 
 // ============================================================================
 // JSON-LD SCHEMA GENERATORS
@@ -213,19 +215,19 @@ export default function ToolLayout({
             </p>
           </div>
 
+          {/* Track tool usage for recently used */}
+          <ToolTracker toolSlug={tool.slug} />
+
           {/* Tool Actions Bar */}
           <div className="max-w-2xl mb-8">
-            {/* Usage Stats */}
-            <div className="mb-3">
-              <ToolUsageStats toolSlug={tool.slug} />
-            </div>
-
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-2">
               <ShareButtons tool={tool} />
               <div className="flex items-center gap-2 ml-auto">
                 <FavoriteButton toolSlug={tool.slug} toolName={tool.name} />
+                <QRCodeShare toolSlug={tool.slug} toolName={tool.name} />
                 <PrintButton />
+                <FullscreenButton />
                 <EmbedCode toolSlug={tool.slug} toolName={tool.name} />
               </div>
             </div>

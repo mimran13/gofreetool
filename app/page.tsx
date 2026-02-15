@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { categories, tools, getCategoryBySlug } from "@/lib/tools";
 import HomepageSchema from "@/components/HomepageSchema";
+import RecentlyUsed from "@/components/RecentlyUsed";
 
 // ============================================================================
 // TOOL SEARCH COMPONENT
@@ -283,6 +284,15 @@ export default function Home() {
         <section className="py-8 -mt-8">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <ToolSearch />
+          </div>
+        </section>
+
+        {/* ================================================================ */}
+        {/* RECENTLY USED SECTION */}
+        {/* ================================================================ */}
+        <section className="pb-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <RecentlyUsed />
           </div>
         </section>
 
