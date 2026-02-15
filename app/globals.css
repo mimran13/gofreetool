@@ -124,3 +124,68 @@ select:focus {
   background: #94a3b8;
 }
 
+/* Print styles */
+@media print {
+  /* Hide non-essential elements */
+  header,
+  footer,
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset backgrounds for printing */
+  body,
+  main {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure content is visible */
+  .tool-content,
+  .result-area {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Clean up margins */
+  body {
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+/* PWA install animation */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Heart animation for favorites */
+@keyframes ping-once {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-ping-once {
+  animation: ping-once 0.3s ease-in-out;
+}
+

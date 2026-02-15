@@ -3,6 +3,10 @@ import { Tool, getRelatedTools, getCategoryBySlug } from "@/lib/tools";
 import Breadcrumbs from "./Breadcrumbs";
 import RelatedTools from "./RelatedTools";
 import ShareButtons from "./ShareButtons";
+import FavoriteButton from "./FavoriteButton";
+import EmbedCode from "./EmbedCode";
+import PrintButton from "./PrintButton";
+import ToolUsageStats from "./ToolUsageStats";
 
 // ============================================================================
 // JSON-LD SCHEMA GENERATORS
@@ -209,9 +213,22 @@ export default function ToolLayout({
             </p>
           </div>
 
-          {/* Share Buttons - Right after header for visibility */}
+          {/* Tool Actions Bar */}
           <div className="max-w-2xl mb-8">
-            <ShareButtons tool={tool} />
+            {/* Usage Stats */}
+            <div className="mb-3">
+              <ToolUsageStats toolSlug={tool.slug} />
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-2">
+              <ShareButtons tool={tool} />
+              <div className="flex items-center gap-2 ml-auto">
+                <FavoriteButton toolSlug={tool.slug} toolName={tool.name} />
+                <PrintButton />
+                <EmbedCode toolSlug={tool.slug} toolName={tool.name} />
+              </div>
+            </div>
           </div>
 
           {/* Divider */}

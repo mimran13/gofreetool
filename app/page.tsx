@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { categories, tools, getCategoryBySlug } from "@/lib/tools";
+import HomepageSchema from "@/components/HomepageSchema";
 
 // ============================================================================
 // TOOL SEARCH COMPONENT
@@ -235,6 +236,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+      <HomepageSchema />
       <main>
         {/* ================================================================ */}
         {/* HERO SECTION */}
