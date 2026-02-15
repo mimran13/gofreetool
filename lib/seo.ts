@@ -21,10 +21,14 @@ export function generateMetadata(
     title: fullTitle,
     description,
     keywords: [...keywords, "free tools", "no signup", "online tools"],
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: fullTitle,
       description,
       url,
+      siteName: "GoFreeTool",
       type: "website",
       images: [
         {
@@ -37,6 +41,7 @@ export function generateMetadata(
     },
     twitter: {
       card: "summary_large_image",
+      site: siteConfig.twitter,
       title: fullTitle,
       description,
       images: [siteConfig.ogImage],

@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // About page - lower priority
+  // Other pages
   const otherPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/about`,
@@ -39,8 +39,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/favorites`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/cookie-policy`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 
-  // Combine all pages (excluding privacy, terms, cookies)
+  // Combine all pages
   return [...homepage, ...categoryPages, ...toolPages, ...otherPages];
 }
