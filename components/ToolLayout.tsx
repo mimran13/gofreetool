@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Tool, getRelatedTools, getCategoryBySlug } from "@/lib/tools";
 import Breadcrumbs from "./Breadcrumbs";
 import RelatedTools from "./RelatedTools";
+import ShareButtons from "./ShareButtons";
 
 // ============================================================================
 // JSON-LD SCHEMA GENERATORS
@@ -198,7 +199,7 @@ export default function ToolLayout({
         {/* Tool Card */}
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 sm:p-8">
           {/* Header - Narrow for readability */}
-          <div className="max-w-2xl mb-8">
+          <div className="max-w-2xl mb-6">
             <div className="text-4xl mb-4">{tool.icon}</div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">
               {tool.name}
@@ -206,6 +207,11 @@ export default function ToolLayout({
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               {tool.description}
             </p>
+          </div>
+
+          {/* Share Buttons - Right after header for visibility */}
+          <div className="max-w-2xl mb-8">
+            <ShareButtons tool={tool} />
           </div>
 
           {/* Divider */}
